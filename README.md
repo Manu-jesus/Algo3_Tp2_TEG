@@ -7,7 +7,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 ## Grupo 23
 
 * **Martin Schipani** - [integrante1](https://github.com/integrante1)
-* **Integrante 2** - [integrante2](https://github.com/integrante2)
+* **Federico Peralta** - [integrante2](https://github.com/Gleichschritt)
 * **Lucas Nahuel Raimondi** - [integrante3](https://github.com/RZ-LU)
 * **Manuel Jesus Dávila Sánchez** - [integrante4](https://github.com/Manu-jesus)
 
