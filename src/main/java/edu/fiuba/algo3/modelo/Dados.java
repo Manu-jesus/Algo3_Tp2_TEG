@@ -1,36 +1,39 @@
 package edu.fiuba.algo3.modelo;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class Dados {
     //private boolean esAtacante;
-    private int[] tirada;
+    private ArrayList<Integer> tirada;
+    private TipoDado tipoDado;
 
-    public Dados(int n){
-        tirada = new int[3];
-        this.tirarVeces(n);
+    public Dados(Integer cantidadEjercitos){
+        this.tipoDado = new DadoDefensor();
+        this.tirada = new ArrayList<>();
+        this.tirarVeces(cantidadEjercitos);
     }
 
-    public void tirarVeces(int n){
-        //int[] datos = [n];
-        /*for (int i = 0; i < n; i++) {
-            datos.add(Math.floor(Math.random()*5+1));
-        }*/
-        //datos[0] = n;
-        this.tirada[0] = n;
+    public void tirarVeces(Integer cantidadEjercitos){
+        ArrayList<Integer> dados = new ArrayList<>();
+        for (int i = 0; i < cantidadEjercitos && i < 3; i++) {
+            Integer ejercitos = (int) Math.floor(Math.random() * 5 + 1);
+            dados.add(ejercitos);
+        }
+        this.tirada = dados;
     }
 
-    public int comparar( Dados dados2){
-        int[] second = dados2.obtenerTiros();
-        //List.sort(this.tirada);
-        //List.sort(second);
+    public int comparar(Dados dados2){
+        ArrayList<Integer> second = dados2.obtenerTiros();
+        Collections.sort(this.tirada, Collections.reverseOrder());
+        Collections.sort(second, Collections.reverseOrder());
 
         int ejercitosPerdidos = 0;
         int i = 0;
-        while(i<1){
-            if(this.tirada[i] < second[i]){
+        while( (this.tirada.size() > i) && (second.size() > i) ){
+            if(this.tipoDado.comparar(this.tirada.get(i), second.get(i))){
                 ejercitosPerdidos += 1;
             }
             i++;
@@ -38,7 +41,12 @@ public class Dados {
         return ejercitosPerdidos;
     }
 
-    private int[] obtenerTiros(){
+    private ArrayList<Integer> obtenerTiros(){
         return this.tirada;
     }
+
+    public void sonAtacantes() {
+        this.tipoDado = new DadoAtacante();
+    }
+
 }

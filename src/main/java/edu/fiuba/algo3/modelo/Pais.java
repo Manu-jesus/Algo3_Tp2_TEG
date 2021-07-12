@@ -7,11 +7,16 @@ public class Pais{
     private final String nombre;
     private int ejercitos;
     private final ArrayList<Pais> paisesLimitrofes;
+    private Jugador duenio;
 
     public Pais(String nombre, int cantEjercitos){
         this.nombre = nombre;
         this.ejercitos = cantEjercitos;
         this.paisesLimitrofes = new ArrayList<>();
+    }
+
+    public void asignarDuenio(Jugador duenio) {
+        this.duenio = duenio;
     }
 
     public boolean compararNombre(String nombre){
@@ -21,32 +26,59 @@ public class Pais{
     public void agregarPaisLimitrofes(Pais p){
         this.paisesLimitrofes.add(p);
     }
-    public void atacarA(Pais defensor, int n){
+
+    public void atacarA(Pais defensor, Integer cantidadEjercitos){
+
+        if (this.ejercitos < cantidadEjercitos) {
+            return; //Error
+        }
+
         if (!this.esPaisLimitrofe(defensor)){
             return; //Error
-        };
-        Dados dados1 = new Dados(n);
-        //dados.tirarVeces(n);
+        }
 
-        Dados dados2 = defensor.defenderseDe(dados1, n);
-        int ejercitosPerdidosPorElDefensor = dados1.comparar(dados2);
-        ejercitos -= ejercitosPerdidosPorElDefensor;
+        Dados dadosAtacante = new Dados(cantidadEjercitos);
+        dadosAtacante.sonAtacantes();
+
+        Dados dadosDefensor = defensor.defenderseDe(dadosAtacante);
+        Integer ejercitosPerdidos = dadosAtacante.comparar(dadosDefensor);
+        this.restarEjercitos(ejercitosPerdidos);
     }
 
     private boolean esPaisLimitrofe(Pais p){
         return paisesLimitrofes.contains(p);
     }
 
-    public Dados defenderseDe(Dados dados1, int n){
-        Dados dados2 = new Dados(n-1);
-        //dados2.tirarVeces(n);
+    public Dados defenderseDe(Dados dadosAtacante){
+        Dados dadosDefensor = new Dados(this.ejercitos);
 
-        int ejercitosPerdidosPorElDefensor = dados2.comparar(dados1);
-        ejercitos -= ejercitosPerdidosPorElDefensor;
-        return dados2;
+        Integer ejercitosPerdidos = dadosDefensor.comparar(dadosAtacante);
+        this.restarEjercitos(ejercitosPerdidos);
+        return dadosDefensor;
     }
 
-    public int cantidadDeEjercitos(){
-        return ejercitos;
+    public Integer ejercitos() {
+        return this.ejercitos;
+    }
+
+    public void restarEjercitos(Integer cantidadEjercitos) {
+        if (this.ejercitos() - 1 < cantidadEjercitos) {
+            return; //error
+        }
+        this.ejercitos -= cantidadEjercitos;
+        if (this.ejercitos == 0) {
+            this.duenio.perderPais(this);
+        }
+    }
+
+    public void sumarEjercitos(Integer cantidadEjercitos) {
+        this.ejercitos += cantidadEjercitos;
+    }
+
+    public void agregarEjercitos(Jugador jugador, Integer cantidadEjercitos) {
+        if (this.duenio != jugador) {
+            return; //Error
+        }
+        this.sumarEjercitos(cantidadEjercitos);
     }
 }
