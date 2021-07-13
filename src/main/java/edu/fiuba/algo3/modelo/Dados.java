@@ -1,9 +1,9 @@
 package edu.fiuba.algo3.modelo;
 
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
+
+import static java.lang.System.out;
 
 public class Dados {
     //private boolean esAtacante;
@@ -13,16 +13,17 @@ public class Dados {
     public Dados(Integer cantidadEjercitos){
         this.tipoDado = new DadoDefensor();
         this.tirada = new ArrayList<>();
-        this.tirarVeces(cantidadEjercitos);
+        this.tirada = this.tirarVeces(cantidadEjercitos);
+
     }
 
-    public void tirarVeces(Integer cantidadEjercitos){
+    public ArrayList<Integer> tirarVeces(Integer cantidadEjercitos){
         ArrayList<Integer> dados = new ArrayList<>();
         for (int i = 0; i < cantidadEjercitos && i < 3; i++) {
             Integer ejercitos = (int) Math.floor(Math.random() * 5 + 1);
             dados.add(ejercitos);
         }
-        this.tirada = dados;
+        return dados;
     }
 
     public int comparar(Dados dados2){

@@ -9,7 +9,7 @@ public class Jugador {
         paises = new ArrayList<>();
     }
 
-    public void atacarDeA(Pais atacante, Pais defensor, int cantidadEjercitos){
+    public void atacarDeA(Pais atacante, Pais defensor, Integer cantidadEjercitos){
         if (this.estaPais(defensor)){ return; }
         if (!this.estaPais(atacante)){ return; }
         atacante.atacarA(defensor, cantidadEjercitos);
@@ -33,10 +33,12 @@ public class Jugador {
     }
 
     public void agregarPais(Pais pais) {
+        pais.asignarDuenio(this);
         this.paises.add(pais);
     }
 
     public void perderPais(Pais pais) {
         this.paises.remove(pais);
     }
+
 }

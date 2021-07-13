@@ -8,7 +8,7 @@ public class TEG {
 
     public TEG() {
         paises = new ArrayList<>();
-        Pais Arg = new Pais("Argentina", 2);
+        Pais Arg = new Pais("Argentina", 3);
         Pais Bra = new Pais("Brasil", 1);
         Bra.agregarPaisLimitrofes(Arg);
         Arg.agregarPaisLimitrofes(Bra);
@@ -27,7 +27,7 @@ public class TEG {
     }
 
 
-    private Pais buscarPais(String nombrePais){
+    public Pais buscarPais(String nombrePais){
         for (int i = 0; i < this.paises.size(); i++) {
             if (this.paises.get(i).compararNombre(nombrePais)){
                 return this.paises.get(i);
@@ -52,8 +52,9 @@ public class TEG {
         jugador.conquistarPais(paisAtacante, paisDefensor, cantidadEjercitos);
     }
 
-    public void colocarEjercitos(Jugador jugador, Pais pais, Integer cantidadEjercitos) {
-        pais.agregarEjercitos(jugador, cantidadEjercitos);
+    public void colocarEjercitos(Jugador jugador, String pais, Integer cantidadEjercitos) {
+        Pais paisConEjercitos = this.buscarPais(pais);
+        paisConEjercitos.agregarEjercitos(jugador, cantidadEjercitos);
 
     }
 

@@ -5,11 +5,11 @@ import java.lang.String;
 
 public class Pais{
     private final String nombre;
-    private int ejercitos;
+    private Integer ejercitos;
     private final ArrayList<Pais> paisesLimitrofes;
     private Jugador duenio;
 
-    public Pais(String nombre, int cantEjercitos){
+    public Pais(String nombre, Integer cantEjercitos){
         this.nombre = nombre;
         this.ejercitos = cantEjercitos;
         this.paisesLimitrofes = new ArrayList<>();
@@ -62,7 +62,7 @@ public class Pais{
     }
 
     public void restarEjercitos(Integer cantidadEjercitos) {
-        if (this.ejercitos() - 1 < cantidadEjercitos) {
+        if (this.ejercitos() < cantidadEjercitos) {
             return; //error
         }
         this.ejercitos -= cantidadEjercitos;
