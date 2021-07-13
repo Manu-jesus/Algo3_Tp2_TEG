@@ -1,0 +1,30 @@
+@startuml
+
+header page header
+title atacarPaises
+actor Usuario
+
+activate TEG
+activate Pais
+activate Jugador
+Usuario -> TEG: atacarConA(albiceleste, "Argentina", "Brasil", 2)
+TEG -> TEG: paisAtacante = buscarPais("Argentina")
+TEG -> TEG: paisDefensor = buscarPais("Brasil")
+TEG -> Jugador: atacarDeA(paisAtacante, paisDefensor, cantidadEjercitos)
+Jugador -> Pais: atacarA(paisDefensor, cantidadEjercitos)
+create Dados
+Pais -> Dados: new Dados(cantidadEjercitos)
+activate Dados
+Dados -> Dados: tipoDado = new DadoDefensor()
+Dados -> Dados: tirarVeces(cantidadEjercitos)
+Dados --> Pais: dadosAtacante = Dado
+Pais -> Dados: sonAtacantes()
+Dados -> Dados: tipoDado = new DadoAtacante()
+Pais -> Pais: defenderseDe(dadosAtacante)
+Pais --> Dados: dadosDefensor = new Dados(ejercitos)
+Dados --> Pais: dadosDefensor
+Pais -> Dados: ejercitosPerdidos = dadosAtacante.comparar(dadosDefensor)
+deactivate Dados
+Pais -> Pais: restarEjercitos(ejercitosPerdidos)
+
+@enduml

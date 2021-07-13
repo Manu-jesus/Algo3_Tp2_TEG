@@ -1,0 +1,65 @@
+@startuml
+
+class DadoAtacante implements TipoDado{
+}
+
+class DadoDefensor implements TipoDado{
+}
+
+class Dados{
+    - ArrayList<Integer>
+    + Dados(Integer)
+    + tirarVeces(Ingeger)
+    + comparar(Dados): int
+    + obtenerTiros(): ArrayList<Integer>
+    + sonAtacantes()
+}
+Dados o--- TipoDado
+
+class Jugador{
+    + Jugador()
+    + atacarDeA(Pais, Pais, int)
+    + conquistarPais(Pais, Pais, Integer)
+    + moverEjercitos(Pais, Pais, Integer)
+    + agregarPais(Pais)
+    + perderPais(Pais)
+    - estaPais(Pais): boolean
+}
+Jugador o--- "0..50" Pais
+Jugador ... Pais
+
+class Pais{
+    - String
+    - int
+    + Pais(String, int)
+    + asignarDuenio(Jugador)
+    + compararNombre(String): boolean
+    + agregarPaisLimitrofes(Pais)
+    + atacarA(Pais, Integer)
+    + defenderseDe(Dados): Dados
+    + ejercitos(): Integer
+    + restarEjercitos((Ingeger)
+    + sumarEjercitos(Integer)
+    + agregarEjercitos(Jugador, Integer)
+    - esPaisLimitrofe(Pais): boolean
+}
+Pais o--- "2..5" Pais
+Pais o--- Jugador
+Pais ...> Dados
+
+class TEG{
+    + TEG()
+    + atacarConA(Jugador, String, String, int)
+    + conquistar(Jugador, String, String, Ingeger)
+    + colocarEjercitos(Jugador, Pais, Integer)
+    - buscarPais(String)
+}
+TEG *--- "50" Pais
+TEG ...> Jugador
+TEG ...> Pais
+
+Interface TipoDado{
+    comparar(Integer, Integer): boolean
+}
+
+@enduml

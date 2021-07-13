@@ -1,0 +1,29 @@
+@startuml
+
+header page header
+title Creacion de TEG y Jugador
+actor Usuario
+
+create TEG
+Usuario -> TEG: new TEG()
+activate TEG
+create Pais
+TEG -> Pais: new Pais("Argentina", 2)
+activate Pais
+Pais -> Pais: nombre = "Argentina"\nejercitos = 2
+create Pais
+TEG -> Pais: new Pais("Brasil", 1)
+Pais -> Pais: nombre = "Brasil"\nejercitos = 1
+Pais --> TEG: Arg = Pais\nBra = Pais
+TEG -> Pais: agregarPaisLimitrofes(Arg)
+Pais -> Pais: paisesLimitrofes.add(Arg)
+TEG -> Pais: agregarPaisLimitrofes(Bra)
+Pais -> Pais: paisesLimitrofes.add(Bra)
+TEG -> TEG: paises.add(Arg)
+TEG -> TEG: paises.add(Bra)
+TEG --> Usuario: teg = TEG
+create Jugador
+Usuario -> Jugador: new Jugador()
+activate Jugador
+Jugador --> Usuario: albiceleste = Jugador
+@enduml
