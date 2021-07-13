@@ -30,11 +30,11 @@ public class Pais{
     public void atacarA(Pais defensor, Integer cantidadEjercitos){
 
         if (this.ejercitos < cantidadEjercitos) {
-            return; //Error
+            throw new CantidadInvalidaError();
         }
 
         if (!this.esPaisLimitrofe(defensor)){
-            return; //Error
+            throw new PaisInvalidoError();
         }
 
         Dados dadosAtacante = new Dados(cantidadEjercitos);
@@ -63,7 +63,7 @@ public class Pais{
 
     public void restarEjercitos(Integer cantidadEjercitos) {
         if (this.ejercitos() < cantidadEjercitos) {
-            return; //error
+            throw new CantidadInvalidaError();
         }
         this.ejercitos -= cantidadEjercitos;
         if (this.ejercitos == 0) {
