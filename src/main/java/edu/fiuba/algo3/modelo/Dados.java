@@ -1,53 +1,33 @@
 package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
-import static java.lang.System.out;
 
 public class Dados {
-    //private boolean esAtacante;
     private ArrayList<Integer> tirada;
-    private TipoDado tipoDado;
 
-    public Dados(Integer cantidadEjercitos){
-        this.tipoDado = new DadoDefensor();
+    public Dados(){
         this.tirada = new ArrayList<>();
-        this.tirada = this.tirarVeces(cantidadEjercitos);
-
     }
 
-    public ArrayList<Integer> tirarVeces(Integer cantidadEjercitos){
-        ArrayList<Integer> dados = new ArrayList<>();
+    public void tirar(Integer cantidadEjercitos){
+        this.tirada=hacerTirada(cantidadEjercitos);
+    }
+
+    public ArrayList<Integer> hacerTirada(Integer cantidadEjercitos){
+        ArrayList<Integer> tirada = new ArrayList<>();
         for (int i = 0; i < cantidadEjercitos && i < 3; i++) {
             Integer ejercitos = (int) Math.floor(Math.random() * 5 + 1);
-            dados.add(ejercitos);
+            tirada.add(ejercitos);
         }
-        return dados;
+        return tirada;
     }
 
-    public int comparar(Dados dados2){
-        ArrayList<Integer> second = dados2.obtenerTiros();
-        Collections.sort(this.tirada, Collections.reverseOrder());
-        Collections.sort(second, Collections.reverseOrder());
-
-        int ejercitosPerdidos = 0;
-        int i = 0;
-        while( (this.tirada.size() > i) && (second.size() > i) ){
-            if(this.tipoDado.comparar(this.tirada.get(i), second.get(i))){
-                ejercitosPerdidos += 1;
-            }
-            i++;
-        }
-        return ejercitosPerdidos;
+    public boolean atacar(Dados dadosDefensor,Integer numeroDeTiro){
+        return (this.tirada.get(numeroDeTiro) > dadosDefensor.tirada.get(numeroDeTiro));
     }
 
-    private ArrayList<Integer> obtenerTiros(){
-        return this.tirada;
+    public Integer cantidadDeDados(){
+        return tirada.size();
     }
-
-    public void sonAtacantes() {
-        this.tipoDado = new DadoAtacante();
-    }
-
 }

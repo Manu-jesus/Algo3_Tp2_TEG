@@ -1,61 +1,55 @@
 package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
-import java.lang.String;
 
 public class Pais{
-    private final String nombre;
     private Integer ejercitos;
     private final ArrayList<Pais> paisesLimitrofes;
     private Jugador duenio;
 
-    public Pais(String nombre, Integer cantEjercitos){
-        this.nombre = nombre;
+    public Pais(Integer cantEjercitos,Jugador duenio){
         this.ejercitos = cantEjercitos;
         this.paisesLimitrofes = new ArrayList<>();
+        this.duenio=duenio;
+        duenio.agregarPais(this);
     }
 
-    public void asignarDuenio(Jugador duenio) {
-        this.duenio = duenio;
-    }
 
-    public boolean compararNombre(String nombre){
-        return (this.nombre.equals(nombre));
-    }
 
     public void agregarPaisLimitrofes(Pais p){
         this.paisesLimitrofes.add(p);
     }
 
-    public void atacarA(Pais defensor, Integer cantidadEjercitos){
+    public void prepararParaLaBatalla(Pais defensor, Integer cantidadEjercitos){
 
-        if (this.ejercitos < cantidadEjercitos) {
-            return; //Error
+        if(this.ejercitos-1<cantidadEjercitos){
+            return; //error
+        }
+        if(!this.esPaisLimitrofe(defensor)){
+            return; //error
         }
 
-        if (!this.esPaisLimitrofe(defensor)){
-            return; //Error
+        this.duenio.tirar(cantidadEjercitos);
+    }
+
+    public Jugador conseguirContrincante(){
+        this.duenio.tirar(ejercitos);
+        return this.duenio;
+    }
+
+    public void conquistar(Jugador jugador,Pais atacante){
+        if(atacante.ejercitos!=0){
+            return; //error
         }
-
-        Dados dadosAtacante = new Dados(cantidadEjercitos);
-        dadosAtacante.sonAtacantes();
-
-        Dados dadosDefensor = defensor.defenderseDe(dadosAtacante);
-        Integer ejercitosPerdidos = dadosAtacante.comparar(dadosDefensor);
-        this.restarEjercitos(ejercitosPerdidos);
+        this.restarEjercitos(1);
+        atacante.sumarEjercitos(1);
+        this.duenio=jugador;
     }
 
     private boolean esPaisLimitrofe(Pais p){
         return paisesLimitrofes.contains(p);
     }
 
-    public Dados defenderseDe(Dados dadosAtacante){
-        Dados dadosDefensor = new Dados(this.ejercitos);
-
-        Integer ejercitosPerdidos = dadosDefensor.comparar(dadosAtacante);
-        this.restarEjercitos(ejercitosPerdidos);
-        return dadosDefensor;
-    }
 
     public Integer ejercitos() {
         return this.ejercitos;
