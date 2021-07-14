@@ -38,11 +38,11 @@ public class Pais{
     }
 
     public void conquistar(Jugador jugador,Pais atacante){
-        if(atacante.ejercitos!=0){
+        if(this.ejercitos!=0){
             return; //error
         }
-        this.restarEjercitos(1);
-        atacante.sumarEjercitos(1);
+        this.sumarEjercitos(1);
+        atacante.restarEjercitos(1);
         this.duenio=jugador;
     }
 
@@ -60,9 +60,6 @@ public class Pais{
             return; //error
         }
         this.ejercitos -= cantidadEjercitos;
-        if (this.ejercitos == 0) {
-            this.duenio.perderPais(this);
-        }
     }
 
     public void sumarEjercitos(Integer cantidadEjercitos) {
