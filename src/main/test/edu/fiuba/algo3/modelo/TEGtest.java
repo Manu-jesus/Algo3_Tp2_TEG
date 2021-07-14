@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -8,15 +9,25 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
-
 public class TEGtest {
+
+    private Dados dadosAzul;
+    private Dados dadosRojo;
+    private Jugador albiceleste;
+    private Jugador brazuca;
+
+    @BeforeEach
+    void init(){
+        dadosAzul = new Dados();
+        dadosRojo = new Dados();
+        albiceleste = new Jugador(dadosAzul);
+        brazuca = new Jugador(dadosRojo);
+    }
 
     @Test
     public void atacarPaises(){
-        Dados dadosAtacante = new Dados();
-        Dados dadosDefensor = new Dados();
-        Dados spyAtacante = Mockito.spy(dadosAtacante);
-        Dados spyDefensor = Mockito.spy(dadosDefensor);
+        Dados spyAtacante = Mockito.spy(dadosAzul);
+        Dados spyDefensor = Mockito.spy(dadosRojo);
 
         Jugador albiceleste = new Jugador(spyAtacante);
         Jugador brazuca = new Jugador(spyDefensor);
@@ -41,10 +52,8 @@ public class TEGtest {
     }
     @Test
     public void atacarYConquistar(){
-        Dados dadosAtacante = new Dados();
-        Dados dadosDefensor = new Dados();
-        Dados spyAtacante = Mockito.spy(dadosAtacante);
-        Dados spyDefensor = Mockito.spy(dadosDefensor);
+        Dados spyAtacante = Mockito.spy(dadosAzul);
+        Dados spyDefensor = Mockito.spy(dadosRojo);
 
         Jugador albiceleste = new Jugador(spyAtacante);
         Jugador brazuca = new Jugador(spyDefensor);
@@ -72,8 +81,6 @@ public class TEGtest {
     }
     @Test
     public void colocarEjercitos(){
-        Dados dadosAtacante = new Dados();
-        Jugador albiceleste = new Jugador(dadosAtacante);
         Pais arg = new Pais(3,albiceleste);
 
         albiceleste.agregarEjercitosA(arg,4);
@@ -82,8 +89,6 @@ public class TEGtest {
 
     @Test
     public void activarTarjetaPais(){
-        Dados dadosAtacante = new Dados();
-        Jugador albiceleste = new Jugador(dadosAtacante);
         Pais arg = new Pais(3,albiceleste);
         TarjetaPais tarjetaArg = new TarjetaPais(arg);
         albiceleste.agregarTarjetaPais(tarjetaArg);
@@ -94,10 +99,6 @@ public class TEGtest {
 
     @Test
     public void dosJugadoresColocanEjercitos(){
-        Dados dadosAlbi = new Dados();
-        Jugador albiceleste = new Jugador(dadosAlbi);
-        Dados dadosBrazu = new Dados();
-        Jugador brazuca = new Jugador(dadosBrazu);
         Pais arg = new Pais(3,albiceleste);
         Pais bra = new Pais(2,brazuca);
 
@@ -118,5 +119,7 @@ public class TEGtest {
         Jugador yorugua = new Jugador(dadosYoru);
 
     }
+
+
 
 }
