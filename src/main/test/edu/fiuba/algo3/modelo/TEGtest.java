@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
+import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -10,6 +11,7 @@ import static org.mockito.Mockito.*;
 
 
 public class TEGtest {
+
     @Test
     public void atacarPaises(){
         Dados dadosAtacante = new Dados();
@@ -75,7 +77,47 @@ public class TEGtest {
         Jugador albiceleste = new Jugador(dadosAtacante);
         Pais arg = new Pais(3,albiceleste);
 
-        arg.agregarEjercitos(albiceleste,4);
+        albiceleste.agregarEjercitosA(arg,4);
         assertEquals(7,arg.ejercitos());
     }
+
+    @Test
+    public void activarTarjetaPais(){
+        Dados dadosAtacante = new Dados();
+        Jugador albiceleste = new Jugador(dadosAtacante);
+        Pais arg = new Pais(3,albiceleste);
+        TarjetaPais tarjetaArg = new TarjetaPais(arg);
+        albiceleste.agregarTarjetaPais(tarjetaArg);
+        albiceleste.activarTarjetaPais(tarjetaArg);
+
+        assertEquals(5,arg.ejercitos());
+    }
+
+    @Test
+    public void dosJugadoresColocanEjercitos(){
+        Dados dadosAlbi = new Dados();
+        Jugador albiceleste = new Jugador(dadosAlbi);
+        Dados dadosBrazu = new Dados();
+        Jugador brazuca = new Jugador(dadosBrazu);
+        Pais arg = new Pais(3,albiceleste);
+        Pais bra = new Pais(2,brazuca);
+
+        albiceleste.agregarEjercitosA(arg,5);
+        brazuca.agregarEjercitosA(bra,5);
+
+        assertEquals(8,arg.ejercitos());
+        assertEquals(7,bra.ejercitos());
+    }
+
+
+    public void colocarEjercitosTeniendoUnContinente(){
+        Dados dadosAlbi = new Dados();
+        Jugador albiceleste = new Jugador(dadosAlbi);
+        Dados dadosBrazu = new Dados();
+        Jugador brazuca = new Jugador(dadosBrazu);
+        Dados dadosYoru = new Dados();
+        Jugador yorugua = new Jugador(dadosYoru);
+
+    }
+
 }

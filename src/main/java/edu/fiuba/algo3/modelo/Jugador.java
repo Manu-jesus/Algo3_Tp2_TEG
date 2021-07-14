@@ -5,10 +5,30 @@ import java.util.ArrayList;
 public class Jugador {
     private ArrayList<Pais> paises;
     private Dados dados;
+    private ArrayList<TarjetaPais> tarjetasPais;
+    private ArrayList<Continente> continentes;
 
     public Jugador(Dados dados){
-        paises = new ArrayList<>();
+        this.paises = new ArrayList<>();
         this.dados = dados;
+        this.tarjetasPais = new ArrayList<>();
+    }
+
+    public void agregarEjercitosA(Pais pais, Integer cantidadEjercitos){
+        if (!this.estaPais(pais)){ return; }
+        pais.agregarEjercitos(cantidadEjercitos);
+    }
+
+    public void agregarTarjetaPais(TarjetaPais tarjeta){
+        this.tarjetasPais.add(tarjeta);
+    }
+
+    public void activarTarjetaPais(TarjetaPais tarjeta){
+        if(!this.tarjetasPais.contains(tarjeta)){
+            System.out.println("noEstaTarjeta");
+            return; //error
+        }
+        tarjeta.activar();
     }
 
     public void atacarAPais(Pais atacante, Pais defensor, Integer cantidadEjercitos){

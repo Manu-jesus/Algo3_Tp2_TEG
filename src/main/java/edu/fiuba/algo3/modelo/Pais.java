@@ -43,6 +43,7 @@ public class Pais{
         }
         this.sumarEjercitos(1);
         atacante.restarEjercitos(1);
+        this.duenio.perderPais(this);
         this.duenio=jugador;
     }
 
@@ -66,10 +67,7 @@ public class Pais{
         this.ejercitos += cantidadEjercitos;
     }
 
-    public void agregarEjercitos(Jugador jugador, Integer cantidadEjercitos) {
-        if (this.duenio != jugador) {
-            return; //Error
-        }
+    public void agregarEjercitos( Integer cantidadEjercitos) {
         this.sumarEjercitos(cantidadEjercitos);
     }
 }
