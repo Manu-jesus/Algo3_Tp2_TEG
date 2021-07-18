@@ -12,6 +12,7 @@ public class Jugador {
         this.paises = new ArrayList<>();
         this.dados = dados;
         this.tarjetasPais = new ArrayList<>();
+        this.continentes = new ArrayList<>();
     }
 
     public void agregarEjercitosA(Pais pais, Integer cantidadEjercitos){
@@ -23,6 +24,10 @@ public class Jugador {
         this.tarjetasPais.add(tarjeta);
     }
 
+    public void agregarContinente(Continente continente){
+        this.continentes.add(continente);
+    }
+
     public void activarTarjetaPais(TarjetaPais tarjeta){
         if(!this.tarjetasPais.contains(tarjeta)){
             System.out.println("noEstaTarjeta");
@@ -32,7 +37,7 @@ public class Jugador {
     }
 
     public void atacarAPais(Pais atacante, Pais defensor, Integer cantidadEjercitos){
-        if (this.estaPais(defensor)){ return; }
+        if (this.estaPais(defensor)){ return;  }
         if (!this.estaPais(atacante)){ return; }
         atacante.prepararParaLaBatalla(defensor, cantidadEjercitos);
         Jugador contrincante=defensor.conseguirContrincante();
@@ -49,7 +54,7 @@ public class Jugador {
             this.batallar(contrincante,atacante,defensor,numeroDeBatalla);
             numeroDeBatalla++;
         }
-        defensor.conquistar(this,atacante);
+        defensor.conquistarPais(this,atacante);
     }
 
     private void batallar(Jugador contrincante, Pais atacante, Pais defensor, Integer numeroDeBatalla){
@@ -61,9 +66,10 @@ public class Jugador {
         }
     }
 
-    private boolean estaPais(Pais p){
-        return this.paises.contains(p);
+    private boolean estaPais(Pais pais){
+        return this.paises.contains(pais);
     }
+
 
     public void moverEjercitos(Pais paisEmisor, Pais paisReceptor, Integer cantidadEjercitos) {
         paisEmisor.restarEjercitos(cantidadEjercitos);
@@ -78,4 +84,11 @@ public class Jugador {
         this.paises.remove(pais);
     }
 
+    public void perderContinente(Continente continente){
+        continentes.remove(continente);
+    }
+
+    public void conquistarContinente(Continente continente){
+        continente.conquistar(this);
+    }
 }

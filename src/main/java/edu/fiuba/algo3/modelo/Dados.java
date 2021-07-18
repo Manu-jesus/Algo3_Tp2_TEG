@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 
 public class Dados {
@@ -20,6 +21,7 @@ public class Dados {
             Integer ejercitos = (int) Math.floor(Math.random() * 5 + 1);
             tirada.add(ejercitos);
         }
+        Collections.sort(tirada, Collections.reverseOrder());
         return tirada;
     }
 
