@@ -44,14 +44,14 @@ public class Jugador {
         }
         atacante.prepararParaLaBatalla(defensor, cantidadEjercitos);
         Jugador contrincante=defensor.conseguirContrincante();
-        this.entrarEnGuerraCon(contrincante,atacante,defensor);
+        this.entrarEnGuerra(contrincante,atacante,defensor);
     }
 
     public void tirar(Integer cantidadEjercitos){
         this.dados.tirar(cantidadEjercitos);
     }
 
-    private void entrarEnGuerraCon(Jugador contrincante, Pais atacante, Pais defensor){
+    private void entrarEnGuerra(Jugador contrincante, Pais atacante, Pais defensor){
         Integer numeroDeBatalla=0;
         while(this.dados.cantidadDeDados()>numeroDeBatalla && contrincante.dados.cantidadDeDados()>numeroDeBatalla){
             this.batallar(contrincante,atacante,defensor,numeroDeBatalla);
@@ -61,7 +61,7 @@ public class Jugador {
     }
 
     private void batallar(Jugador contrincante, Pais atacante, Pais defensor, Integer numeroDeBatalla){
-        if(this.dados.atacar(contrincante.dados,numeroDeBatalla)){
+        if(this.dados.comparar(contrincante.dados,numeroDeBatalla)){
             defensor.restarEjercitos(1);
         }
         else{

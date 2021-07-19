@@ -13,6 +13,7 @@ public class Pais{
         this.paisesLimitrofes = new ArrayList<>();
         this.duenio=duenio;
         this.continente = continente;
+        continente.agregarPais(this);
         duenio.agregarPais(this);
     }
 

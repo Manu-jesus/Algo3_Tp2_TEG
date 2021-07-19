@@ -25,7 +25,7 @@ public class Dados {
         return tirada;
     }
 
-    public boolean atacar(Dados dadosDefensor,Integer numeroDeTiro){
+    public boolean comparar(Dados dadosDefensor,Integer numeroDeTiro){
         return (this.tirada.get(numeroDeTiro) > dadosDefensor.tirada.get(numeroDeTiro));
     }
 

@@ -2,18 +2,18 @@ package edu.fiuba.algo3.modelo;
 
 public class TarjetaPais {
     private Pais pais;
-    private boolean estaActivada;
+    private TarjetaEstaActivada estaActivada;
 
     public TarjetaPais(Pais pais){
         this.pais = pais;
-        this.estaActivada = false;
+        this.estaActivada = new TarjetaNoActivada();
     }
 
     public void activar(){
-        if(this.estaActivada){
+        if(this.estaActivada.estaActivada()){
             throw new LaTarjetaYaFueActivadaError();
         }
         this.pais.agregarEjercitos(2);
-        this.estaActivada = true;
+        this.estaActivada = new TarjetaActivada();
     }
 }
