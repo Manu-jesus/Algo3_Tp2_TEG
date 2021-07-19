@@ -19,7 +19,6 @@ loop el pais defensor pierde 2 veces
     "azul:Jugador" -> "dadosAtacante:Dados" : comparar(dadosDefensor,numeroDeBatalla)
     "dadosAtacante:Dados" --> "azul:Jugador" : true
     "azul:Jugador" -> "brasil:Pais" : restarEjercitos(1)
-
     end
 "azul:Jugador" -> "brasil:Pais" : conquistarPais(azul, argentina)
 

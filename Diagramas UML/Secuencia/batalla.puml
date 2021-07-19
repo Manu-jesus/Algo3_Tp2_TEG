@@ -1,0 +1,7 @@
+@startuml
+skinparam maxmessagesize 20
+    "azul:Jugador" -> "azul:Jugador" : batallar (rojo,argentina, brasil,numeroDeBatalla)
+    "azul:Jugador" -> "dadosAtacante:Dados" : comparar(dadosDefensor,numeroDeBatalla)
+    "dadosAtacante:Dados" --> "azul:Jugador" : false
+    "azul:Jugador" -> "argentina:Pais" : restarEjercitos(1)
+@enduml
