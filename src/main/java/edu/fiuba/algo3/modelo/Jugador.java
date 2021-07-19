@@ -30,15 +30,18 @@ public class Jugador {
 
     public void activarTarjetaPais(TarjetaPais tarjeta){
         if(!this.tarjetasPais.contains(tarjeta)){
-            System.out.println("noEstaTarjeta");
-            return; //error
+            throw new LaTarjetaPaisNoSeEncontroError();
         }
         tarjeta.activar();
     }
 
     public void atacarAPais(Pais atacante, Pais defensor, Integer cantidadEjercitos){
-        if (this.estaPais(defensor)){ return;  }
-        if (!this.estaPais(atacante)){ return; }
+        if (!this.estaPais(atacante)){
+            throw new ElPaisAtacanteNoTePerteneceError();
+        }
+        if (this.estaPais(defensor)){
+            throw new NoPuedesAtacarAUnPaisPropioError();
+        }
         atacante.prepararParaLaBatalla(defensor, cantidadEjercitos);
         Jugador contrincante=defensor.conseguirContrincante();
         this.entrarEnGuerraCon(contrincante,atacante,defensor);

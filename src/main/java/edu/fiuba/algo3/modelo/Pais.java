@@ -27,10 +27,10 @@ public class Pais{
     public void prepararParaLaBatalla(Pais defensor, Integer cantidadEjercitos){
 
         if(this.ejercitos-1<cantidadEjercitos){
-            return; //error
+            throw new ElPaisAtacanteSiempreDebeMantenerUnEjercitoEnElPaisError();
         }
         if(!this.esPaisLimitrofe(defensor)){
-            return; //error
+            throw new LosPaisesNoSonLimitrofesError();
         }
 
         this.duenio.tirar(cantidadEjercitos);
@@ -43,7 +43,7 @@ public class Pais{
 
     public void conquistarPais(Jugador jugador,Pais atacante){
         if(this.ejercitos!=0){
-            return; //error
+            return;//No es un error porque se compara muchas veces
         }
         this.sumarEjercitos(1);
         atacante.restarEjercitos(1);
@@ -64,7 +64,7 @@ public class Pais{
 
     public void restarEjercitos(Integer cantidadEjercitos) {
         if (this.ejercitos() < cantidadEjercitos) {
-            return; //error
+            throw new NoEsPosibleRestarEsaCantidadDeEjercitosError();
         }
         this.ejercitos -= cantidadEjercitos;
     }

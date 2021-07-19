@@ -1,0 +1,105 @@
+package edu.fiuba.algo3.modelo;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+
+import java.util.ArrayList;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.doReturn;
+
+public class ExceptionTest {
+    private Dados dadosAzul;
+    private Dados dadosRojo;
+    private Dados dadosAmarillo;
+
+    private Jugador azul;
+    private Jugador rojo;
+    private Jugador amarillo;
+
+    private Continente america;
+    private Continente asia;
+
+    @BeforeEach
+    void init(){
+        //Dados
+        dadosAzul = new Dados();
+        dadosRojo = new Dados();
+        dadosAmarillo = new Dados();
+
+        //Jugadores
+        azul = new Jugador(dadosAzul);
+        rojo = new Jugador(dadosRojo);
+        amarillo = new Jugador(dadosAmarillo);
+
+        //Continentes
+        america = new Continente();
+        asia = new Continente();
+    }
+    @Test
+    public void NoSePuedeActivarUnaTarjetaPaisSinElPais(){
+        Pais arg = new Pais(3,rojo,america);
+        TarjetaPais tarjetaArg = new TarjetaPais(arg);
+        rojo.agregarTarjetaPais(tarjetaArg);
+
+        assertThrows(LaTarjetaPaisNoSeEncontroError.class, ()->{azul.activarTarjetaPais(tarjetaArg);});
+    }
+
+    @Test
+    public void ElPaisAtacanteNoPerteneceAlQueAtaca(){
+        Pais arg = new Pais(2,rojo,america);
+        Pais bra = new Pais(1,azul,america);
+        bra.agregarPaisLimitrofes(arg);
+        arg.agregarPaisLimitrofes(bra);
+
+        assertThrows(ElPaisAtacanteNoTePerteneceError.class, ()->{azul.atacarAPais(arg,bra,1);});
+    }
+    @Test
+    public void ElPaisDefensorPerteneceAlAtacante(){
+        Pais arg = new Pais(2,rojo,america);
+        Pais bra = new Pais(1,rojo,america);
+        bra.agregarPaisLimitrofes(arg);
+        arg.agregarPaisLimitrofes(bra);
+
+        assertThrows(NoPuedesAtacarAUnPaisPropioError.class, ()->{rojo.atacarAPais(arg,bra,1);});
+    }
+
+    @Test
+    public void ElPaisAcanteDebeManenerAlmenosUnEjercitoEnElMismo(){
+        Pais arg = new Pais(2,azul,america);
+        Pais bra = new Pais(2,rojo,america);
+        bra.agregarPaisLimitrofes(arg);
+        arg.agregarPaisLimitrofes(bra);
+
+        assertThrows(ElPaisAtacanteSiempreDebeMantenerUnEjercitoEnElPaisError.class, ()->{azul.atacarAPais(arg,bra,2);});
+    }
+    @Test
+    public void LosPaisesDebenSerLimitrofesParaPoderAtacarse(){
+        Pais arg = new Pais(2,azul,america);
+        Pais bra = new Pais(2,rojo,america);
+        //bra.agregarPaisLimitrofes(arg);
+        //arg.agregarPaisLimitrofes(bra);
+
+        assertThrows(LosPaisesNoSonLimitrofesError.class, ()->{azul.atacarAPais(arg,bra,1);});
+    }
+    @Test
+    public void NoEsPosibleRestarEsaCantidadDeEjercitos(){
+        Pais arg = new Pais(3,azul,america);
+        Pais bra = new Pais(2,azul,america);
+        bra.agregarPaisLimitrofes(arg);
+        arg.agregarPaisLimitrofes(bra);
+
+        assertThrows(NoEsPosibleRestarEsaCantidadDeEjercitosError.class, ()->{azul.moverEjercitos(arg,bra,4);});
+    }
+    @Test
+    public void LaTarjetaYaFueActivada(){
+        Pais arg = new Pais(3,azul,america);
+        TarjetaPais tarjetaArg = new TarjetaPais(arg);
+        azul.agregarTarjetaPais(tarjetaArg);
+        azul.activarTarjetaPais(tarjetaArg);
+
+        assertThrows(LaTarjetaYaFueActivadaError.class, ()->{azul.activarTarjetaPais(tarjetaArg);});
+    }
+}

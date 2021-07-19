@@ -11,8 +11,7 @@ public class TarjetaPais {
 
     public void activar(){
         if(this.estaActivada){
-            System.out.println("estaActivada");
-            return; //error
+            throw new LaTarjetaYaFueActivadaError();
         }
         this.pais.agregarEjercitos(2);
         this.estaActivada = true;
