@@ -41,8 +41,8 @@ public class TEGtest {
         rojo = new Jugador(spyDefensor);
         Pais arg = new Pais(2,azul,america);
         Pais bra = new Pais(1,rojo,america);
-        bra.agregarPaisLimitrofes(arg);
-        arg.agregarPaisLimitrofes(bra);
+        bra.agregarPaisLimitrofe(arg);
+        arg.agregarPaisLimitrofe(bra);
 
         ArrayList<Integer> dadosCargadosAtacante = new ArrayList<>();
         dadosCargadosAtacante.add(2);
@@ -59,15 +59,15 @@ public class TEGtest {
     }
     @Test
     public void atacarYConquistar(){
-        Dados spyAtacante = Mockito.spy(dadosAzul);
-        Dados spyDefensor = Mockito.spy(dadosRojo);
+        Dados dadosAtacante = Mockito.spy(dadosAzul);
+        Dados dadosDefensor = Mockito.spy(dadosRojo);
 
-        azul = new Jugador(spyAtacante);
-        rojo = new Jugador(spyDefensor);
-        Pais arg = new Pais(3,azul,america);
-        Pais bra = new Pais(2,rojo,america);
-        bra.agregarPaisLimitrofes(arg);
-        arg.agregarPaisLimitrofes(bra);
+        azul = new Jugador(dadosAtacante);
+        rojo = new Jugador(dadosDefensor);
+        Pais argentina = new Pais(3,azul,america);
+        Pais brasil = new Pais(2,rojo,america);
+        brasil.agregarPaisLimitrofe(argentina);
+        argentina.agregarPaisLimitrofe(brasil);
 
         ArrayList<Integer> dadosCargadosAtacante = new ArrayList<>();
         dadosCargadosAtacante.add(3);
@@ -78,11 +78,11 @@ public class TEGtest {
         dadosCargadosDefensor.add(2);
 
 
-        doReturn(dadosCargadosAtacante).when(spyAtacante).hacerTirada(2);
-        doReturn(dadosCargadosDefensor).when(spyDefensor).hacerTirada(2);
-        azul.atacarAPais(arg,bra,2);
-        assertEquals(2,arg.ejercitos());
-        assertEquals(1,bra.ejercitos());
+        doReturn(dadosCargadosAtacante).when(dadosAtacante).hacerTirada(2);
+        doReturn(dadosCargadosDefensor).when(dadosDefensor).hacerTirada(2);
+        azul.atacarAPais(argentina,brasil,2);
+        assertEquals(2,argentina.ejercitos());
+        assertEquals(1,brasil.ejercitos());
 
     }
     @Test
@@ -147,10 +147,10 @@ public class TEGtest {
         Pais arg = new Pais(6,azul,america);
         Pais bra = new Pais(3,rojo,america);
         Pais chile = new Pais(2,rojo,america);
-        bra.agregarPaisLimitrofes(arg);
-        arg.agregarPaisLimitrofes(bra);
-        chile.agregarPaisLimitrofes(arg);
-        arg.agregarPaisLimitrofes(chile);
+        bra.agregarPaisLimitrofe(arg);
+        arg.agregarPaisLimitrofe(bra);
+        chile.agregarPaisLimitrofe(arg);
+        arg.agregarPaisLimitrofe(chile);
 
         ArrayList<Integer> dadosCargadosAtacante = new ArrayList<>();
         dadosCargadosAtacante.add(3);

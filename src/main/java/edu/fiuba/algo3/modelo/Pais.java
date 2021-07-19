@@ -21,7 +21,7 @@ public class Pais{
         return this.duenio==jugador;
     }
 
-    public void agregarPaisLimitrofes(Pais p){
+    public void agregarPaisLimitrofe(Pais p){
         this.paisesLimitrofes.add(p);
     }
 

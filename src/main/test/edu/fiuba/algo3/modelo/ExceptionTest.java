@@ -2,9 +2,6 @@ package edu.fiuba.algo3.modelo;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-
-import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -51,8 +48,8 @@ public class ExceptionTest {
     public void ElPaisAtacanteNoPerteneceAlQueAtaca(){
         Pais arg = new Pais(2,rojo,america);
         Pais bra = new Pais(1,azul,america);
-        bra.agregarPaisLimitrofes(arg);
-        arg.agregarPaisLimitrofes(bra);
+        bra.agregarPaisLimitrofe(arg);
+        arg.agregarPaisLimitrofe(bra);
 
         assertThrows(ElPaisAtacanteNoTePerteneceError.class, ()->{azul.atacarAPais(arg,bra,1);});
     }
@@ -60,8 +57,8 @@ public class ExceptionTest {
     public void ElPaisDefensorPerteneceAlAtacante(){
         Pais arg = new Pais(2,rojo,america);
         Pais bra = new Pais(1,rojo,america);
-        bra.agregarPaisLimitrofes(arg);
-        arg.agregarPaisLimitrofes(bra);
+        bra.agregarPaisLimitrofe(arg);
+        arg.agregarPaisLimitrofe(bra);
 
         assertThrows(NoPuedesAtacarAUnPaisPropioError.class, ()->{rojo.atacarAPais(arg,bra,1);});
     }
@@ -70,8 +67,8 @@ public class ExceptionTest {
     public void ElPaisAcanteDebeManenerAlmenosUnEjercitoEnElMismo(){
         Pais arg = new Pais(2,azul,america);
         Pais bra = new Pais(2,rojo,america);
-        bra.agregarPaisLimitrofes(arg);
-        arg.agregarPaisLimitrofes(bra);
+        bra.agregarPaisLimitrofe(arg);
+        arg.agregarPaisLimitrofe(bra);
 
         assertThrows(ElPaisAtacanteSiempreDebeMantenerUnEjercitoEnElPaisError.class, ()->{azul.atacarAPais(arg,bra,2);});
     }
@@ -88,8 +85,8 @@ public class ExceptionTest {
     public void NoEsPosibleRestarEsaCantidadDeEjercitos(){
         Pais arg = new Pais(3,azul,america);
         Pais bra = new Pais(2,azul,america);
-        bra.agregarPaisLimitrofes(arg);
-        arg.agregarPaisLimitrofes(bra);
+        bra.agregarPaisLimitrofe(arg);
+        arg.agregarPaisLimitrofe(bra);
 
         assertThrows(NoEsPosibleRestarEsaCantidadDeEjercitosError.class, ()->{azul.moverEjercitos(arg,bra,4);});
     }

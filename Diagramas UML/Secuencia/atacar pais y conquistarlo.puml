@@ -1,0 +1,32 @@
+@startuml
+skinparam maxmessagesize 20
+
+":TestCase" -> "azul:Jugador" : atacarAPais (argentina,brasil,2)
+
+"azul:Jugador" -> "argentina:Pais" : prepararParaLaBatalla(brasil,2)
+"argentina:Pais" -> "azul:Jugador" : tirar(2)
+"azul:Jugador" -> "dadosAtacante:Dados" : tirar(2)
+
+"azul:Jugador" -> "brasil:Pais" : conseguirContrincante()
+"brasil:Pais" -> "rojo:Jugador" : tirar(2)
+"rojo:Jugador" -> "dadosDefensor:Dados" : tirar(2)
+
+"brasil:Pais" --> "azul:Jugador" : rojo
+"azul:Jugador" -> "azul:Jugador" : entrarEnGuerra(rojo,argentina,brasil)
+
+loop el pais defensor pierde 2 veces
+    "azul:Jugador" -> "azul:Jugador" : batallar(rojo, argentina, brasil, numeroDeBatalla)
+    "azul:Jugador" -> "dadosAtacante:Dados" : comparar(dadosDefensor,numeroDeBatalla)
+    "dadosAtacante:Dados" --> "azul:Jugador" : true
+    "azul:Jugador" -> "brasil:Pais" : restarEjercitos(1)
+
+    end
+"azul:Jugador" -> "brasil:Pais" : conquistarPais(azul, argentina)
+
+"brasil:Pais" -> "brasil:Pais" : sumarEjercitos(1)
+"brasil:Pais" -> "argentina:Pais" : restarEjercitos(1)
+"brasil:Pais" -> "rojo:Jugador" : perderContinente (america)
+"brasil:Pais" -> "rojo:Jugador" : perderPais(brasil)
+"brasil:Pais" -> "azul:Jugador" : conquistarContinente(america)
+
+@enduml
