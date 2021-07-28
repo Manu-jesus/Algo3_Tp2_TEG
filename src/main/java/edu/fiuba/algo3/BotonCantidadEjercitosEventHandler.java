@@ -10,22 +10,31 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class BotonSumarEjercitosEventHandler implements EventHandler<ActionEvent> {
-    private Pais miPais;
-    private Button botonPais;
+public class BotonCantidadEjercitosEventHandler implements EventHandler<ActionEvent> {
 
-    public BotonSumarEjercitosEventHandler(Button botonPais, Pais pais) {
-        this.miPais = pais;
-        this.botonPais = botonPais;
+    private Stage stage;
+    private Button botonAtacante;
+    private Pais atacante;
+    private Button botonDefensor;
+    private Pais defensor;
+    private InicializadorTeg juego;
+
+    public BotonCantidadEjercitosEventHandler(Stage stage, Button botonAtacante, Pais atacante, Button botonDefensor, Pais defensor, InicializadorTeg juego) {
+
+        this.stage = stage;
+        this.botonAtacante = botonAtacante;
+        this.atacante = atacante;
+        this.botonDefensor = botonDefensor;
+        this.defensor = defensor;
+        this.juego = juego;
     }
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        Stage stage = new Stage();
         TextField texto = new TextField();
 
         Button botonEnviar = new Button("Enviar");
-        BotonEnviarEventHandler enviarEvent = new BotonEnviarEventHandler(stage, texto,this.botonPais, this.miPais);
+        BotonEnviarEventHandler enviarEvent = new BotonEnviarEventHandler(stage, texto,botonAtacante, atacante, botonDefensor,  defensor, juego);
         botonEnviar.setOnAction(enviarEvent);
 
         TextoEventHandler textoEvent = new TextoEventHandler(botonEnviar);
@@ -38,6 +47,6 @@ public class BotonSumarEjercitosEventHandler implements EventHandler<ActionEvent
         var menu = new Scene(botones, 640, 480);
 
         stage.setScene(menu);
-        stage.showAndWait();
+        //stage.showAndWait();
     }
 }

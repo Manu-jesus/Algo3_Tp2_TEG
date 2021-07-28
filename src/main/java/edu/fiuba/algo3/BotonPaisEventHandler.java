@@ -12,31 +12,37 @@ import javafx.stage.Stage;
 public class BotonPaisEventHandler implements EventHandler<ActionEvent> {
     private Pais miPais;
     private Button botonPais;
+    private Stage stagePaises;
+    private InicializadorTeg mapaInicio;
 
-    public BotonPaisEventHandler(Button botonPais, Pais pais) {
+    public BotonPaisEventHandler(InicializadorTeg inicializador, Stage stage, Button botonPais, Pais pais) {
         this.miPais = pais;
         this.botonPais = botonPais;
+        this.stagePaises = stage;
+        this.mapaInicio = inicializador;
     }
 
     @Override
     public void handle(ActionEvent actionEvent) {
+        Stage stage = new Stage();
 
         Button sumarEjercitos = new Button("sumarEjercitos");
-        BotonSumarEjercitosEventHandler botonSumaEjercitos = new BotonSumarEjercitosEventHandler(this.botonPais, this.miPais);
-        sumarEjercitos.setOnAction(botonSumaEjercitos);
+        //BotonCantidadEjercitosEventHandler botonSumaEjercitos = new BotonCantidadEjercitosEventHandler(this.botonPais, this.miPais, mapaInicio);
+        //sumarEjercitos.setOnAction(botonSumaEjercitos);
 
-        Button Atacar = new Button("Atacar");
+        Button atacar = new Button("Atacar");
+        BotonAtacarEventHandler botonAtacar = new BotonAtacarEventHandler(stage, this.mapaInicio , this.stagePaises, this.miPais, this.botonPais);
+        atacar.setOnAction(botonAtacar);
+
         Button moverEjercitos = new Button("moverEjercitos");
 
-        VBox botones = new VBox(sumarEjercitos, Atacar, moverEjercitos);
+        VBox botones = new VBox(sumarEjercitos, atacar, moverEjercitos);
         botones.setSpacing(20);
         botones.setPadding(new Insets(35));
 
         var menu = new Scene(botones, 640, 480);
 
-        Stage stage = new Stage();
         stage.setScene(menu);
         stage.showAndWait();
-        stage.close();
     }
 }

@@ -21,7 +21,13 @@ public class Pais{
         return this.duenio==jugador;
     }
 
+    public Jugador duenio(){
+        return this.duenio;
+    }
+
     public void agregarPaisLimitrofe(Pais p){
+        if (paisesLimitrofes.contains(p)){return;}
+        p.paisesLimitrofes.add(this);
         this.paisesLimitrofes.add(p);
     }
 
