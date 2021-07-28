@@ -15,6 +15,7 @@ public class Pais{
         this.continente = continente;
         continente.agregarPais(this);
         duenio.agregarPais(this);
+        duenio.conquistarContinente(continente);
     }
 
     public boolean lePerteneceA(Jugador jugador){

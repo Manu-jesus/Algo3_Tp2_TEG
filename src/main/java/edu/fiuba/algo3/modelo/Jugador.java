@@ -7,12 +7,14 @@ public class Jugador {
     private Dados dados;
     private ArrayList<TarjetaPais> tarjetasPais;
     private ArrayList<Continente> continentes;
+    private tarjetaObjetivo objetivo;
 
-    public Jugador(Dados dados){
+    public Jugador(Dados dados, tarjetaObjetivo objetivo){
         this.paises = new ArrayList<>();
         this.dados = dados;
         this.tarjetasPais = new ArrayList<>();
         this.continentes = new ArrayList<>();
+        this.objetivo = objetivo;
     }
 
     public void agregarEjercitosA(Pais pais, Integer cantidadEjercitos){
@@ -93,5 +95,17 @@ public class Jugador {
 
     public void conquistarContinente(Continente continente){
         continente.conquistar(this);
+    }
+
+    public boolean tieneContinente(Continente continente){
+        return this.continentes.contains(continente);
+    }
+
+    public Integer cantidadPaises(){
+        return this.paises.size();
+    }
+
+    public boolean seCumplioObjetivo(){
+        return this.objetivo.seCumplio(this);
     }
 }
