@@ -22,14 +22,16 @@ public class App extends Application {
     public void start(Stage stage) {
 
         Dados dadosAzul = new Dados();
-        Jugador azul = new Jugador(dadosAzul);
         Continente america = new Continente();
+        tarjetaObjetivo objetivoAzul = new tarjetaObjetivo(america);
+        Jugador azul = new Jugador(dadosAzul,objetivoAzul);
 
         Pais arg = new Pais(4, azul, america);
         Pais eeuu = new Pais(3, azul, america);
 
         Dados dadosRojo = new Dados();
-        Jugador rojo = new Jugador(dadosRojo);
+        tarjetaObjetivo objetivoRojo = new tarjetaObjetivo(america);
+        Jugador rojo = new Jugador(dadosRojo,objetivoRojo);
         Pais bra = new Pais(4, rojo, america);
         Pais canada = new Pais(6, rojo, america);
 

@@ -19,6 +19,10 @@ public class ExceptionTest {
     private Continente america;
     private Continente asia;
 
+    private tarjetaObjetivo objetivoRojo;
+    private tarjetaObjetivo objetivoAzul;
+    private tarjetaObjetivo objetivoAmarillo;
+
     @BeforeEach
     void init(){
         //Dados
@@ -26,14 +30,21 @@ public class ExceptionTest {
         dadosRojo = new Dados();
         dadosAmarillo = new Dados();
 
-        //Jugadores
-        azul = new Jugador(dadosAzul);
-        rojo = new Jugador(dadosRojo);
-        amarillo = new Jugador(dadosAmarillo);
-
         //Continentes
         america = new Continente();
         asia = new Continente();
+
+        //tarjetaObjeivo
+        objetivoRojo = new tarjetaObjetivo(america);
+        objetivoAzul = new tarjetaObjetivo(america);
+        objetivoAmarillo = new tarjetaObjetivo(america);
+
+        //Jugadores
+        azul = new Jugador(dadosAzul,objetivoAzul);
+        rojo = new Jugador(dadosRojo,objetivoRojo);
+        amarillo = new Jugador(dadosAmarillo,objetivoAmarillo);
+
+
     }
     @Test
     public void NoSePuedeActivarUnaTarjetaPaisSinElPais(){
