@@ -33,5 +33,7 @@ loop el pais defensor pierde 2 veces
 "rojo:Jugador" --> "brasil:Pais":
 "brasil:Pais" -> "rojo:Jugador" : perderPais(brasil)
 "brasil:Pais" -> "azul:Jugador" : conquistarContinente(america)
-
+"azul:Jugador" -> "turno:Turno": actualizarEjercitosAColocar()
+"turno:Turno" --> "azul:Jugador": void
+"azul:Jugador" --> ":TestCase": void
 @enduml
