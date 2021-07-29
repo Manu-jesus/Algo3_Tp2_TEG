@@ -8,17 +8,21 @@ public class Jugador {
     private ArrayList<TarjetaPais> tarjetasPais;
     private ArrayList<Continente> continentes;
     private tarjetaObjetivo objetivo;
+    private Turno turno;
 
-    public Jugador(Dados dados, tarjetaObjetivo objetivo){
+    public Jugador(Dados dados, tarjetaObjetivo objetivo, Turno turno){
         this.paises = new ArrayList<>();
         this.dados = dados;
         this.tarjetasPais = new ArrayList<>();
         this.continentes = new ArrayList<>();
         this.objetivo = objetivo;
+        this.turno = turno;
+        turno.agregarJugador(this);
     }
 
     public void agregarEjercitosA(Pais pais, Integer cantidadEjercitos){
         if (!this.estaPais(pais)){ return; }
+        turno.colocarEjercitos(cantidadEjercitos);
         pais.agregarEjercitos(cantidadEjercitos);
     }
 
@@ -38,6 +42,9 @@ public class Jugador {
     }
 
     public void atacarAPais(Pais atacante, Pais defensor, Integer cantidadEjercitos){
+        if (!this.turno.puedoAtarcar()){
+            throw new ElPaisAtacanteNoTePerteneceError();
+        }
         if (!this.estaPais(atacante)){
             throw new ElPaisAtacanteNoTePerteneceError();
         }
@@ -47,6 +54,7 @@ public class Jugador {
         atacante.prepararParaLaBatalla(defensor, cantidadEjercitos);
         Jugador contrincante=defensor.conseguirContrincante();
         this.entrarEnGuerra(contrincante,atacante,defensor);
+        this.turno.actualizarEjercitosAColocar();
     }
 
     public void tirar(Integer cantidadEjercitos){

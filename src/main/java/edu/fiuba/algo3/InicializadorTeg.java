@@ -55,7 +55,10 @@ public class InicializadorTeg {
     private tarjetaObjetivo objetivoAzul;
     private tarjetaObjetivo objetivoAmarillo;
 
+    private Turno turno;
+
     public InicializadorTeg(){
+        turno = new Turno();
         dadosAzul = new Dados();
         dadosRojo = new Dados();
         dadosAmarillo = new Dados();
@@ -65,9 +68,9 @@ public class InicializadorTeg {
         objetivoAzul = new tarjetaObjetivo(africa);
 
 
-        azul = new Jugador(dadosAzul, objetivoAzul);
-        rojo = new Jugador(dadosRojo,objetivoRojo);
-        amarillo = new Jugador(dadosAmarillo,objetivoAmarillo);
+        azul = new Jugador(dadosAzul, objetivoAzul, turno);
+        rojo = new Jugador(dadosRojo,objetivoRojo, turno);
+        amarillo = new Jugador(dadosAmarillo,objetivoAmarillo, turno);
 
         surAmerica = new Continente();
         asia = new Continente();

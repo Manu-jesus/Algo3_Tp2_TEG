@@ -23,6 +23,8 @@ public class ExceptionTest {
     private tarjetaObjetivo objetivoAzul;
     private tarjetaObjetivo objetivoAmarillo;
 
+    private Turno turno;
+
     @BeforeEach
     void init(){
         //Dados
@@ -39,10 +41,12 @@ public class ExceptionTest {
         objetivoAzul = new tarjetaObjetivo(america);
         objetivoAmarillo = new tarjetaObjetivo(america);
 
+        turno = new Turno();
+
         //Jugadores
-        azul = new Jugador(dadosAzul,objetivoAzul);
-        rojo = new Jugador(dadosRojo,objetivoRojo);
-        amarillo = new Jugador(dadosAmarillo,objetivoAmarillo);
+        azul = new Jugador(dadosAzul,objetivoAzul, turno);
+        rojo = new Jugador(dadosRojo,objetivoRojo, turno);
+        amarillo = new Jugador(dadosAmarillo,objetivoAmarillo, turno);
 
 
     }
