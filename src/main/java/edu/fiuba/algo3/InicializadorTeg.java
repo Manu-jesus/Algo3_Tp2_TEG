@@ -1,16 +1,14 @@
 package edu.fiuba.algo3;
 
 
-import edu.fiuba.algo3.modelo.Continente;
-import edu.fiuba.algo3.modelo.Dados;
-import edu.fiuba.algo3.modelo.Jugador;
-import edu.fiuba.algo3.modelo.Pais;
+import edu.fiuba.algo3.modelo.*;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import edu.fiuba.algo3.modelo.Pais;
 
 public class InicializadorTeg {
     private Dados dadosAzul;
@@ -34,14 +32,23 @@ public class InicializadorTeg {
     private Button botonEEUU;
     private Button botonCanada;
 
+    private tarjetaObjetivo objetivoRojo;
+    private tarjetaObjetivo objetivoAzul;
+    private tarjetaObjetivo objetivoAmarillo;
+
     public InicializadorTeg(){
         dadosAzul = new Dados();
         dadosRojo = new Dados();
         dadosAmarillo = new Dados();
 
-        azul = new Jugador(dadosAzul);
-        rojo = new Jugador(dadosRojo);
-        amarillo = new Jugador(dadosAmarillo);
+        objetivoRojo = new tarjetaObjetivo(america);
+        objetivoAmarillo= new tarjetaObjetivo(america);
+        objetivoAzul = new tarjetaObjetivo(america);
+
+
+        azul = new Jugador(dadosAzul, objetivoAzul);
+        rojo = new Jugador(dadosRojo,objetivoRojo);
+        amarillo = new Jugador(dadosAmarillo,objetivoAmarillo);
 
         america = new Continente();
         asia = new Continente();
