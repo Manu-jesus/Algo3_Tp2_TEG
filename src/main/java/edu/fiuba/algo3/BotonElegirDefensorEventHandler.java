@@ -26,7 +26,7 @@ public class BotonElegirDefensorEventHandler implements EventHandler<ActionEvent
 
         VBox nuevoMapa = this.mapaPais.copiarMapa(stage, botonAtacante, atacante);
 
-        var mapa = new Scene(nuevoMapa, 640, 480);
+        var mapa = new Scene(nuevoMapa, 1280, 600);
         stage.setScene(mapa);
         //stage.showAndWait();
 

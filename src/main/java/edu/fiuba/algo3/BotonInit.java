@@ -22,7 +22,7 @@ public class BotonInit implements EventHandler<ActionEvent> {
 
         VBox columnaPais = juego.actualizarTeg(this.stage);
 
-        var mapa = new Scene(columnaPais, 640, 480);
+        var mapa = new Scene(columnaPais, 1280, 600);
         this.stage.setScene(mapa);
         this.stage.show();
     }

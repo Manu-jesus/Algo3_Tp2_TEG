@@ -36,7 +36,7 @@ public class BotonEnviarEventHandler implements EventHandler<ActionEvent> {
         //this.stage.close();
 
         VBox actualizado = juego.actualizarTeg(stage);
-        var mapa = new Scene(actualizado, 640, 480);
+        var mapa = new Scene(actualizado, 1280, 600);
 
         stage.setScene(mapa);
         //stage.showAndWait();
