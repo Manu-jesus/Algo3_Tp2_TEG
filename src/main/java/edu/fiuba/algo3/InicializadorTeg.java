@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import edu.fiuba.algo3.modelo.Pais;
 
@@ -121,6 +122,18 @@ public class InicializadorTeg {
         botonEgipto.setPrefSize(100,100);
         botonAustralia.setPrefSize(100,100);
 
+        botonArgentina.setStyle("-fx-background-color:#077bbb");
+        botonEEUU.setStyle("-fx-background-color:#cc3311");
+        botonBrasil.setStyle("-fx-background-color:#cc3311");
+        botonCanada.setStyle("-fx-background-color:#cc3311");
+        botonEspana.setStyle("-fx-background-color:#077bbb");
+        botonAlemania.setStyle("-fx-background-color:#ee7733");
+        botonChina.setStyle("-fx-background-color:#cc3311");
+        botonIsrael.setStyle("-fx-background-color:#077bbb");
+        botonSahara.setStyle("-fx-background-color:#cc3311");
+        botonEgipto.setStyle("-fx-background-color:#ee7733");
+        botonAustralia.setStyle("-fx-background-color:#077bbb");
+
         HBox hemisferioNorte = new HBox( botonCanada, botonEEUU, botonEspana, botonAlemania, botonIsrael, botonChina);
         hemisferioNorte.setSpacing(20);
         hemisferioNorte.setPadding(new Insets(35));
@@ -154,6 +167,18 @@ public class InicializadorTeg {
         botonSahara.setPrefSize(100,100);
         botonEgipto.setPrefSize(100,100);
         botonAustralia.setPrefSize(100,100);
+
+        botonArgentina.setStyle("-fx-background-color:#077bbb");
+        botonEEUU.setStyle("-fx-background-color:#cc3311");
+        botonBrasil.setStyle("-fx-background-color:#cc3311");
+        botonCanada.setStyle("-fx-background-color:#cc3311");
+        botonEspana.setStyle("-fx-background-color:#077bbb");
+        botonAlemania.setStyle("-fx-background-color:#ee7733");
+        botonChina.setStyle("-fx-background-color:#cc3311");
+        botonIsrael.setStyle("-fx-background-color:#077bbb");
+        botonSahara.setStyle("-fx-background-color:#cc3311");
+        botonEgipto.setStyle("-fx-background-color:#ee7733");
+        botonAustralia.setStyle("-fx-background-color:#077bbb");
 
         BotonCantidadEjercitosEventHandler botonDefiendeEjercitos = new BotonCantidadEjercitosEventHandler( stage,botonAtacante, atacante, botonBrasil,brasil, this);
         botonBrasil.setOnAction(botonDefiendeEjercitos);
