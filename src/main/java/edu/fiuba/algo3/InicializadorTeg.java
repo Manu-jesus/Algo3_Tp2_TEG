@@ -103,16 +103,16 @@ public class InicializadorTeg {
         europa = new Continente();
         norteAmerica = new Continente();
 
-        argentina = new Pais(4, azul, surAmerica);
-        mexico = new Pais(3, azul, norteAmerica);
-        brasil= new Pais(4, rojo, surAmerica);
-        california = new Pais(6, rojo, norteAmerica);
+        argentina = new Pais(1, azul, surAmerica);
+        mexico = new Pais(1, azul, norteAmerica);
+        brasil= new Pais(1, rojo, surAmerica);
+        california = new Pais(1, rojo, norteAmerica);
         espana = new Pais(1, azul,europa);
-        francia = new Pais(7, amarillo, europa);
-        china = new Pais(2, rojo, asia);
+        francia = new Pais(1, amarillo, europa);
+        china = new Pais(1, rojo, asia);
         iran = new Pais(1, verde, asia);
-        sahara = new Pais(5, verde, africa);
-        egipto = new Pais(2, amarillo, africa);
+        sahara = new Pais(1, verde, africa);
+        egipto = new Pais(1, amarillo, africa);
         australia = new Pais(1, azul, oceania);
 
         //Pais argentina, brasil, emexico, california, espana, francia, china, iran, sahara, egipto, australia;

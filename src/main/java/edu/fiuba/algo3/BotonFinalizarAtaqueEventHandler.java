@@ -52,6 +52,8 @@ public class BotonFinalizarAtaqueEventHandler implements EventHandler<ActionEven
             casoError.setScene(scene);
             casoError.showAndWait();
         }
+
+
         VBox actualizado = juego.actualizarTeg(stage);
         BackgroundImage backgroundMapa= new BackgroundImage(new Image("https://pbs.twimg.com/media/EbYRjuBXkAUfado.png:large",1550,800,false,true),
                 BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
