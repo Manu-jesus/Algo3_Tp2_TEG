@@ -8,7 +8,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.VBox;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 public class BotonSumarEventHandler implements EventHandler<ActionEvent> {
@@ -30,7 +31,6 @@ public class BotonSumarEventHandler implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent){
-
         if (!this.esNumero(this.texto.getText())){
             Stage casoError = new Stage();
             var label = new Label("El contenido ingresado debe ser un número");
@@ -51,7 +51,11 @@ public class BotonSumarEventHandler implements EventHandler<ActionEvent> {
         }
 
         VBox actualizado = juego.actualizarTeg(stage);
-        var mapa = new Scene(actualizado, 1280, 600);
+        BackgroundImage backgroundMapa= new BackgroundImage(new Image("https://pbs.twimg.com/media/EbYRjuBXkAUfado.png:large",1550,800,false,true),
+                BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
+                BackgroundSize.DEFAULT);
+        actualizado.setBackground(new Background(backgroundMapa));
+        var mapa = new Scene(actualizado, 1550,800);
 
         stage.setScene(mapa);
     }

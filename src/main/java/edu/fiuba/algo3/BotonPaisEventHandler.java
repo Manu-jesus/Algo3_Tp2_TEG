@@ -24,6 +24,7 @@ public class BotonPaisEventHandler implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
+        stagePaises.close();
         Stage stage = new Stage();
 
         Button sumarEjercitos = new Button("sumarEjercitos");
@@ -43,6 +44,6 @@ public class BotonPaisEventHandler implements EventHandler<ActionEvent> {
         var menu = new Scene(botones, 640, 480);
 
         stage.setScene(menu);
-        stage.showAndWait();
+        stage.show();
     }
 }

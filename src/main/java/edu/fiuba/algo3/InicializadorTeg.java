@@ -40,24 +40,24 @@ public class InicializadorTeg {
     private ArrayList<Pais> paises;
     private Pais argentina;
     private Pais brasil;
-    private Pais estadosUnidos;
-    private Pais canada;
+    private Pais mexico;
+    private Pais california;
     private Pais espana;
-    private Pais alemania;
+    private Pais francia;
     private Pais china;
-    private Pais israel;
+    private Pais iran;
     private Pais sahara;
     private Pais egipto;
     private Pais australia;
 
     private Button botonArgentina;
     private Button botonBrasil;
-    private Button botonEEUU;
-    private Button botonCanada;
+    private Button botonMexico;
+    private Button botonCalifornia;
     private Button botonEspana;
-    private Button botonAlemania;
+    private Button botonFrancia;
     private Button botonChina;
-    private Button botonIsrael;
+    private Button botonIran;
     private Button botonSahara;
     private Button botonEgipto;
     private Button botonAustralia;
@@ -104,27 +104,27 @@ public class InicializadorTeg {
         norteAmerica = new Continente();
 
         argentina = new Pais(4, azul, surAmerica);
-        estadosUnidos = new Pais(3, azul, norteAmerica);
+        mexico = new Pais(3, azul, norteAmerica);
         brasil= new Pais(4, rojo, surAmerica);
-        canada = new Pais(6, rojo, norteAmerica);
+        california = new Pais(6, rojo, norteAmerica);
         espana = new Pais(1, azul,europa);
-        alemania = new Pais(7, amarillo, europa);
+        francia = new Pais(7, amarillo, europa);
         china = new Pais(2, rojo, asia);
-        israel = new Pais(1, verde, asia);
+        iran = new Pais(1, verde, asia);
         sahara = new Pais(5, verde, africa);
         egipto = new Pais(2, amarillo, africa);
         australia = new Pais(1, azul, oceania);
 
-        //Pais argentina, brasil, estadosUnidos, canada, espana, alemania, china, israel, sahara, egipto, australia;
+        //Pais argentina, brasil, emexico, california, espana, francia, china, iran, sahara, egipto, australia;
         paises = new ArrayList<>();
         paises.add(argentina);
         paises.add(brasil);
-        paises.add(estadosUnidos);
-        paises.add(canada);
+        paises.add(mexico);
+        paises.add(california);
         paises.add(espana);
-        paises.add(alemania);
+        paises.add(francia);
         paises.add(china);
-        paises.add(israel);
+        paises.add(iran);
         paises.add(sahara);
         paises.add(egipto);
         paises.add(australia);
@@ -132,19 +132,21 @@ public class InicializadorTeg {
         //this.repartirEntre( this.cantidadJugadores , jugadores);
 
         argentina.agregarPaisLimitrofe(brasil);
-        espana.agregarPaisLimitrofe(alemania);
-        estadosUnidos.agregarPaisLimitrofe(canada);
-        china.agregarPaisLimitrofe(israel);
+        brasil.agregarPaisLimitrofe(sahara);
+        sahara.agregarPaisLimitrofe(espana);
+        espana.agregarPaisLimitrofe(francia);
+        mexico.agregarPaisLimitrofe(california);
+        china.agregarPaisLimitrofe(iran);
         sahara.agregarPaisLimitrofe(egipto);
 
         botonArgentina = new Button( Integer.toString(argentina.ejercitos()));
-        botonEEUU = new Button( Integer.toString(estadosUnidos.ejercitos()));
+        botonMexico = new Button( Integer.toString(mexico.ejercitos()));
         botonBrasil = new Button(Integer.toString(brasil.ejercitos()));
-        botonCanada = new Button(Integer.toString(canada.ejercitos()));
+        botonCalifornia = new Button(Integer.toString(california.ejercitos()));
         botonEspana = new Button( Integer.toString(espana.ejercitos()));
-        botonAlemania = new Button( Integer.toString(alemania.ejercitos()));
+        botonFrancia = new Button( Integer.toString(francia.ejercitos()));
         botonChina = new Button( Integer.toString(china.ejercitos()));
-        botonIsrael = new Button( Integer.toString(israel.ejercitos()));
+        botonIran = new Button( Integer.toString(iran.ejercitos()));
         botonSahara = new Button( Integer.toString(sahara .ejercitos()));
         botonEgipto = new Button( Integer.toString(egipto.ejercitos()));
         botonAustralia = new Button( Integer.toString(australia.ejercitos()));
@@ -187,6 +189,11 @@ public class InicializadorTeg {
     public VBox actualizarTeg(Stage stage){
 
         var label = new Label("TURNO DE: " + turno.jugadorActual().color());
+
+
+        Button pasarTurno = new Button("Pasar Turno");
+        BotonPasarTurnoEventHandler pasarTurnoEvent = new BotonPasarTurnoEventHandler(this.turno, this, stage);
+        pasarTurno.setOnAction(pasarTurnoEvent);
         //var scene = new Scene(new StackPane(label), 640, 480);
 
         BotonPaisEventHandler botonArgentinaEvent = new BotonPaisEventHandler(this , stage, botonArgentina, argentina);
@@ -195,20 +202,20 @@ public class InicializadorTeg {
         BotonPaisEventHandler botonBrasilEvent = new BotonPaisEventHandler(this , stage, botonBrasil, brasil);
         botonBrasil.setOnAction(botonBrasilEvent);
 
-        BotonPaisEventHandler botonCanadaEvent = new BotonPaisEventHandler(this , stage, botonCanada, canada);
-        botonCanada.setOnAction(botonCanadaEvent);
+        BotonPaisEventHandler botonCaliforniaEvent = new BotonPaisEventHandler(this , stage, botonCalifornia, california);
+        botonCalifornia.setOnAction(botonCaliforniaEvent);
 
-        BotonPaisEventHandler botonEEUUEvent = new BotonPaisEventHandler(this , stage, botonEEUU, estadosUnidos);
-        botonEEUU.setOnAction(botonEEUUEvent);
+        BotonPaisEventHandler botonMexicoEvent = new BotonPaisEventHandler(this , stage, botonMexico, mexico);
+        botonMexico.setOnAction(botonMexicoEvent);
 
         BotonPaisEventHandler botonEspanaEvent = new BotonPaisEventHandler(this , stage, botonEspana, espana);
         botonEspana.setOnAction(botonEspanaEvent);
 
-        BotonPaisEventHandler botonAlemaniaEvent = new BotonPaisEventHandler(this , stage, botonAlemania, alemania);
-        botonAlemania.setOnAction(botonAlemaniaEvent);
+        BotonPaisEventHandler botonFranciaEvent = new BotonPaisEventHandler(this , stage, botonFrancia, francia);
+        botonFrancia.setOnAction(botonFranciaEvent);
 
-        BotonPaisEventHandler botonIsraelEvent = new BotonPaisEventHandler(this , stage, botonIsrael, israel);
-        botonIsrael.setOnAction(botonIsraelEvent);
+        BotonPaisEventHandler botonIranEvent = new BotonPaisEventHandler(this , stage, botonIran, iran);
+        botonIran.setOnAction(botonIranEvent);
 
         BotonPaisEventHandler botonChinaEvent = new BotonPaisEventHandler(this , stage, botonChina, china);
         botonChina.setOnAction(botonChinaEvent);
@@ -225,24 +232,28 @@ public class InicializadorTeg {
         this.determinarTamanio();
         this.determinarColor();
 
-        HBox hemisferioNorte = new HBox( botonCanada, botonEEUU, botonEspana, botonAlemania, botonIsrael, botonChina);
+        HBox hemisferioNorte = new HBox( botonCalifornia, botonMexico, botonEspana, botonFrancia, botonIran, botonChina);
         hemisferioNorte.setSpacing(20);
         hemisferioNorte.setPadding(new Insets(35));
-        hemisferioNorte.setMargin(botonEEUU,new Insets(100,0,0,0));
-        hemisferioNorte.setMargin(botonEspana,new Insets(50,0,0,200));
-        hemisferioNorte.setMargin(botonIsrael,new Insets(50,0,0,0));
+        hemisferioNorte.setMargin(botonMexico,new Insets(340,0,0,80));
+        hemisferioNorte.setMargin(botonCalifornia,new Insets(300,0,0,100));
+        hemisferioNorte.setMargin(botonEspana,new Insets(380,0,0,380));
+        hemisferioNorte.setMargin(botonFrancia,new Insets(330,0,0,50));
+        hemisferioNorte.setMargin(botonIran,new Insets(270,0,0,270));
+        hemisferioNorte.setMargin(botonChina,new Insets(270,0,0,80));
 
-        HBox hemisferioSur = new HBox(botonBrasil, botonArgentina, botonSahara, botonEgipto, botonAustralia);
-        hemisferioSur.setMargin(botonBrasil, new Insets(0,0,0,200));
-        hemisferioSur.setMargin(botonArgentina, new Insets(120,0,0,0));
-        hemisferioSur.setMargin(botonSahara, new Insets(0,20,0,200));
-        hemisferioSur.setMargin(botonAustralia, new Insets(50,0,0,100));
+        HBox hemisferioSur = new HBox(botonArgentina,botonBrasil , botonSahara, botonEgipto, botonAustralia);
+        hemisferioSur.setMargin(botonBrasil, new Insets(-30,0,0,100));
+        hemisferioSur.setMargin(botonArgentina, new Insets(70,0,0,420));
+        hemisferioSur.setMargin(botonSahara, new Insets(20,20,0,250));
+        hemisferioSur.setMargin(botonEgipto, new Insets(0,20,0,150));
+        hemisferioSur.setMargin(botonAustralia, new Insets(40,0,0,280));
 
-        Button pasarTurno = new Button("Pasar Turno");
-        BotonPasarTurnoEventHandler pasarTurnoEvent = new BotonPasarTurnoEventHandler(this.turno, this, stage);
-        pasarTurno.setOnAction(pasarTurnoEvent);
+
 
         HBox turnosActuales = new HBox(label, pasarTurno);
+        turnosActuales.setMargin(label,new Insets(50,20,0,150));
+        turnosActuales.setMargin(pasarTurno,new Insets(50,0,0,0));;
         VBox mapaMundi = new VBox(hemisferioNorte, hemisferioSur, turnosActuales);
         mapaMundi.setSpacing(20);
         mapaMundi.setPadding(new Insets(35,35,35,100));
@@ -253,29 +264,29 @@ public class InicializadorTeg {
 
     public void determinarTamanio(){
 
-        botonArgentina.setPrefSize(100,100);
-        botonEEUU.setPrefSize(100,100);
-        botonBrasil.setPrefSize(100,100);
-        botonCanada.setPrefSize(100,100);
-        botonEspana.setPrefSize(100,100);
-        botonAlemania.setPrefSize(100,100);
-        botonChina.setPrefSize(100,100);
-        botonIsrael.setPrefSize(100,100);
-        botonSahara.setPrefSize(100,100);
-        botonEgipto.setPrefSize(100,100);
-        botonAustralia.setPrefSize(100,100);
+        botonArgentina.setPrefSize(30,30);
+        botonBrasil.setPrefSize(30,30);
+        botonMexico.setPrefSize(30,30);
+        botonCalifornia.setPrefSize(30,30);
+        botonEspana.setPrefSize(30,30);
+        botonFrancia.setPrefSize(30,30);
+        botonChina.setPrefSize(30,30);
+        botonIran.setPrefSize(30,30);
+        botonSahara.setPrefSize(30,30);
+        botonEgipto.setPrefSize(30,30);
+        botonAustralia.setPrefSize(30,30);
     }
 
     public void determinarColor(){
 
         botonArgentina.setStyle("-fx-background-color:"+argentina.colorPorDuenio());
-        botonEEUU.setStyle("-fx-background-color:"+estadosUnidos.colorPorDuenio());
+        botonMexico.setStyle("-fx-background-color:"+mexico.colorPorDuenio());
         botonBrasil.setStyle("-fx-background-color:"+brasil.colorPorDuenio());
-        botonCanada.setStyle("-fx-background-color:"+canada.colorPorDuenio());
+        botonCalifornia.setStyle("-fx-background-color:"+california.colorPorDuenio());
         botonEspana.setStyle("-fx-background-color:"+espana.colorPorDuenio());
-        botonAlemania.setStyle("-fx-background-color:"+alemania.colorPorDuenio());
+        botonFrancia.setStyle("-fx-background-color:"+francia.colorPorDuenio());
         botonChina.setStyle("-fx-background-color:"+china.colorPorDuenio());
-        botonIsrael.setStyle("-fx-background-color:"+israel.colorPorDuenio());
+        botonIran.setStyle("-fx-background-color:"+iran.colorPorDuenio());
         botonSahara.setStyle("-fx-background-color:"+sahara.colorPorDuenio());
         botonEgipto.setStyle("-fx-background-color:"+egipto.colorPorDuenio());
         botonAustralia.setStyle("-fx-background-color:"+australia.colorPorDuenio());
@@ -293,20 +304,20 @@ public class InicializadorTeg {
         BotonCantidadEjercitosEventHandler botonDefiendeBrasilEjercitos = new BotonCantidadEjercitosEventHandler( stage,botonAtacante, atacante, botonBrasil,brasil, this);
         botonBrasil.setOnAction(botonDefiendeBrasilEjercitos);
 
-        BotonCantidadEjercitosEventHandler botonDefiendeCanadaEjercitos = new BotonCantidadEjercitosEventHandler( stage,botonAtacante, atacante, botonCanada,canada, this);
-        botonCanada.setOnAction(botonDefiendeCanadaEjercitos);
+        BotonCantidadEjercitosEventHandler botonDefiendeCaliforniaEjercitos = new BotonCantidadEjercitosEventHandler( stage,botonAtacante, atacante, botonCalifornia,california, this);
+        botonCalifornia.setOnAction(botonDefiendeCaliforniaEjercitos);
 
-        BotonCantidadEjercitosEventHandler botonDefiendeEEUUEjercitos = new BotonCantidadEjercitosEventHandler( stage,botonAtacante, atacante, botonEEUU,estadosUnidos, this);
-        botonEEUU.setOnAction(botonDefiendeEEUUEjercitos);
+        BotonCantidadEjercitosEventHandler botonDefiendeMexicoEjercitos = new BotonCantidadEjercitosEventHandler( stage,botonAtacante, atacante, botonMexico,mexico, this);
+        botonMexico.setOnAction(botonDefiendeMexicoEjercitos);
 
         BotonCantidadEjercitosEventHandler botonDefiendeEspanaEjercitos = new BotonCantidadEjercitosEventHandler( stage,botonAtacante, atacante, botonEspana,espana, this);
         botonEspana.setOnAction(botonDefiendeEspanaEjercitos);
 
-        BotonCantidadEjercitosEventHandler botonDefiendeAlemaniaEjercitos = new BotonCantidadEjercitosEventHandler( stage,botonAtacante, atacante, botonAlemania,alemania, this);
-        botonAlemania.setOnAction(botonDefiendeAlemaniaEjercitos);
+        BotonCantidadEjercitosEventHandler botonDefiendeFranciaEjercitos = new BotonCantidadEjercitosEventHandler( stage,botonAtacante, atacante, botonFrancia,francia, this);
+        botonFrancia.setOnAction(botonDefiendeFranciaEjercitos);
 
-        BotonCantidadEjercitosEventHandler botonDefiendeIsraelEjercitos = new BotonCantidadEjercitosEventHandler( stage,botonAtacante, atacante, botonIsrael,israel, this);
-        botonIsrael.setOnAction(botonDefiendeIsraelEjercitos);
+        BotonCantidadEjercitosEventHandler botonDefiendeIranEjercitos = new BotonCantidadEjercitosEventHandler( stage,botonAtacante, atacante, botonIran,iran, this);
+        botonIran.setOnAction(botonDefiendeIranEjercitos);
 
         BotonCantidadEjercitosEventHandler botonDefiendeChinaEjercitos = new BotonCantidadEjercitosEventHandler( stage,botonAtacante, atacante, botonChina,china, this);
         botonChina.setOnAction(botonDefiendeChinaEjercitos);
@@ -320,20 +331,27 @@ public class InicializadorTeg {
         BotonCantidadEjercitosEventHandler botonDefiendeAustraliaEjercitos = new BotonCantidadEjercitosEventHandler( stage,botonAtacante, atacante, botonAustralia,australia, this);
         botonAustralia.setOnAction(botonDefiendeAustraliaEjercitos);
 
-        HBox hemisferioNorte = new HBox( botonCanada, botonEEUU, botonEspana, botonAlemania, botonIsrael, botonChina);
+        HBox hemisferioNorte = new HBox( botonCalifornia, botonMexico, botonEspana, botonFrancia, botonIran, botonChina);
         hemisferioNorte.setSpacing(20);
         hemisferioNorte.setPadding(new Insets(35));
-        hemisferioNorte.setMargin(botonEEUU,new Insets(100,0,0,0));
-        hemisferioNorte.setMargin(botonEspana,new Insets(50,0,0,200));
-        hemisferioNorte.setMargin(botonIsrael,new Insets(50,0,0,0));
+        hemisferioNorte.setMargin(botonMexico,new Insets(340,0,0,80));
+        hemisferioNorte.setMargin(botonCalifornia,new Insets(300,0,0,100));
+        hemisferioNorte.setMargin(botonEspana,new Insets(380,0,0,380));
+        hemisferioNorte.setMargin(botonFrancia,new Insets(330,0,0,50));
+        hemisferioNorte.setMargin(botonIran,new Insets(270,0,0,270));
+        hemisferioNorte.setMargin(botonChina,new Insets(270,0,0,80));
 
-        HBox hemisferioSur = new HBox(botonBrasil, botonArgentina, botonSahara, botonEgipto, botonAustralia);
-        hemisferioSur.setMargin(botonBrasil, new Insets(0,0,0,200));
-        hemisferioSur.setMargin(botonArgentina, new Insets(120,0,0,0));
-        hemisferioSur.setMargin(botonSahara, new Insets(0,20,0,200));
-        hemisferioSur.setMargin(botonAustralia, new Insets(50,0,0,100));
+        HBox hemisferioSur = new HBox(botonArgentina,botonBrasil , botonSahara, botonEgipto, botonAustralia);
+        hemisferioSur.setMargin(botonBrasil, new Insets(-30,0,0,100));
+        hemisferioSur.setMargin(botonArgentina, new Insets(70,0,0,420));
+        hemisferioSur.setMargin(botonSahara, new Insets(20,20,0,250));
+        hemisferioSur.setMargin(botonEgipto, new Insets(0,20,0,150));
+        hemisferioSur.setMargin(botonAustralia, new Insets(40,0,0,280));
 
-        VBox mapaMundi = new VBox(hemisferioNorte, hemisferioSur);
+
+
+        HBox turnosActuales = new HBox();
+        VBox mapaMundi = new VBox(hemisferioNorte, hemisferioSur, turnosActuales);
         mapaMundi.setSpacing(20);
         mapaMundi.setPadding(new Insets(35,35,35,100));
 
