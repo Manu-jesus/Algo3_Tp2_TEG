@@ -27,8 +27,8 @@ public class BotonPaisEventHandler implements EventHandler<ActionEvent> {
         Stage stage = new Stage();
 
         Button sumarEjercitos = new Button("sumarEjercitos");
-        //BotonCantidadEjercitosEventHandler botonSumaEjercitos = new BotonCantidadEjercitosEventHandler(this.botonPais, this.miPais, mapaInicio);
-        //sumarEjercitos.setOnAction(botonSumaEjercitos);
+        BotonEjercitosASumarEventHandler botonSumaEjercitos = new BotonEjercitosASumarEventHandler(stage, this.botonPais, this.miPais, mapaInicio);//Stage stage, Button botonAtacante, Pais atacante, InicializadorTeg juego
+        sumarEjercitos.setOnAction(botonSumaEjercitos);
 
         Button atacar = new Button("Atacar");
         BotonAtacarEventHandler botonAtacar = new BotonAtacarEventHandler(stage, this.mapaInicio , this.stagePaises, this.miPais, this.botonPais);

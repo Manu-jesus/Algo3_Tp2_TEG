@@ -348,4 +348,11 @@ public class InicializadorTeg {
         botonDefensor.setText(Integer.toString(defensor.ejercitos()));
     }
 
+    public void sumar(TextField texto, Button botonASumar, Pais sumante){
+
+        Integer cantidadEjercitos = Integer.valueOf(texto.getText());
+        turno.jugadorActual().agregarEjercitosA(sumante, cantidadEjercitos);
+
+        botonASumar.setText(Integer.toString(sumante.ejercitos()));
+    }
 }
