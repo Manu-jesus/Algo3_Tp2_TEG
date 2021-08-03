@@ -44,9 +44,9 @@ public class ExceptionTest {
         turno = new Turno();
 
         //Jugadores
-        azul = new Jugador(dadosAzul,objetivoAzul, turno);
-        rojo = new Jugador(dadosRojo,objetivoRojo, turno);
-        amarillo = new Jugador(dadosAmarillo,objetivoAmarillo, turno);
+        azul = new Jugador(dadosAzul,objetivoAzul, turno, "azul");
+        rojo = new Jugador(dadosRojo,objetivoRojo, turno, "azul");
+        amarillo = new Jugador(dadosAmarillo,objetivoAmarillo, turno, "azul");
 
 
     }

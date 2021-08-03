@@ -9,8 +9,10 @@ public class Jugador {
     private ArrayList<Continente> continentes;
     private tarjetaObjetivo objetivo;
     private Turno turno;
+    private String color;
 
-    public Jugador(Dados dados, tarjetaObjetivo objetivo, Turno turno){
+    public Jugador(Dados dados, tarjetaObjetivo objetivo, Turno turno, String color){
+
         this.paises = new ArrayList<>();
         this.dados = dados;
         this.tarjetasPais = new ArrayList<>();
@@ -18,7 +20,13 @@ public class Jugador {
         this.objetivo = objetivo;
         this.turno = turno;
         turno.agregarJugador(this);
+        this.color = color;
     }
+
+    public String color(){
+        return this.color;
+    }
+
 
     public void agregarEjercitosA(Pais pais, Integer cantidadEjercitos){
         if (!this.estaPais(pais)){ return; }

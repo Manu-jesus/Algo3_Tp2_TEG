@@ -36,4 +36,5 @@ loop el pais defensor pierde 2 veces
 "azul:Jugador" -> "turno:Turno": actualizarEjercitosAColocar()
 "turno:Turno" --> "azul:Jugador": void
 "azul:Jugador" --> ":TestCase": void
+
 @enduml

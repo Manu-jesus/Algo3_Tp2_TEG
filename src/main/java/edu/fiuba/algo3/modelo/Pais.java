@@ -8,14 +8,18 @@ public class Pais{
     private Jugador duenio;
     private Continente continente;
 
-    public Pais(Integer cantEjercitos,Jugador duenio,Continente continente){
+    public Pais(Integer cantEjercitos,Jugador duenio , Continente continente){
         this.ejercitos = cantEjercitos;
         this.paisesLimitrofes = new ArrayList<>();
-        this.duenio=duenio;
         this.continente = continente;
         continente.agregarPais(this);
-        duenio.agregarPais(this);
-        duenio.conquistarContinente(continente);
+        this.duenio = duenio;
+        this.duenio.agregarPais(this);
+        this.duenio.conquistarContinente(continente);
+    }
+
+    public String colorPorDuenio(){
+        return duenio.color();
     }
 
     public boolean lePerteneceA(Jugador jugador){
@@ -25,6 +29,8 @@ public class Pais{
     public Jugador duenio(){
         return this.duenio;
     }
+
+
 
     public void agregarPaisLimitrofe(Pais p){
         if (paisesLimitrofes.contains(p)){return;}

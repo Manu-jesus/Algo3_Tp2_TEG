@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
 
 public class TEGtest {
-
+/*
     private Dados dadosAzul;
     private Dados dadosRojo;
     private Jugador azul;
@@ -203,5 +203,5 @@ public class TEGtest {
     public void jugadorCumpleSuObjetivo(){
         Pais arg = new Pais(6,azul,america);
         assertTrue(azul.seCumplioObjetivo());
-    }
+    }*/
 }

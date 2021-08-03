@@ -34,7 +34,7 @@ public class BotonCantidadEjercitosEventHandler implements EventHandler<ActionEv
         TextField texto = new TextField();
 
         Button botonEnviar = new Button("Enviar");
-        BotonEnviarEventHandler enviarEvent = new BotonEnviarEventHandler(stage, texto,botonAtacante, atacante, botonDefensor,  defensor, juego);
+        BotonFinalizarAtaqueEventHandler enviarEvent = new BotonFinalizarAtaqueEventHandler(stage, texto,botonAtacante, atacante, botonDefensor,  defensor, juego);
         botonEnviar.setOnAction(enviarEvent);
 
         TextoEventHandler textoEvent = new TextoEventHandler(botonEnviar);
@@ -47,6 +47,5 @@ public class BotonCantidadEjercitosEventHandler implements EventHandler<ActionEv
         var menu = new Scene(botones, 640, 480);
 
         stage.setScene(menu);
-        //stage.showAndWait();
     }
 }
