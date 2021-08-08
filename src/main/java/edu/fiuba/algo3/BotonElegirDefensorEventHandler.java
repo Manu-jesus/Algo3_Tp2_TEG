@@ -14,9 +14,11 @@ public class BotonElegirDefensorEventHandler implements EventHandler<ActionEvent
     private Button botonAtacante;
     private Pais atacante;
     private Stage stage;
+    private Stage stageMapa;
 
-    public BotonElegirDefensorEventHandler(Stage stage, InicializadorTeg mapaPais, Pais atacante, Button botonAtacante){
+    public BotonElegirDefensorEventHandler(Stage stagePrincipal, Stage stage, InicializadorTeg mapaPais, Pais atacante, Button botonAtacante){
         this.stage = stage;
+        this.stageMapa = stagePrincipal;
         this.mapaPais = mapaPais;
         this.atacante = atacante;
         this.botonAtacante = botonAtacante;
@@ -25,14 +27,15 @@ public class BotonElegirDefensorEventHandler implements EventHandler<ActionEvent
     @Override
     public void handle(ActionEvent actionEvent) {
 
-        VBox nuevoMapa = this.mapaPais.copiarMapa(stage, botonAtacante, atacante);
+        VBox nuevoMapa = this.mapaPais.copiarMapa(stageMapa , botonAtacante, atacante);
 
-        BackgroundImage backgroundMapa= new BackgroundImage(new Image("https://pbs.twimg.com/media/EbYRjuBXkAUfado.png:large",1550,800,false,true),
+        BackgroundImage backgroundMapa= new BackgroundImage(new Image("https://pbs.twimg.com/media/EbYRjuBXkAUfado.png:large",1300,650,false,true),
                 BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
                 BackgroundSize.DEFAULT);
         nuevoMapa.setBackground(new Background(backgroundMapa));
-        var mapa = new Scene(nuevoMapa, 1550,800);
-        stage.setScene(mapa);
+        var mapa = new Scene(nuevoMapa, 1300,650);
+        stage.close();
+        stageMapa.setScene(mapa);
         //stage.showAndWait();
 
     }

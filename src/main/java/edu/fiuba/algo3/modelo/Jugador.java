@@ -50,8 +50,8 @@ public class Jugador {
     }
 
     public void atacarAPais(Pais atacante, Pais defensor, Integer cantidadEjercitos){
-        if (!this.turno.puedoAtarcar()){
-            throw new ElPaisAtacanteNoTePerteneceError();
+        if (!this.turno.puedoAtacar()){
+            throw new ElTurnoYaNoTePermiteAtacarError();
         }
         if (!this.estaPais(atacante)){
             throw new ElPaisAtacanteNoTePerteneceError();

@@ -13,13 +13,15 @@ import javafx.stage.Stage;
 public class BotonEjercitosASumarEventHandler implements EventHandler<ActionEvent> {
 
     private Stage stage;
+    private Stage stageMapa;
     private Button botonAtacante;
     private Pais atacante;
     private InicializadorTeg juego;
 
-    public BotonEjercitosASumarEventHandler(Stage stage, Button botonAtacante, Pais atacante, InicializadorTeg juego){
+    public BotonEjercitosASumarEventHandler(Stage stage, Stage stageMapa, Button botonAtacante, Pais atacante, InicializadorTeg juego){
 
         this.stage = stage;
+        this.stageMapa = stageMapa;
         this.botonAtacante = botonAtacante;
         this.atacante = atacante;
         this.juego = juego;
@@ -30,7 +32,7 @@ public class BotonEjercitosASumarEventHandler implements EventHandler<ActionEven
         TextField texto = new TextField();
 
         Button botonSumar = new Button("Sumar");
-        BotonSumarEventHandler sumarEvent = new BotonSumarEventHandler(stage, texto, botonAtacante, atacante, juego);
+        BotonSumarEventHandler sumarEvent = new BotonSumarEventHandler(stage, stageMapa, texto, botonAtacante, atacante, juego);
         botonSumar.setOnAction(sumarEvent);
 
         TextoEventHandler textoEvent = new TextoEventHandler(botonSumar);

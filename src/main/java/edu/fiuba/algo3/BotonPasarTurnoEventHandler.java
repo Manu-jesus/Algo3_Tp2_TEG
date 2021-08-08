@@ -23,11 +23,11 @@ public class BotonPasarTurnoEventHandler implements EventHandler<ActionEvent> {
     public void handle(ActionEvent actionEvent){
         turno.pasarTurno();
         VBox columnaPais = juego.actualizarTeg(stage);
-        BackgroundImage backgroundMapa= new BackgroundImage(new Image("https://pbs.twimg.com/media/EbYRjuBXkAUfado.png:large",1550,800,false,true),
+        BackgroundImage backgroundMapa= new BackgroundImage(new Image("https://pbs.twimg.com/media/EbYRjuBXkAUfado.png:large",1300,650,false,true),
                 BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
                 BackgroundSize.DEFAULT);
         columnaPais.setBackground(new Background(backgroundMapa));
-        var mapa = new Scene(columnaPais, 1550,800);
+        var mapa = new Scene(columnaPais, 1300,650);
         this.stage.setScene(mapa);
         this.stage.show();
 

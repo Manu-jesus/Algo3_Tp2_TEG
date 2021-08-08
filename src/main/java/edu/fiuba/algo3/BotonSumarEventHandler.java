@@ -16,13 +16,15 @@ public class BotonSumarEventHandler implements EventHandler<ActionEvent> {
 
     private TextField texto;
     private Stage stage;
+    private Stage stageMapa;
     private Button botonAtacante;
     private Pais atacante;
 
     private InicializadorTeg juego;
 
-    public BotonSumarEventHandler (Stage stage, TextField texto,Button botonAtacante, Pais atacante, InicializadorTeg juego){
+    public BotonSumarEventHandler (Stage stage,Stage stageMapa, TextField texto,Button botonAtacante, Pais atacante, InicializadorTeg juego){
         this.stage = stage;
+        this.stageMapa = stageMapa;
         this.texto = texto;
         this.botonAtacante = botonAtacante;
         this.atacante = atacante;
@@ -50,14 +52,15 @@ public class BotonSumarEventHandler implements EventHandler<ActionEvent> {
             casoError.showAndWait();
         }
 
-        VBox actualizado = juego.actualizarTeg(stage);
-        BackgroundImage backgroundMapa= new BackgroundImage(new Image("https://pbs.twimg.com/media/EbYRjuBXkAUfado.png:large",1550,800,false,true),
+        VBox actualizado = juego.actualizarTeg(stageMapa);
+        BackgroundImage backgroundMapa= new BackgroundImage(new Image("https://pbs.twimg.com/media/EbYRjuBXkAUfado.png:large",1300,650,false,true),
                 BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
                 BackgroundSize.DEFAULT);
         actualizado.setBackground(new Background(backgroundMapa));
-        var mapa = new Scene(actualizado, 1550,800);
+        var mapa = new Scene(actualizado, 1300,650);
+        stage.close();
 
-        stage.setScene(mapa);
+        stageMapa.setScene(mapa);
     }
 
     public boolean esNumero(String cadena) {

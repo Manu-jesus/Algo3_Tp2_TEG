@@ -7,14 +7,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-public class BotonAtacarEventHandler implements EventHandler<ActionEvent> {
+public class BotonMoverEjercitosEventHandler implements EventHandler<ActionEvent> {
+
     private Pais atacante;
     private Button botonAtacante;
     private Stage stage;
     private Stage stageMenu;
     private InicializadorTeg mapaPais;
 
-    public BotonAtacarEventHandler (Stage stageMenu,InicializadorTeg mapaPais ,Stage stage, Pais atacante, Button botonAtacante){
+    public BotonMoverEjercitosEventHandler (Stage stageMenu,InicializadorTeg mapaPais ,Stage stage, Pais atacante, Button botonAtacante){
         this.stage = stage;
         this.stageMenu = stageMenu;
         this.atacante = atacante;
@@ -28,11 +29,8 @@ public class BotonAtacarEventHandler implements EventHandler<ActionEvent> {
         //stage.close(); //CIERRO EL ORIGINAL.
         //Stage stage = new Stage();
 
-        Button botonFinalizarAtaque = new Button("Enviar");
-        //BotonFinalizarAtaqueEventHandler enviarEvent = new BotonFinalizarAtaqueEventHandler(stageMapa,stage, texto,botonAtacante, atacante, botonDefensor,  defensor, juego);
-        //botonEnviar.setOnAction(enviarEvent);
 
-        Button botonElegirDefensor = new Button("Seleccinar Pais al que atacaremos");
+        Button botonElegirDefensor = new Button("Seleccinar Pais al que le quitaremos ejercitos");
         BotonElegirDefensorEventHandler elegirDefensorEvent = new BotonElegirDefensorEventHandler(stage,stageMenu,this.mapaPais, this.atacante, this.botonAtacante);
         botonElegirDefensor.setOnAction(elegirDefensorEvent);
 

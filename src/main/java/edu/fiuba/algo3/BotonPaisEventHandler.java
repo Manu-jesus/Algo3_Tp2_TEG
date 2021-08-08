@@ -24,11 +24,11 @@ public class BotonPaisEventHandler implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        stagePaises.close();
+        //stagePaises.close();
         Stage stage = new Stage();
 
         Button sumarEjercitos = new Button("sumarEjercitos");
-        BotonEjercitosASumarEventHandler botonSumaEjercitos = new BotonEjercitosASumarEventHandler(stage, this.botonPais, this.miPais, mapaInicio);//Stage stage, Button botonAtacante, Pais atacante, InicializadorTeg juego
+        BotonEjercitosASumarEventHandler botonSumaEjercitos = new BotonEjercitosASumarEventHandler(stage, this.stagePaises, this.botonPais, this.miPais, mapaInicio);//Stage stage, Button botonAtacante, Pais atacante, InicializadorTeg juego
         sumarEjercitos.setOnAction(botonSumaEjercitos);
 
         Button atacar = new Button("Atacar");
@@ -36,6 +36,8 @@ public class BotonPaisEventHandler implements EventHandler<ActionEvent> {
         atacar.setOnAction(botonAtacar);
 
         Button moverEjercitos = new Button("moverEjercitos");
+        BotonMoverEjercitosEventHandler moverEjercitosEvent = new BotonMoverEjercitosEventHandler(stage, this.mapaInicio , this.stagePaises, this.miPais, this.botonPais);
+        moverEjercitos.setOnAction(moverEjercitosEvent);
 
         VBox botones = new VBox(sumarEjercitos, atacar, moverEjercitos);
         botones.setSpacing(20);

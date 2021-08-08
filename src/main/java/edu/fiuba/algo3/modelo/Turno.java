@@ -12,7 +12,7 @@ public class Turno {
         this.ronda = new PrimeraRonda();
         this.jugadores = new ArrayList<>();
         this.numeroDeTurno = 0;
-        this.ejercitosAColocar = 3;
+        this.ejercitosAColocar = 5;
     }
 
     public void agregarJugador(Jugador jugador){
@@ -32,7 +32,7 @@ public class Turno {
         return this.jugadores.get(numeroDeTurno);
     }
 
-    public boolean puedoAtarcar(){
+    public boolean puedoAtacar(){
         return (this.ronda.ejercitosAColocar(this.jugadores.get(numeroDeTurno))== this.ejercitosAColocar);
     }
 
@@ -42,7 +42,7 @@ public class Turno {
 
     public void colocarEjercitos(Integer cantidadEjercitos){
         if(cantidadEjercitos>this.ejercitosAColocar){
-            throw new ElPaisAtacanteNoTePerteneceError();
+            throw new ElJugadorNoTieneSuficientesEjercitosError();
         }
         this.ejercitosAColocar -= cantidadEjercitos;
     }

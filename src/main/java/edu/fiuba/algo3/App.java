@@ -31,7 +31,7 @@ public class App extends Application {
         botones.setSpacing(20);
         botones.setPadding(new Insets(35));
 
-        var menu = new Scene(botones, 640, 480);
+        var menu = new Scene(botones, 200, 200);
 
         stage.setScene(menu);
         stage.show();
