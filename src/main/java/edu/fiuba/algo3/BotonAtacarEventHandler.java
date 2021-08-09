@@ -24,16 +24,9 @@ public class BotonAtacarEventHandler implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        //stageMenu.close();
-        //stage.close(); //CIERRO EL ORIGINAL.
-        //Stage stage = new Stage();
-
-        Button botonFinalizarAtaque = new Button("Enviar");
-        //BotonFinalizarAtaqueEventHandler enviarEvent = new BotonFinalizarAtaqueEventHandler(stageMapa,stage, texto,botonAtacante, atacante, botonDefensor,  defensor, juego);
-        //botonEnviar.setOnAction(enviarEvent);
 
         Button botonElegirDefensor = new Button("Seleccinar Pais al que atacaremos");
-        BotonElegirDefensorEventHandler elegirDefensorEvent = new BotonElegirDefensorEventHandler(stage,stageMenu,this.mapaPais, this.atacante, this.botonAtacante);
+        BotonElegirDefensorEventHandler elegirDefensorEvent = new BotonElegirDefensorEventHandler(stage,stageMenu,this.mapaPais, this.atacante, this.botonAtacante, true);
         botonElegirDefensor.setOnAction(elegirDefensorEvent);
 
         var menu = new Scene(botonElegirDefensor, 640, 480);

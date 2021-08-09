@@ -15,19 +15,21 @@ public class BotonElegirDefensorEventHandler implements EventHandler<ActionEvent
     private Pais atacante;
     private Stage stage;
     private Stage stageMapa;
+    private boolean esAtacante;
 
-    public BotonElegirDefensorEventHandler(Stage stagePrincipal, Stage stage, InicializadorTeg mapaPais, Pais atacante, Button botonAtacante){
+    public BotonElegirDefensorEventHandler(Stage stagePrincipal, Stage stage, InicializadorTeg mapaPais, Pais atacante, Button botonAtacante, boolean esAtacante){
         this.stage = stage;
         this.stageMapa = stagePrincipal;
         this.mapaPais = mapaPais;
         this.atacante = atacante;
         this.botonAtacante = botonAtacante;
+        this.esAtacante = esAtacante;
     }
 
     @Override
     public void handle(ActionEvent actionEvent) {
 
-        VBox nuevoMapa = this.mapaPais.copiarMapa(stageMapa , botonAtacante, atacante);
+        VBox nuevoMapa = this.mapaPais.copiarMapa(stageMapa , botonAtacante, atacante, esAtacante);
 
         BackgroundImage backgroundMapa= new BackgroundImage(new Image("https://pbs.twimg.com/media/EbYRjuBXkAUfado.png:large",1300,650,false,true),
                 BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,

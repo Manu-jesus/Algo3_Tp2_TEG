@@ -650,43 +650,43 @@ public class InicializadorTeg {
         botonBorneo.setStyle("-fx-background-color:"+borneo.colorPorDuenio());
     }
 
-    public VBox copiarMapa(Stage stageMapa, Button botonAtacante, Pais atacante){
+    public VBox copiarMapa(Stage stageMapa, Button botonAtacante, Pais atacante,boolean esAtaque){
 
         this.determinarTamanio();
 
         this.determinarColor();
 
-        BotonCantidadEjercitosEventHandler botonDefiendeArgentinaEjercitos = new BotonCantidadEjercitosEventHandler(stageMapa,botonAtacante, atacante, botonArgentina,argentina, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeArgentinaEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonArgentina,argentina, this);
         botonArgentina.setOnAction(botonDefiendeArgentinaEjercitos);
 
-        BotonCantidadEjercitosEventHandler botonDefiendeBrasilEjercitos = new BotonCantidadEjercitosEventHandler(stageMapa,botonAtacante, atacante, botonBrasil,brasil, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeBrasilEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonBrasil,brasil, this);
         botonBrasil.setOnAction(botonDefiendeBrasilEjercitos);
 
-        BotonCantidadEjercitosEventHandler botonDefiendeCaliforniaEjercitos = new BotonCantidadEjercitosEventHandler(stageMapa,botonAtacante, atacante, botonCalifornia,california, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeCaliforniaEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonCalifornia,california, this);
         botonCalifornia.setOnAction(botonDefiendeCaliforniaEjercitos);
 
-        BotonCantidadEjercitosEventHandler botonDefiendeMexicoEjercitos = new BotonCantidadEjercitosEventHandler(stageMapa,botonAtacante, atacante, botonMexico,mexico, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeMexicoEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonMexico,mexico, this);
         botonMexico.setOnAction(botonDefiendeMexicoEjercitos);
 
-        BotonCantidadEjercitosEventHandler botonDefiendeEspanaEjercitos = new BotonCantidadEjercitosEventHandler(stageMapa,botonAtacante, atacante, botonEspana,espana, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeEspanaEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonEspana,espana, this);
         botonEspana.setOnAction(botonDefiendeEspanaEjercitos);
 
-        BotonCantidadEjercitosEventHandler botonDefiendeFranciaEjercitos = new BotonCantidadEjercitosEventHandler(stageMapa,botonAtacante, atacante, botonFrancia,francia, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeFranciaEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonFrancia,francia, this);
         botonFrancia.setOnAction(botonDefiendeFranciaEjercitos);
 
-        BotonCantidadEjercitosEventHandler botonDefiendeIranEjercitos = new BotonCantidadEjercitosEventHandler(stageMapa,botonAtacante, atacante, botonIran,iran, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeIranEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonIran,iran, this);
         botonIran.setOnAction(botonDefiendeIranEjercitos);
 
-        BotonCantidadEjercitosEventHandler botonDefiendeChinaEjercitos = new BotonCantidadEjercitosEventHandler(stageMapa,botonAtacante, atacante, botonChina,china, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeChinaEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonChina,china, this);
         botonChina.setOnAction(botonDefiendeChinaEjercitos);
 
-        BotonCantidadEjercitosEventHandler botonDefiendeSaharaEjercitos = new BotonCantidadEjercitosEventHandler(stageMapa,botonAtacante, atacante, botonSahara,sahara, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeSaharaEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonSahara,sahara, this);
         botonSahara.setOnAction(botonDefiendeSaharaEjercitos);
 
-        BotonCantidadEjercitosEventHandler botonDefiendeEgiptoEjercitos = new BotonCantidadEjercitosEventHandler(stageMapa,botonAtacante, atacante, botonEgipto,egipto, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeEgiptoEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonEgipto,egipto, this);
         botonEgipto.setOnAction(botonDefiendeEgiptoEjercitos);
 
-        BotonCantidadEjercitosEventHandler botonDefiendeAustraliaEjercitos = new BotonCantidadEjercitosEventHandler(stageMapa,botonAtacante, atacante, botonAustralia,australia, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeAustraliaEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonAustralia,australia, this);
         botonAustralia.setOnAction(botonDefiendeAustraliaEjercitos);
 
         HBox hemisferioNorte = new HBox( botonCalifornia, botonMexico, botonEspana, botonFrancia, botonIran, botonChina);
@@ -730,5 +730,13 @@ public class InicializadorTeg {
         turno.jugadorActual().agregarEjercitosA(sumante, cantidadEjercitos);
 
         botonASumar.setText(Integer.toString(sumante.ejercitos()));
+    }
+
+    public void mover(TextField texto,Button botonAtacante,Pais atacante,Button botonDefensor,Pais defensor){
+        Integer cantidadEjercitos = Integer.valueOf(texto.getText());
+        turno.jugadorActual().moverEjercitos(atacante, defensor, cantidadEjercitos);
+
+        botonAtacante.setText(Integer.toString(atacante.ejercitos()));
+        botonDefensor.setText(Integer.toString(defensor.ejercitos()));
     }
 }

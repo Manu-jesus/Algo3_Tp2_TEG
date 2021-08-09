@@ -24,19 +24,15 @@ public class BotonMoverEjercitosEventHandler implements EventHandler<ActionEvent
     }
 
     @Override
-    public void handle(ActionEvent actionEvent) {
-        //stageMenu.close();
-        //stage.close(); //CIERRO EL ORIGINAL.
-        //Stage stage = new Stage();
+    public void handle(ActionEvent actionEvent){
 
 
         Button botonElegirDefensor = new Button("Seleccinar Pais al que le quitaremos ejercitos");
-        BotonElegirDefensorEventHandler elegirDefensorEvent = new BotonElegirDefensorEventHandler(stage,stageMenu,this.mapaPais, this.atacante, this.botonAtacante);
+        BotonElegirDefensorEventHandler elegirDefensorEvent = new BotonElegirDefensorEventHandler(stage,stageMenu,this.mapaPais, this.atacante, this.botonAtacante, false);
         botonElegirDefensor.setOnAction(elegirDefensorEvent);
 
         var menu = new Scene(botonElegirDefensor, 640, 480);
 
         stageMenu.setScene(menu);
-        //stageMenu.showAndWait();
     }
 }

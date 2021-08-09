@@ -19,14 +19,16 @@ public class BotonCantidadEjercitosEventHandler implements EventHandler<ActionEv
     private Button botonDefensor;
     private Pais defensor;
     private InicializadorTeg juego;
+    private boolean esAtaque;
 
-    public BotonCantidadEjercitosEventHandler(Stage stageMapa, Button botonAtacante, Pais atacante, Button botonDefensor, Pais defensor, InicializadorTeg juego) {
+    public BotonCantidadEjercitosEventHandler(boolean esAtaque, Stage stageMapa, Button botonAtacante, Pais atacante, Button botonDefensor, Pais defensor, InicializadorTeg juego) {
         this.stageMapa = stageMapa;
         this.botonAtacante = botonAtacante;
         this.atacante = atacante;
         this.botonDefensor = botonDefensor;
         this.defensor = defensor;
         this.juego = juego;
+        this.esAtaque = esAtaque;
     }
 
     @Override
@@ -42,10 +44,15 @@ public class BotonCantidadEjercitosEventHandler implements EventHandler<ActionEv
         var mapa = new Scene(actualizado, 1300,650);
         stageMapa.setScene(mapa);
 
-        Button botonEnviar = new Button("Enviar");
-        BotonFinalizarAtaqueEventHandler enviarEvent = new BotonFinalizarAtaqueEventHandler(stageMapa,stage, texto,botonAtacante, atacante, botonDefensor,  defensor, juego);
-        botonEnviar.setOnAction(enviarEvent);
-
+        Button botonEnviar = new Button("Enviar ejercitos");
+        if (esAtaque) {
+            BotonFinalizarAtaqueEventHandler atacarEvent = new BotonFinalizarAtaqueEventHandler(stageMapa, stage, texto, botonAtacante, atacante, botonDefensor, defensor, juego);
+            botonEnviar.setOnAction(atacarEvent);
+        }
+        else {
+            BotonFinalizarMovidaEventHandler moverEvent = new BotonFinalizarMovidaEventHandler(stageMapa, stage, texto, botonAtacante, atacante, botonDefensor, defensor, juego);
+            botonEnviar.setOnAction(moverEvent);
+        }
         TextoEventHandler textoEvent = new TextoEventHandler(botonEnviar);
         texto.setOnKeyPressed(textoEvent);
 
