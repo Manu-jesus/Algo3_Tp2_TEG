@@ -41,14 +41,12 @@ public class BotonFinalizarMovidaEventHandler implements EventHandler<ActionEven
         }
         try {
             juego.mover(texto, botonAtacante, atacante, botonDefensor, defensor);
-        }catch (ElPaisAtacanteSiempreDebeMantenerUnEjercitoEnElPaisError exception){
-            this.tratarError("No se puede atacar con  esa cantidad de ejercitos");
+        }catch (NoEsPosibleRestarEsaCantidadDeEjercitosError exception){
+            this.tratarError("No se puede restar esa cantidad de ejercitos");
         }catch (ElPaisAtacanteNoTePerteneceError exception){
-            this.tratarError("No te pertenece el pais atacante");
-        }catch (ElTurnoYaNoTePermiteAtacarError exception){
-            this.tratarError("No se puede atacar despues de agregar ejercitos");
+            this.tratarError("No puedes hacer este movimiento con paises que no te pertenecen");
         }catch (LosPaisesNoSonLimitrofesError exception){
-            this.tratarError("Solo se puede atacar a un país limitrofe o conectado");
+            this.tratarError("Solo se puede mover a un país limitrofe o conectado");
         }
 
 

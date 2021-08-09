@@ -67,7 +67,7 @@ public class Pais{
         this.duenio.conquistarContinente(this.continente);
     }
 
-    private boolean esPaisLimitrofe(Pais p){
+    public boolean esPaisLimitrofe(Pais p){
         return paisesLimitrofes.contains(p);
     }
 

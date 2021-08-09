@@ -93,6 +93,13 @@ public class Jugador {
 
 
     public void moverEjercitos(Pais paisEmisor, Pais paisReceptor, Integer cantidadEjercitos) {
+        if ((!this.paises.contains(paisEmisor)) || (!this.paises.contains(paisReceptor))){
+            throw new ElPaisAtacanteNoTePerteneceError();
+        }
+        if (!paisEmisor.esPaisLimitrofe(paisReceptor)){
+            throw new LosPaisesNoSonLimitrofesError();
+        }
+
         paisEmisor.restarEjercitos(cantidadEjercitos);
         paisReceptor.sumarEjercitos(cantidadEjercitos);
     }

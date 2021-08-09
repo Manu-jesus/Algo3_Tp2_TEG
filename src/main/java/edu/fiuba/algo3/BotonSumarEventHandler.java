@@ -1,5 +1,6 @@
 package edu.fiuba.algo3;
 
+import edu.fiuba.algo3.modelo.ElJugadorNoTieneSuficientesEjercitosError;
 import edu.fiuba.algo3.modelo.ElPaisAtacanteSiempreDebeMantenerUnEjercitoEnElPaisError;
 import edu.fiuba.algo3.modelo.Pais;
 import javafx.event.ActionEvent;
@@ -34,22 +35,16 @@ public class BotonSumarEventHandler implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent){
         if (!this.esNumero(this.texto.getText())){
-            Stage casoError = new Stage();
-            var label = new Label("El contenido ingresado debe ser un número");
-            Scene scene = new Scene(label, 400,100);
-            casoError.setScene(scene);
-            casoError.showAndWait();
+            this.tratarError("El contenido ingresado debe ser un número");
             return;
         }
         try {
             juego.sumar(texto, botonAtacante, atacante);
 
         }catch (ElPaisAtacanteSiempreDebeMantenerUnEjercitoEnElPaisError exception){
-            Stage casoError = new Stage();
-            var label = new Label("No se puede atacar con  esa cantidad de ejercitos");
-            Scene scene = new Scene(label, 400,100);
-            casoError.setScene(scene);
-            casoError.showAndWait();
+            this.tratarError("No se puede atacar con  esa cantidad de ejercitos");
+        }catch (ElJugadorNoTieneSuficientesEjercitosError exception){
+            this.tratarError("No esta permitido sumar esta cantidad en este turno");
         }
 
         VBox actualizado = juego.actualizarTeg(stageMapa);
@@ -58,6 +53,7 @@ public class BotonSumarEventHandler implements EventHandler<ActionEvent> {
                 BackgroundSize.DEFAULT);
         actualizado.setBackground(new Background(backgroundMapa));
         var mapa = new Scene(actualizado, 1300,650);
+
         stage.close();
 
         stageMapa.setScene(mapa);
@@ -75,5 +71,13 @@ public class BotonSumarEventHandler implements EventHandler<ActionEvent> {
         }
 
         return resultado;
+    }
+
+    public void tratarError(String mensaje){
+        Stage casoError = new Stage();
+        var label = new Label(mensaje);
+        Scene scene = new Scene(label, 400,100);
+        casoError.setScene(scene);
+        casoError.showAndWait();
     }
 }
