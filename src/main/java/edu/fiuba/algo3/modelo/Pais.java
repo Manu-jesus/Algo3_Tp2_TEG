@@ -64,6 +64,7 @@ public class Pais{
         this.duenio.perderContinente(this.continente);
         this.duenio.perderPais(this);
         this.duenio=jugador;
+        this.duenio.agregarPais(this);
         this.duenio.conquistarContinente(this.continente);
     }
 

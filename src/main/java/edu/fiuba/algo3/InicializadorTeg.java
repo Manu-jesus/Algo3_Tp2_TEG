@@ -411,40 +411,116 @@ public class InicializadorTeg {
         pasarTurno.setOnAction(pasarTurnoEvent);
 
         BotonPaisEventHandler botonArgentinaEvent = new BotonPaisEventHandler(this , stage, botonArgentina, argentina);
-        botonArgentina.setOnAction(botonArgentinaEvent);
-
         BotonPaisEventHandler botonBrasilEvent = new BotonPaisEventHandler(this , stage, botonBrasil, brasil);
-        botonBrasil.setOnAction(botonBrasilEvent);
-
+        BotonPaisEventHandler botonUruguayEvent = new BotonPaisEventHandler(this , stage, botonUruguay, uruguay);
+        BotonPaisEventHandler botonPeruEvent = new BotonPaisEventHandler(this , stage, botonPeru, peru);
         BotonPaisEventHandler botonChileEvent = new BotonPaisEventHandler(this , stage, botonChile, chile);
-        botonChile.setOnAction(botonChileEvent);
-
-        BotonPaisEventHandler botonCaliforniaEvent = new BotonPaisEventHandler(this , stage, botonCalifornia, california);
-        botonCalifornia.setOnAction(botonCaliforniaEvent);
+        BotonPaisEventHandler botonColombiaEvent = new BotonPaisEventHandler(this , stage, botonColombia, colombia);
 
         BotonPaisEventHandler botonMexicoEvent = new BotonPaisEventHandler(this , stage, botonMexico, mexico);
-        botonMexico.setOnAction(botonMexicoEvent);
+        BotonPaisEventHandler botonCaliforniaEvent = new BotonPaisEventHandler(this , stage, botonCalifornia, california);
+        BotonPaisEventHandler botonOregonEvent = new BotonPaisEventHandler(this , stage, botonOregon, oregon);
+        BotonPaisEventHandler botonNuevaYorkEvent = new BotonPaisEventHandler(this , stage, botonNuevaYork, nuevaYork);
+        BotonPaisEventHandler botonTerranovaEvent = new BotonPaisEventHandler(this , stage, botonTerranova, terranova);
+        BotonPaisEventHandler botonLabradorEvent = new BotonPaisEventHandler(this , stage, botonLabrador, labrador);
+        BotonPaisEventHandler botonGroenlandiaEvent = new BotonPaisEventHandler(this , stage, botonGroenlandia, groenlandia);
+        BotonPaisEventHandler botonCanadaEvent = new BotonPaisEventHandler(this , stage, botonCanada, canada);
+        BotonPaisEventHandler botonYukonEvent = new BotonPaisEventHandler(this , stage, botonYukon, yukon);
+        BotonPaisEventHandler botonAlaskaEvent = new BotonPaisEventHandler(this , stage, botonAlaska, alaska);
 
         BotonPaisEventHandler botonEspanaEvent = new BotonPaisEventHandler(this , stage, botonEspana, espana);
-        botonEspana.setOnAction(botonEspanaEvent);
-
         BotonPaisEventHandler botonFranciaEvent = new BotonPaisEventHandler(this , stage, botonFrancia, francia);
-        botonFrancia.setOnAction(botonFranciaEvent);
-
-        BotonPaisEventHandler botonIranEvent = new BotonPaisEventHandler(this , stage, botonIran, iran);
-        botonIran.setOnAction(botonIranEvent);
+        BotonPaisEventHandler botonIslandiaEvent = new BotonPaisEventHandler(this , stage, botonIslandia, islandia);
+        BotonPaisEventHandler botonGranBretanaEvent = new BotonPaisEventHandler(this , stage, botonGranBretana, granBretana);
+        BotonPaisEventHandler botonAlemaniaEvent = new BotonPaisEventHandler(this , stage, botonAlemania, alemania);
+        BotonPaisEventHandler botonItaliaEvent = new BotonPaisEventHandler(this , stage, botonItalia, italia);
+        BotonPaisEventHandler botonPoloniaEvent = new BotonPaisEventHandler(this , stage, botonPolonia, polonia);
+        BotonPaisEventHandler botonRusiaEvent = new BotonPaisEventHandler(this , stage, botonRusia, rusia);
+        BotonPaisEventHandler botonSueciaEvent = new BotonPaisEventHandler(this , stage, botonSuecia, suecia);
 
         BotonPaisEventHandler botonChinaEvent = new BotonPaisEventHandler(this , stage, botonChina, china);
-        botonChina.setOnAction(botonChinaEvent);
+        BotonPaisEventHandler botonIranEvent = new BotonPaisEventHandler(this , stage, botonIran, iran);
+        BotonPaisEventHandler botonMalasiaEvent = new BotonPaisEventHandler(this , stage, botonMalasia, malasia);
+        BotonPaisEventHandler botonIndiaEvent = new BotonPaisEventHandler(this , stage, botonIndia, india);
+        BotonPaisEventHandler botonArabiaEvent = new BotonPaisEventHandler(this , stage, botonArabia, arabia);
+        BotonPaisEventHandler botonIsraelEvent = new BotonPaisEventHandler(this , stage, botonIsrael, israel);
+        BotonPaisEventHandler botonTurquiaEvent = new BotonPaisEventHandler(this , stage, botonTurquia, turquia);
+        BotonPaisEventHandler botonGobiEvent = new BotonPaisEventHandler(this , stage, botonGobi, gobi);
+        BotonPaisEventHandler botonMongoliaEvent = new BotonPaisEventHandler(this , stage, botonMongolia, mongolia);
+        BotonPaisEventHandler botonSiberiaEvent = new BotonPaisEventHandler(this , stage, botonSiberia, siberia);
+        BotonPaisEventHandler botonAralEvent = new BotonPaisEventHandler(this , stage, botonAral, aral);
+        BotonPaisEventHandler botonTartariaEvent = new BotonPaisEventHandler(this , stage, botonTartaria, tartaria);
+        BotonPaisEventHandler botonTaymirEvent = new BotonPaisEventHandler(this , stage, botonTaymir, taymir);
+        BotonPaisEventHandler botonKamchaykaEvent = new BotonPaisEventHandler(this , stage, botonKamchayka, kamchayka);
+        BotonPaisEventHandler botonJaponEvent = new BotonPaisEventHandler(this , stage, botonJapon, japon);
 
         BotonPaisEventHandler botonSaharaEvent = new BotonPaisEventHandler(this , stage, botonSahara, sahara);
-        botonSahara.setOnAction(botonSaharaEvent);
-
         BotonPaisEventHandler botonEgiptoEvent = new BotonPaisEventHandler(this , stage, botonEgipto, egipto);
-        botonEgipto.setOnAction(botonEgiptoEvent);
+        BotonPaisEventHandler botonEtiopiaEvent = new BotonPaisEventHandler(this , stage, botonEtiopia, etiopia);
+        BotonPaisEventHandler botonZaireEvent = new BotonPaisEventHandler(this , stage, botonZaire, zaire);
+        BotonPaisEventHandler botonSudafricaEvent = new BotonPaisEventHandler(this , stage, botonSudafrica, sudafrica);
+        BotonPaisEventHandler botonMadagascarEvent = new BotonPaisEventHandler(this , stage, botonMadagascar, madagascar);
 
         BotonPaisEventHandler botonAustraliaEvent = new BotonPaisEventHandler(this , stage, botonAustralia, australia);
+        BotonPaisEventHandler botonSumatraEvent = new BotonPaisEventHandler(this , stage, botonSumatra, sumatra);
+        BotonPaisEventHandler botonJavaEvent = new BotonPaisEventHandler(this , stage, botonJava, java);
+        BotonPaisEventHandler botonBorneoEvent = new BotonPaisEventHandler(this , stage, botonBorneo, borneo);
+
+        botonArgentina.setOnAction(botonArgentinaEvent);
+        botonBrasil.setOnAction(botonBrasilEvent);
+        botonUruguay.setOnAction(botonUruguayEvent);
+        botonPeru.setOnAction(botonPeruEvent);
+        botonChile.setOnAction(botonChileEvent);
+        botonColombia.setOnAction(botonColombiaEvent);
+
+        botonMexico.setOnAction(botonMexicoEvent);
+        botonCalifornia.setOnAction(botonCaliforniaEvent);
+        botonOregon.setOnAction(botonOregonEvent);
+        botonNuevaYork.setOnAction(botonNuevaYorkEvent);
+        botonTerranova.setOnAction(botonTerranovaEvent);
+        botonLabrador.setOnAction(botonLabradorEvent);
+        botonGroenlandia.setOnAction(botonGroenlandiaEvent);
+        botonCanada.setOnAction(botonCanadaEvent);
+        botonYukon.setOnAction(botonYukonEvent);
+        botonAlaska.setOnAction(botonAlaskaEvent);
+
+        botonEspana.setOnAction(botonEspanaEvent);
+        botonFrancia.setOnAction(botonFranciaEvent);
+        botonIslandia.setOnAction(botonIslandiaEvent);
+        botonGranBretana.setOnAction(botonGranBretanaEvent);
+        botonAlemania.setOnAction(botonAlemaniaEvent);
+        botonItalia.setOnAction(botonItaliaEvent);
+        botonPolonia.setOnAction(botonPoloniaEvent);
+        botonRusia.setOnAction(botonRusiaEvent);
+        botonSuecia.setOnAction(botonSueciaEvent);
+
+        botonChina.setOnAction(botonChinaEvent);
+        botonIran.setOnAction(botonIranEvent);
+        botonMalasia.setOnAction(botonMalasiaEvent);
+        botonIndia.setOnAction(botonIndiaEvent);
+        botonArabia.setOnAction(botonArabiaEvent);
+        botonIsrael.setOnAction(botonIsraelEvent);
+        botonTurquia.setOnAction(botonTurquiaEvent);
+        botonGobi.setOnAction(botonGobiEvent);
+        botonMongolia.setOnAction(botonMongoliaEvent);
+        botonSiberia.setOnAction(botonSiberiaEvent);
+        botonAral.setOnAction(botonAralEvent);
+        botonTartaria.setOnAction(botonTartariaEvent);
+        botonTaymir.setOnAction(botonTaymirEvent);
+        botonKamchayka.setOnAction(botonKamchaykaEvent);
+        botonJapon.setOnAction(botonJaponEvent);
+
+        botonSahara.setOnAction(botonSaharaEvent);
+        botonEgipto.setOnAction(botonEgiptoEvent);
+        botonEtiopia.setOnAction(botonEtiopiaEvent);
+        botonZaire.setOnAction(botonZaireEvent);
+        botonSudafrica.setOnAction(botonSudafricaEvent);
+        botonMadagascar.setOnAction(botonMadagascarEvent);
+
         botonAustralia.setOnAction(botonAustraliaEvent);
+        botonSumatra.setOnAction(botonSumatraEvent);
+        botonJava.setOnAction(botonJavaEvent);
+        botonBorneo.setOnAction(botonBorneoEvent);
 
         this.determinarTamanio();
         this.determinarColor();
@@ -489,14 +565,6 @@ public class InicializadorTeg {
         hemisferioNorte.setMargin(botonChina,new Insets(220,0,0,-10));
         hemisferioNorte.setMargin(botonMalasia,new Insets(310,0,0,30));
         hemisferioNorte.setMargin(botonJapon,new Insets(165,0,0,-20));
-
-
-
-
-
-
-
-
 
         HBox hemisferioSur = new HBox(botonColombia, botonPeru, botonChile, botonArgentina, botonUruguay, botonBrasil, botonSahara,
                 botonZaire, botonEtiopia, botonSudafrica, botonEgipto, botonMadagascar, botonSumatra, botonBorneo, botonAustralia, botonJava);
@@ -656,41 +724,117 @@ public class InicializadorTeg {
 
         this.determinarColor();
 
-        BotonCantidadEjercitosEventHandler botonDefiendeArgentinaEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonArgentina,argentina, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeArgentinaEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonArgentina, argentina, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeBrasilEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonBrasil, brasil, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeUruguayEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonUruguay, uruguay, this);
+        BotonCantidadEjercitosEventHandler botonDefiendePeruEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonPeru, peru, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeChileEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonChile, chile, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeColombiaEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonColombia, colombia, this);
+
+        BotonCantidadEjercitosEventHandler botonDefiendeMexicoEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonMexico, mexico, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeCaliforniaEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonCalifornia, california, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeOregonEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonOregon, oregon, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeNuevaYorkEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonNuevaYork, nuevaYork, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeTerranovaEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonTerranova, terranova, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeLabradorEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonLabrador, labrador, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeGroenlandiaEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonGroenlandia, groenlandia, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeCanadaEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonCanada, canada, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeYukonEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonYukon, yukon, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeAlaskaEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonAlaska, alaska, this);
+
+        BotonCantidadEjercitosEventHandler botonDefiendeEspanaEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonEspana, espana, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeFranciaEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonFrancia, francia, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeIslandiaEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonIslandia, islandia, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeGranBretanaEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonGranBretana, granBretana, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeAlemaniaEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonAlemania, alemania, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeItaliaEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonItalia, italia, this);
+        BotonCantidadEjercitosEventHandler botonDefiendePoloniaEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonPolonia, polonia, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeRusiaEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonRusia, rusia, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeSueciaEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonSuecia, suecia, this);
+
+        BotonCantidadEjercitosEventHandler botonDefiendeChinaEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonChina, china, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeIranEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonIran, iran, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeMalasiaEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonMalasia, malasia, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeIndiaEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonIndia, india, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeArabiaEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonArabia, arabia, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeIsraelEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonIsrael, israel, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeTurquiaEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonTurquia, turquia, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeGobiEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonGobi, gobi, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeMongoliaEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonMongolia, mongolia, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeSiberiaEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonSiberia, siberia, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeAralEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonAral, aral, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeTartariaEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonTartaria, tartaria, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeTaymirEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonTaymir, taymir, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeKamchaykaEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonKamchayka, kamchayka, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeJaponEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonJapon, japon, this);
+
+        BotonCantidadEjercitosEventHandler botonDefiendeSaharaEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonSahara, sahara, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeEgiptoEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonEgipto, egipto, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeEtiopiaEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonEtiopia, etiopia, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeZaireEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonZaire, zaire, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeSudafricaEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonSudafrica, sudafrica, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeMadagascarEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonMadagascar, madagascar, this);
+
+        BotonCantidadEjercitosEventHandler botonDefiendeAustraliaEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonAustralia, australia, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeSumatraEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonSumatra, sumatra, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeJavaEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonJava, java, this);
+        BotonCantidadEjercitosEventHandler botonDefiendeBorneoEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonBorneo, borneo, this);
+
         botonArgentina.setOnAction(botonDefiendeArgentinaEjercitos);
-
-        BotonCantidadEjercitosEventHandler botonDefiendeBrasilEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonBrasil,brasil, this);
         botonBrasil.setOnAction(botonDefiendeBrasilEjercitos);
-
-        BotonCantidadEjercitosEventHandler botonDefiendeChileEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonChile,chile, this);
+        botonUruguay.setOnAction(botonDefiendeUruguayEjercitos);
+        botonPeru.setOnAction(botonDefiendePeruEjercitos);
         botonChile.setOnAction(botonDefiendeChileEjercitos);
+        botonColombia.setOnAction(botonDefiendeColombiaEjercitos);
 
-        BotonCantidadEjercitosEventHandler botonDefiendeCaliforniaEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonCalifornia,california, this);
-        botonCalifornia.setOnAction(botonDefiendeCaliforniaEjercitos);
-
-        BotonCantidadEjercitosEventHandler botonDefiendeMexicoEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonMexico,mexico, this);
         botonMexico.setOnAction(botonDefiendeMexicoEjercitos);
+        botonCalifornia.setOnAction(botonDefiendeCaliforniaEjercitos);
+        botonOregon.setOnAction(botonDefiendeOregonEjercitos);
+        botonNuevaYork.setOnAction(botonDefiendeNuevaYorkEjercitos);
+        botonTerranova.setOnAction(botonDefiendeTerranovaEjercitos);
+        botonLabrador.setOnAction(botonDefiendeLabradorEjercitos);
+        botonGroenlandia.setOnAction(botonDefiendeGroenlandiaEjercitos);
+        botonCanada.setOnAction(botonDefiendeCanadaEjercitos);
+        botonYukon.setOnAction(botonDefiendeYukonEjercitos);
+        botonAlaska.setOnAction(botonDefiendeAlaskaEjercitos);
 
-        BotonCantidadEjercitosEventHandler botonDefiendeEspanaEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonEspana,espana, this);
         botonEspana.setOnAction(botonDefiendeEspanaEjercitos);
-
-        BotonCantidadEjercitosEventHandler botonDefiendeFranciaEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonFrancia,francia, this);
         botonFrancia.setOnAction(botonDefiendeFranciaEjercitos);
+        botonIslandia.setOnAction(botonDefiendeIslandiaEjercitos);
+        botonGranBretana.setOnAction(botonDefiendeGranBretanaEjercitos);
+        botonAlemania.setOnAction(botonDefiendeAlemaniaEjercitos);
+        botonItalia.setOnAction(botonDefiendeItaliaEjercitos);
+        botonPolonia.setOnAction(botonDefiendePoloniaEjercitos);
+        botonRusia.setOnAction(botonDefiendeRusiaEjercitos);
+        botonSuecia.setOnAction(botonDefiendeSueciaEjercitos);
 
-        BotonCantidadEjercitosEventHandler botonDefiendeIranEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonIran,iran, this);
-        botonIran.setOnAction(botonDefiendeIranEjercitos);
-
-        BotonCantidadEjercitosEventHandler botonDefiendeChinaEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonChina,china, this);
         botonChina.setOnAction(botonDefiendeChinaEjercitos);
+        botonIran.setOnAction(botonDefiendeIranEjercitos);
+        botonMalasia.setOnAction(botonDefiendeMalasiaEjercitos);
+        botonIndia.setOnAction(botonDefiendeIndiaEjercitos);
+        botonArabia.setOnAction(botonDefiendeArabiaEjercitos);
+        botonIsrael.setOnAction(botonDefiendeIsraelEjercitos);
+        botonTurquia.setOnAction(botonDefiendeTurquiaEjercitos);
+        botonGobi.setOnAction(botonDefiendeGobiEjercitos);
+        botonMongolia.setOnAction(botonDefiendeMongoliaEjercitos);
+        botonSiberia.setOnAction(botonDefiendeSiberiaEjercitos);
+        botonAral.setOnAction(botonDefiendeAralEjercitos);
+        botonTartaria.setOnAction(botonDefiendeTartariaEjercitos);
+        botonTaymir.setOnAction(botonDefiendeTaymirEjercitos);
+        botonKamchayka.setOnAction(botonDefiendeKamchaykaEjercitos);
+        botonJapon.setOnAction(botonDefiendeJaponEjercitos);
 
-        BotonCantidadEjercitosEventHandler botonDefiendeSaharaEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonSahara,sahara, this);
         botonSahara.setOnAction(botonDefiendeSaharaEjercitos);
-
-        BotonCantidadEjercitosEventHandler botonDefiendeEgiptoEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonEgipto,egipto, this);
         botonEgipto.setOnAction(botonDefiendeEgiptoEjercitos);
+        botonEtiopia.setOnAction(botonDefiendeEtiopiaEjercitos);
+        botonZaire.setOnAction(botonDefiendeZaireEjercitos);
+        botonSudafrica.setOnAction(botonDefiendeSudafricaEjercitos);
+        botonMadagascar.setOnAction(botonDefiendeMadagascarEjercitos);
 
-        BotonCantidadEjercitosEventHandler botonDefiendeAustraliaEjercitos = new BotonCantidadEjercitosEventHandler(esAtaque, stageMapa,botonAtacante, atacante, botonAustralia,australia, this);
         botonAustralia.setOnAction(botonDefiendeAustraliaEjercitos);
+        botonSumatra.setOnAction(botonDefiendeSumatraEjercitos);
+        botonJava.setOnAction(botonDefiendeJavaEjercitos);
+        botonBorneo.setOnAction(botonDefiendeBorneoEjercitos);
 
         HBox hemisferioNorte = new HBox(botonAlaska,botonYukon, botonOregon, botonCanada, botonCalifornia,botonNuevaYork, botonMexico,
                 botonTerranova, botonLabrador, botonGroenlandia, botonIslandia, botonEspana, botonGranBretana, botonFrancia, botonSuecia,
@@ -733,14 +877,6 @@ public class InicializadorTeg {
         hemisferioNorte.setMargin(botonMalasia,new Insets(310,0,0,30));
         hemisferioNorte.setMargin(botonJapon,new Insets(165,0,0,-20));
 
-
-
-
-
-
-
-
-
         HBox hemisferioSur = new HBox(botonColombia, botonPeru, botonChile, botonArgentina, botonUruguay, botonBrasil, botonSahara,
                 botonZaire, botonEtiopia, botonSudafrica, botonEgipto, botonMadagascar, botonSumatra, botonBorneo, botonAustralia, botonJava);
         hemisferioSur.setMargin(botonColombia, new Insets(-35,0,0,400));
@@ -764,8 +900,6 @@ public class InicializadorTeg {
 
 
         VBox mapaMundi = new VBox(hemisferioNorte, hemisferioSur);
-        mapaMundi.setSpacing(20);
-        mapaMundi.setPadding(new Insets(35,35,35,100));
 
         return mapaMundi;
     }
