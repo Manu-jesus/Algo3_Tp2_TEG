@@ -99,6 +99,9 @@ public class Jugador {
         if (!paisEmisor.esPaisLimitrofe(paisReceptor)){
             throw new LosPaisesNoSonLimitrofesError();
         }
+        if (paisEmisor.ejercitos()<=cantidadEjercitos){
+            throw new NoEsPosibleRestarEsaCantidadDeEjercitosError();
+        }
 
         paisEmisor.restarEjercitos(cantidadEjercitos);
         paisReceptor.sumarEjercitos(cantidadEjercitos);
