@@ -45,8 +45,8 @@ public class ExceptionTest {
 
         //Jugadores
         azul = new Jugador(dadosAzul,objetivoAzul, turno, "azul");
-        rojo = new Jugador(dadosRojo,objetivoRojo, turno, "azul");
-        amarillo = new Jugador(dadosAmarillo,objetivoAmarillo, turno, "azul");
+        rojo = new Jugador(dadosRojo,objetivoRojo, turno, "rojo");
+        amarillo = new Jugador(dadosAmarillo,objetivoAmarillo, turno, "amarillo");
 
 
     }
@@ -56,7 +56,7 @@ public class ExceptionTest {
         TarjetaPais tarjetaArg = new TarjetaPais(arg);
         rojo.agregarTarjetaPais(tarjetaArg);
 
-        assertThrows(LaTarjetaPaisNoSeEncontroError.class, ()->{azul.activarTarjetaPais(tarjetaArg);});
+        assertThrows(LaTarjetaPaisNoSeEncontroError.class, ()-> azul.activarTarjetaPais(tarjetaArg));
     }
 
     @Test
@@ -66,7 +66,7 @@ public class ExceptionTest {
         bra.agregarPaisLimitrofe(arg);
         arg.agregarPaisLimitrofe(bra);
 
-        assertThrows(ElPaisAtacanteNoTePerteneceError.class, ()->{azul.atacarAPais(arg,bra,1);});
+        assertThrows(ElPaisAtacanteNoTePerteneceError.class, ()-> azul.atacarAPais(arg,bra,1));
     }
     @Test
     public void ElPaisDefensorPerteneceAlAtacante(){
@@ -75,7 +75,7 @@ public class ExceptionTest {
         bra.agregarPaisLimitrofe(arg);
         arg.agregarPaisLimitrofe(bra);
 
-        assertThrows(NoPuedesAtacarAUnPaisPropioError.class, ()->{rojo.atacarAPais(arg,bra,1);});
+        assertThrows(NoPuedesAtacarAUnPaisPropioError.class, ()-> rojo.atacarAPais(arg,bra,1));
     }
 
     @Test
@@ -85,7 +85,7 @@ public class ExceptionTest {
         bra.agregarPaisLimitrofe(arg);
         arg.agregarPaisLimitrofe(bra);
 
-        assertThrows(ElPaisAtacanteSiempreDebeMantenerUnEjercitoEnElPaisError.class, ()->{azul.atacarAPais(arg,bra,2);});
+        assertThrows(ElPaisAtacanteSiempreDebeMantenerUnEjercitoEnElPaisError.class, ()-> azul.atacarAPais(arg,bra,2));
     }
     @Test
     public void LosPaisesDebenSerLimitrofesParaPoderAtacarse(){
@@ -94,7 +94,7 @@ public class ExceptionTest {
         //bra.agregarPaisLimitrofes(arg);
         //arg.agregarPaisLimitrofes(bra);
 
-        assertThrows(LosPaisesNoSonLimitrofesError.class, ()->{azul.atacarAPais(arg,bra,1);});
+        assertThrows(LosPaisesNoSonLimitrofesError.class, ()-> azul.atacarAPais(arg,bra,1));
     }
     @Test
     public void NoEsPosibleRestarEsaCantidadDeEjercitos(){
@@ -103,7 +103,7 @@ public class ExceptionTest {
         bra.agregarPaisLimitrofe(arg);
         arg.agregarPaisLimitrofe(bra);
 
-        assertThrows(NoEsPosibleRestarEsaCantidadDeEjercitosError.class, ()->{azul.moverEjercitos(arg,bra,4);});
+        assertThrows(NoEsPosibleRestarEsaCantidadDeEjercitosError.class, ()-> azul.moverEjercitos(arg,bra,4));
     }
     @Test
     public void LaTarjetaYaFueActivada(){
@@ -112,6 +112,6 @@ public class ExceptionTest {
         azul.agregarTarjetaPais(tarjetaArg);
         azul.activarTarjetaPais(tarjetaArg);
 
-        assertThrows(LaTarjetaYaFueActivadaError.class, ()->{azul.activarTarjetaPais(tarjetaArg);});
+        assertThrows(LaTarjetaYaFueActivadaError.class, ()-> azul.activarTarjetaPais(tarjetaArg));
     }
 }
