@@ -924,7 +924,7 @@ public class InicializadorTeg {
         Integer cantidadEjercitos = Integer.valueOf(texto.getText());
         turno.jugadorActual().moverEjercitos(receptor, donante, cantidadEjercitos);
 
-        botonAtacante.setText(Integer.toString(receptor.ejercitos()));
-        botonDefensor.setText(Integer.toString(donante.ejercitos()));
+        botonAtacante.setText(Integer.toString(donante.ejercitos()));
+        botonDefensor.setText(Integer.toString(receptor.ejercitos()));
     }
 }
