@@ -1,61 +1,77 @@
 package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
-import java.lang.String;
 
 public class Pais{
-    private final String nombre;
     private Integer ejercitos;
     private final ArrayList<Pais> paisesLimitrofes;
     private Jugador duenio;
+    private Continente continente;
 
-    public Pais(String nombre, Integer cantEjercitos){
-        this.nombre = nombre;
+    public Pais(Integer cantEjercitos,Jugador duenio , Continente continente){
         this.ejercitos = cantEjercitos;
         this.paisesLimitrofes = new ArrayList<>();
-    }
-
-    public void asignarDuenio(Jugador duenio) {
+        this.continente = continente;
+        continente.agregarPais(this);
         this.duenio = duenio;
+        this.duenio.agregarPais(this);
+        this.duenio.conquistarContinente(continente);
     }
 
-    public boolean compararNombre(String nombre){
-        return (this.nombre.equals(nombre));
+    public String colorPorDuenio(){
+        return duenio.color();
     }
 
-    public void agregarPaisLimitrofes(Pais p){
+    public boolean lePerteneceA(Jugador jugador){
+        return this.duenio==jugador;
+    }
+
+    public Jugador duenio(){
+        return this.duenio;
+    }
+
+
+
+    public void agregarPaisLimitrofe(Pais p){
+        if (paisesLimitrofes.contains(p)){return;}
+        p.paisesLimitrofes.add(this);
         this.paisesLimitrofes.add(p);
     }
 
-    public void atacarA(Pais defensor, Integer cantidadEjercitos){
+    public void prepararParaLaBatalla(Pais defensor, Integer cantidadEjercitos){
 
-        if (this.ejercitos < cantidadEjercitos) {
-            return; //Error
+        if(this.ejercitos-1<cantidadEjercitos){
+            throw new ElPaisAtacanteSiempreDebeMantenerUnEjercitoEnElPaisError();
+        }
+        if(!this.esPaisLimitrofe(defensor)){
+            throw new LosPaisesNoSonLimitrofesError();
         }
 
-        if (!this.esPaisLimitrofe(defensor)){
-            return; //Error
-        }
-
-        Dados dadosAtacante = new Dados(cantidadEjercitos);
-        dadosAtacante.sonAtacantes();
-
-        Dados dadosDefensor = defensor.defenderseDe(dadosAtacante);
-        Integer ejercitosPerdidos = dadosAtacante.comparar(dadosDefensor);
-        this.restarEjercitos(ejercitosPerdidos);
+        this.duenio.tirar(cantidadEjercitos);
     }
 
-    private boolean esPaisLimitrofe(Pais p){
+    public Jugador conseguirContrincante(){
+        this.duenio.tirar(ejercitos);
+        return this.duenio;
+    }
+
+    public void conquistarPais(Jugador jugador,Pais atacante){
+        if(this.ejercitos!=0){
+            return;//No es un error porque se compara muchas veces
+        }
+        this.sumarEjercitos(1);
+        atacante.restarEjercitos(1);
+        this.duenio.perderContinente(this.continente);
+        this.duenio.perderPais(this);
+        this.duenio=jugador;
+        this.duenio.agregarPais(this);
+        this.duenio.conquistarContinente(this.continente);
+    }
+
+    public boolean esPaisLimitrofe(Pais p){
         return paisesLimitrofes.contains(p);
     }
 
-    public Dados defenderseDe(Dados dadosAtacante){
-        Dados dadosDefensor = new Dados(this.ejercitos);
-
-        Integer ejercitosPerdidos = dadosDefensor.comparar(dadosAtacante);
-        this.restarEjercitos(ejercitosPerdidos);
-        return dadosDefensor;
-    }
 
     public Integer ejercitos() {
         return this.ejercitos;
@@ -63,22 +79,16 @@ public class Pais{
 
     public void restarEjercitos(Integer cantidadEjercitos) {
         if (this.ejercitos() < cantidadEjercitos) {
-            return; //error
+            throw new NoEsPosibleRestarEsaCantidadDeEjercitosError();
         }
         this.ejercitos -= cantidadEjercitos;
-        if (this.ejercitos == 0) {
-            this.duenio.perderPais(this);
-        }
     }
 
     public void sumarEjercitos(Integer cantidadEjercitos) {
         this.ejercitos += cantidadEjercitos;
     }
 
-    public void agregarEjercitos(Jugador jugador, Integer cantidadEjercitos) {
-        if (this.duenio != jugador) {
-            return; //Error
-        }
+    public void agregarEjercitos( Integer cantidadEjercitos) {
         this.sumarEjercitos(cantidadEjercitos);
     }
 }
