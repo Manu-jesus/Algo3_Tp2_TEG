@@ -14,12 +14,14 @@ public class Pais{
         this.continente = continente;
         continente.agregarPais(this);
         //this.duenio = duenio;
-        this.duenio.agregarPais(this);
+        //this.duenio.agregarPais(this);
         //this.duenio.conquistarContinente(continente);
     }
 
     public void asignarDuenio(Jugador duenio){
+
         this.duenio = duenio;
+        this.duenio.agregarPais(this);
     }
 
     public String colorPorDuenio(){

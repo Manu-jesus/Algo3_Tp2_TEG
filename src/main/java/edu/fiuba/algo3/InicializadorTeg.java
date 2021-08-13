@@ -16,6 +16,7 @@ import edu.fiuba.algo3.modelo.Pais;
 
 import java.util.ArrayList;
 
+import java.util.Iterator;
 import java.util.Random;
 import java.util.Arrays;
 
@@ -27,11 +28,15 @@ public class InicializadorTeg {
     private Dados dadosRojo;
     private Dados dadosAmarillo;
     private Dados dadosVerde;
+    private Dados dadosRosa;
+    private Dados dadosBlanco;
 
     private Jugador azul;
     private Jugador rojo;
     private Jugador amarillo;
     private Jugador verde;
+    private Jugador rosa;
+    private Jugador blanco;
 
     private Continente surAmerica;
     private Continente asia;
@@ -41,6 +46,9 @@ public class InicializadorTeg {
     private Continente norteAmerica;
 
     private ArrayList<Pais> paises;
+    private ArrayList<Jugador> jugadores;
+    private ArrayList<tarjetaObjetivo> tarjetasObjetivo;
+
     private Pais argentina;
     private Pais brasil;
     private Pais uruguay;
@@ -153,10 +161,12 @@ public class InicializadorTeg {
     private Button botonJava;
     private Button botonBorneo;
 
-    private tarjetaObjetivo objetivoRojo;
-    private tarjetaObjetivo objetivoAzul;
-    private tarjetaObjetivo objetivoAmarillo;
-    private tarjetaObjetivo objetivoVerde;
+    private tarjetaObjetivo objetivoUno;
+    private tarjetaObjetivo objetivoDos;
+    private tarjetaObjetivo objetivoTres;
+    private tarjetaObjetivo objetivoCuatro;
+    private tarjetaObjetivo objetivoCinco;
+    private tarjetaObjetivo objetivoSeis;
 
     private Turno turno;
 
@@ -170,6 +180,8 @@ public class InicializadorTeg {
         dadosRojo = new Dados();
         dadosAmarillo = new Dados();
         dadosVerde = new Dados();
+        dadosRosa = new Dados();
+        dadosBlanco = new Dados();
 
         surAmerica = new Continente("America del Sur");
         asia = new Continente("Asia");
@@ -178,21 +190,47 @@ public class InicializadorTeg {
         europa = new Continente("Europa");
         norteAmerica = new Continente("America del Norte");
 
-        objetivoRojo = new tarjetaObjetivo(surAmerica);
-        objetivoAmarillo= new tarjetaObjetivo(asia);
-        objetivoAzul = new tarjetaObjetivo(africa);
-        objetivoVerde = new tarjetaObjetivo(oceania);
+        objetivoUno = new tarjetaObjetivo(surAmerica);
+        objetivoDos= new tarjetaObjetivo(asia);
+        objetivoTres = new tarjetaObjetivo(africa);
+        objetivoCuatro = new tarjetaObjetivo(oceania);
+        objetivoCinco = new tarjetaObjetivo(europa);
+        objetivoSeis = new tarjetaObjetivo(norteAmerica);
 
-        azul = new Jugador(dadosAzul, objetivoAzul, turno, "#077bbb");
-        rojo = new Jugador(dadosRojo,objetivoRojo, turno, "#cc3311");
-        amarillo = new Jugador(dadosAmarillo,objetivoAmarillo, turno, "#ee7733");
-        verde = new Jugador(dadosVerde,objetivoVerde, turno, "#009988");
+        this.tarjetasObjetivo = new ArrayList<tarjetaObjetivo>();
+        tarjetasObjetivo.add(objetivoUno);
+        tarjetasObjetivo.add(objetivoDos);
+        tarjetasObjetivo.add(objetivoTres);
+        tarjetasObjetivo.add(objetivoCuatro);
+        tarjetasObjetivo.add(objetivoCinco);
+        tarjetasObjetivo.add(objetivoSeis);
 
-        ArrayList<Jugador> jugadores = new ArrayList<>();
+        ArrayList<tarjetaObjetivo> objetivosRandom = this.randomTarjetasObjetivo(tarjetasObjetivo);
+
+        azul = new Jugador(dadosAzul, turno, "#077bbb");
+        rojo = new Jugador(dadosRojo, turno, "#cc3311");
+        amarillo = new Jugador(dadosAmarillo, turno, "#ee7733");
+        verde = new Jugador(dadosVerde, turno, "#009988");
+        rosa = new Jugador(dadosRosa, turno, "#ee3377");
+        blanco = new Jugador(dadosBlanco, turno, "#FFFFFF");
+
+        this.jugadores = new ArrayList<Jugador>();
         jugadores.add(azul);
         jugadores.add(rojo);
         jugadores.add(amarillo);
         jugadores.add(verde);
+        jugadores.add(rosa);
+        jugadores.add(blanco);
+
+        Iterator<Jugador> iteradorJugadores = jugadores.iterator();
+        int j=0;
+        while(iteradorJugadores.hasNext()){
+            if (j>objetivosRandom.size()){j=0;}
+            Jugador jugadorx = iteradorJugadores.next();
+            tarjetaObjetivo tarjetax  = objetivosRandom.get(j);
+            jugadorx.asignarObjetivo(tarjetax);
+            j++;
+        }
 
 
         argentina = new Pais(1, surAmerica);
@@ -202,7 +240,58 @@ public class InicializadorTeg {
         chile= new Pais(1, surAmerica);
         colombia= new Pais(1, surAmerica);
 
-        ArrayList<Pais> paises = new ArrayList<>();
+
+        mexico = new Pais(1, norteAmerica);
+        california = new Pais(1, norteAmerica);
+        oregon= new Pais(1, norteAmerica);
+        nuevaYork= new Pais(1, norteAmerica);
+        terranova= new Pais(1, norteAmerica);
+        labrador= new Pais(1, norteAmerica);
+        groenlandia= new Pais(1, norteAmerica);
+        canada= new Pais(1, norteAmerica);
+        yukon= new Pais(1, norteAmerica);
+        alaska= new Pais(1, norteAmerica);
+
+        espana = new Pais(1,europa);
+        francia = new Pais(1, europa);
+        islandia= new Pais(1, europa);
+        granBretana= new Pais(1, europa);
+        alemania= new Pais(1, europa);
+        italia= new Pais(1, europa);
+        polonia= new Pais(1, europa);
+        rusia= new Pais(1, europa);
+        suecia= new Pais(1, europa);
+
+        china = new Pais(1, asia);
+        iran = new Pais(1, asia);
+        malasia = new Pais(1, asia);
+        india = new Pais(1, asia);
+        arabia = new Pais(1, asia);
+        israel = new Pais(1, asia);
+        turquia = new Pais(1, asia);
+        gobi = new Pais(1, asia);
+        mongolia = new Pais(1, asia);
+        siberia = new Pais(1, asia);
+        aral = new Pais(1, asia);
+        tartaria = new Pais(1, asia);
+        taymir = new Pais(1, asia);
+        kamchayka = new Pais(1, asia);
+        japon = new Pais(1, asia);
+
+        sahara = new Pais(1, africa);
+        egipto = new Pais(1, africa);
+        etiopia = new Pais(1, africa);
+        zaire = new Pais(1, africa);
+        sudafrica = new Pais(1, africa);
+        madagascar = new Pais(1, africa);
+
+        australia = new Pais(1, oceania);
+        sumatra = new Pais(1, oceania);
+        java = new Pais(1, oceania);
+        borneo = new Pais(1, oceania);
+
+
+        this.paises = new ArrayList<Pais>();
         paises.add(argentina);
         paises.add(brasil);
         paises.add(uruguay);
@@ -258,62 +347,19 @@ public class InicializadorTeg {
         paises.add(java);
         paises.add(borneo);
 
-        /*
-        for (int i = 0; i < paises.size(); i++) {
-            paises.get(i).asignarDuenio();
-        }*/
 
+        ArrayList<Pais> randomisado = this.randomize(paises);
+        Iterator<Pais> iteradorPaises = randomisado.iterator();
 
+        j=0;
+        while(iteradorPaises.hasNext()){
+            if (j>=jugadores.size()){j=0;}
+            Pais paisx = iteradorPaises.next();
+            Jugador jugadorx = jugadores.get(j);
+            paisx.asignarDuenio(jugadorx);
+            j++;
+        }
 
-
-        mexico = new Pais(1, norteAmerica);
-        california = new Pais(1, norteAmerica);
-        oregon= new Pais(1, norteAmerica);
-        nuevaYork= new Pais(1, norteAmerica);
-        terranova= new Pais(1, norteAmerica);
-        labrador= new Pais(1, norteAmerica);
-        groenlandia= new Pais(1, norteAmerica);
-        canada= new Pais(1, norteAmerica);
-        yukon= new Pais(1, norteAmerica);
-        alaska= new Pais(1, norteAmerica);
-
-        espana = new Pais(1,europa);
-        francia = new Pais(1, europa);
-        islandia= new Pais(1, europa);
-        granBretana= new Pais(1, europa);
-        alemania= new Pais(1, europa);
-        italia= new Pais(1, europa);
-        polonia= new Pais(1, europa);
-        rusia= new Pais(1, europa);
-        suecia= new Pais(1, europa);
-
-        china = new Pais(1, asia);
-        iran = new Pais(1, asia);
-        malasia = new Pais(1, asia);
-        india = new Pais(1, asia);
-        arabia = new Pais(1, asia);
-        israel = new Pais(1, asia);
-        turquia = new Pais(1, asia);
-        gobi = new Pais(1, asia);
-        mongolia = new Pais(1, asia);
-        siberia = new Pais(1, asia);
-        aral = new Pais(1, asia);
-        tartaria = new Pais(1, asia);
-        taymir = new Pais(1, asia);
-        kamchayka = new Pais(1, asia);
-        japon = new Pais(1, asia);
-
-        sahara = new Pais(1, africa);
-        egipto = new Pais(1, africa);
-        etiopia = new Pais(1, africa);
-        zaire = new Pais(1, africa);
-        sudafrica = new Pais(1, africa);
-        madagascar = new Pais(1, africa);
-
-        australia = new Pais(1, oceania);
-        sumatra = new Pais(1, oceania);
-        java = new Pais(1, oceania);
-        borneo = new Pais(1, oceania);
 
 
         argentina.agregarPaisLimitrofe(brasil);
@@ -468,30 +514,38 @@ public class InicializadorTeg {
         botonBorneo = new Button(Integer.toString(borneo.ejercitos()));
     }
 
-/*
-    public class ShuffleRand
-    {
-        // A Function to generate a random permutation of arr[]
-        static void randomize( int arr[], int n)
-        {
-            // Creating a object for Random class
-            Random r = new Random();
 
-            // Start from the last element and swap one by one. We don't
-            // need to run for the first element that's why i > 0
-            for (int i = n-1; i > 0; i--) {
 
-                // Pick a random index from 0 to i
-                int j = r.nextInt(i+1);
+    public ArrayList<Pais> randomize( ArrayList<Pais> paises) {
+        Random r = new Random();
+        int n = paises.size();
+        for (int i = n-1; i > 0; i--) {
 
-                // Swap arr[i] with the element at random index
-                int temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
-            }
-            // Prints the random array
-            System.out.println(Arrays.toString(arr));
-        }*/
+            int j = r.nextInt(i+1);
+
+            Pais temp = paises.get(i);
+            paises.remove(i);
+            paises.add(i,paises.get(j));
+            paises.remove(j);
+            paises.add(j, temp);
+        }
+        return paises;
+    }
+   public ArrayList<tarjetaObjetivo> randomTarjetasObjetivo( ArrayList<tarjetaObjetivo> tarjetas) {
+        Random r = new Random();
+        int n = tarjetas.size();
+        for (int i = n-1; i > 0; i--) {
+
+            int j = r.nextInt(i+1);
+
+            tarjetaObjetivo temp = tarjetas.get(i);
+            tarjetas.remove(i);
+            tarjetas.add(i, tarjetas.get(j));
+            tarjetas.remove(j);
+            tarjetas.add(j, temp);
+        }
+        return tarjetas;
+    }
 
     public VBox actualizarTeg(Stage stage){
 
@@ -1043,6 +1097,9 @@ public class InicializadorTeg {
         inicio.setOnAction(initEvent);
         
         VBox caja = new VBox(texto, inicio);
+        caja.setSpacing(20);
+        caja.setPadding(new Insets(35));
+
         var vistoria = new Scene(caja, 200, 200);
         casoGanado.setScene(vistoria);
         casoGanado.show();

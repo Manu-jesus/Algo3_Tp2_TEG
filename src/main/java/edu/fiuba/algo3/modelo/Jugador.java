@@ -11,13 +11,12 @@ public class Jugador {
     private Turno turno;
     private String color;
 
-    public Jugador(Dados dados, tarjetaObjetivo objetivo, Turno turno, String color){
+    public Jugador(Dados dados, Turno turno, String color){
 
         this.paises = new ArrayList<>();
         this.dados = dados;
         this.tarjetasPais = new ArrayList<>();
         this.continentes = new ArrayList<>();
-        this.objetivo = objetivo;
         this.turno = turno;
         turno.agregarJugador(this);
         this.color = color;
@@ -138,4 +137,7 @@ public class Jugador {
     public boolean seCumplioObjetivo(){
         return this.objetivo.seCumplio(this);
     }
+
+    public void asignarObjetivo(tarjetaObjetivo objetivo){this.objetivo = objetivo;}
+
 }
