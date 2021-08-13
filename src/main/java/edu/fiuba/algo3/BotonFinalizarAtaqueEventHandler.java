@@ -41,7 +41,7 @@ public class BotonFinalizarAtaqueEventHandler implements EventHandler<ActionEven
             return;
         }
         try {
-            juego.atacar(texto, botonAtacante, atacante, botonDefensor, defensor);
+            juego.atacar(texto, botonAtacante, atacante, botonDefensor, defensor, stageMapa);
         }catch (ElPaisAtacanteSiempreDebeMantenerUnEjercitoEnElPaisError exception){
             this.tratarError("No se puede atacar con  esa cantidad de ejercitos");
         }catch (ElPaisAtacanteNoTePerteneceError exception){

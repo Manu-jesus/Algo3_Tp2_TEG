@@ -23,6 +23,10 @@ public class Jugador {
         this.color = color;
     }
 
+    public String obtenerNombreObjetivo(){
+        return objetivo.obtenerTitulo();
+    }
+
     public String color(){
         return this.color;
     }

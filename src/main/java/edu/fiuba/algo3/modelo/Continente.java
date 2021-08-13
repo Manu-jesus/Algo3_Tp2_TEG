@@ -4,11 +4,17 @@ import java.util.ArrayList;
 
 public class Continente {
     private ArrayList<Pais> paises;
+    private String nombre;
 
-    public Continente(){
+    public Continente(String nombre){
+
+        this.nombre = nombre;
         paises = new ArrayList<>();
     }
 
+    public String nombre(){
+        return this.nombre;
+    }
 
     public void agregarPais(Pais pais){
         paises.add(pais);

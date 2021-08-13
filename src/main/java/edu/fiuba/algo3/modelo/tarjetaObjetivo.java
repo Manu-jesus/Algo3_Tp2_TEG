@@ -10,4 +10,9 @@ public class tarjetaObjetivo {
     public boolean seCumplio(Jugador jugador){
         return (jugador.tieneContinente(this.continente) || jugador.cantidadPaises()==30 );
     }
+
+    public String obtenerTitulo(){
+        String linea = "Se debe conquistar: "+continente.nombre();
+        return linea;
+    }
 }
