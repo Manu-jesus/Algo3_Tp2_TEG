@@ -171,9 +171,9 @@ public class InicializadorTeg {
     private Turno turno;
 
 
-    public InicializadorTeg(TextField texto){
+    public InicializadorTeg(Integer cantidadDeJugadores){
 
-        //this.cantidadJugadores = Integer.valueOf(texto.getText());
+        this.cantidadJugadores = cantidadDeJugadores;
 
         turno = new Turno();
         dadosAzul = new Dados();
@@ -209,18 +209,21 @@ public class InicializadorTeg {
 
         azul = new Jugador(dadosAzul, turno, "#077bbb");
         rojo = new Jugador(dadosRojo, turno, "#cc3311");
-        amarillo = new Jugador(dadosAmarillo, turno, "#ee7733");
-        verde = new Jugador(dadosVerde, turno, "#009988");
-        rosa = new Jugador(dadosRosa, turno, "#ee3377");
-        blanco = new Jugador(dadosBlanco, turno, "#FFFFFF");
+        if (cantidadJugadores >= 3){amarillo = new Jugador(dadosAmarillo, turno, "#ee7733");}
+        if (cantidadJugadores >= 4){verde = new Jugador(dadosVerde, turno, "#009988");}
+        if (cantidadJugadores >= 5){rosa = new Jugador(dadosRosa, turno, "#ee3377");}
+        if (cantidadJugadores >= 6){blanco = new Jugador(dadosBlanco, turno, "#FFFFFF");}
+
+
 
         this.jugadores = new ArrayList<Jugador>();
-        jugadores.add(azul);
-        jugadores.add(rojo);
-        jugadores.add(amarillo);
-        jugadores.add(verde);
-        jugadores.add(rosa);
-        jugadores.add(blanco);
+         jugadores.add(azul);
+         jugadores.add(rojo);
+
+        if (cantidadJugadores >= 3){jugadores.add(amarillo);}
+        if (cantidadJugadores >= 4){jugadores.add(verde);}
+        if (cantidadJugadores >= 5){jugadores.add(rosa);}
+        if (cantidadJugadores >= 6){jugadores.add(blanco);}
 
         Iterator<Jugador> iteradorJugadores = jugadores.iterator();
         int j=0;
@@ -533,7 +536,7 @@ public class InicializadorTeg {
     }
    public ArrayList<tarjetaObjetivo> randomTarjetasObjetivo( ArrayList<tarjetaObjetivo> tarjetas) {
         Random r = new Random();
-        int n = tarjetas.size();
+        int n = tarjetas.size()-1;
         for (int i = n-1; i > 0; i--) {
 
             int j = r.nextInt(i+1);
@@ -1088,19 +1091,30 @@ public class InicializadorTeg {
     public void ganoJugador(Stage mapa){
         mapa.close();
         Stage casoGanado = new Stage();
+
         var texto = new Label("aprobaste ALGO 3 =)!!!");
+        texto.setMinSize(200, 50);
 
-        TextField datoAux = new TextField("4");
+        Label label = new Label("Cantidad de jugadores: ");
 
-        Button inicio = new Button("Volver a CURSAR");
-        BotonInit initEvent = new BotonInit(casoGanado, datoAux);
+        TextField datoNuevo = new TextField();
+
+        Button inicio = new Button("** Volver a CURSAR **");
+        BotonInit initEvent = new BotonInit(casoGanado, datoNuevo);
         inicio.setOnAction(initEvent);
-        
-        VBox caja = new VBox(texto, inicio);
+        inicio.setMinSize(100, 100);
+
+        TextoEventHandler textoEvent = new TextoEventHandler(inicio);
+        datoNuevo.setOnKeyPressed(textoEvent);
+
+        HBox datosIniciales = new HBox(label, datoNuevo);
+        datosIniciales.setSpacing(5);
+
+        VBox caja = new VBox(texto, datosIniciales, inicio);
         caja.setSpacing(20);
         caja.setPadding(new Insets(35));
 
-        var vistoria = new Scene(caja, 200, 200);
+        var vistoria = new Scene(caja, 450, 300);
         casoGanado.setScene(vistoria);
         casoGanado.show();
     }
