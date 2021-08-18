@@ -10,9 +10,10 @@ public class Jugador {
     private tarjetaObjetivo objetivo;
     private Turno turno;
     private String color;
+    private NumeroDeCanje numeroDeCanjes;
 
     public Jugador(Dados dados, Turno turno, String color){
-
+        this.numeroDeCanjes = new PrimerCanje();
         this.paises = new ArrayList<>();
         this.dados = dados;
         this.tarjetasPais = new ArrayList<>();
@@ -20,6 +21,21 @@ public class Jugador {
         this.turno = turno;
         turno.agregarJugador(this);
         this.color = color;
+    }
+
+    public ArrayList<TarjetaPais> tarjetaPais(){
+        return this.tarjetasPais;
+    }
+
+    public void hacerCanje(){
+        if(this.tarjetasPais.size() != 3){
+            throw new JugadorNoPuedeHacerCanje();
+        }
+        for (int i=0;i<3;i++){
+            this.tarjetasPais.remove(this.tarjetasPais.get(0));
+        }
+        this.turno.hacerCanje(numeroDeCanjes);
+        numeroDeCanjes.hacerCanje();
     }
 
     public String obtenerNombreObjetivo(){
@@ -46,8 +62,8 @@ public class Jugador {
     }
 
     public void activarTarjetaPais(TarjetaPais tarjeta){
-        if(!this.tarjetasPais.contains(tarjeta)){
-            throw new LaTarjetaPaisNoSeEncontroError();
+        if(!this.estaPais(tarjeta.pais())){
+            return;
         }
         tarjeta.activar();
     }
@@ -78,7 +94,9 @@ public class Jugador {
             this.batallar(contrincante,atacante,defensor,numeroDeBatalla);
             numeroDeBatalla++;
         }
-        defensor.conquistarPais(this,atacante);
+        if(defensor.conquistarPais(this,atacante)){
+            this.turno.conquisto();
+        }
     }
 
     private void batallar(Jugador contrincante, Pais atacante, Pais defensor, Integer numeroDeBatalla){

@@ -9,9 +9,13 @@ public class TarjetaPais {
         this.estaActivada = new TarjetaNoActivada();
     }
 
+    public Pais pais(){
+        return this.pais;
+    }
+
     public void activar(){
         if(this.estaActivada.estaActivada()){
-            throw new LaTarjetaYaFueActivadaError();
+            return;
         }
         this.pais.agregarEjercitos(2);
         this.estaActivada = new TarjetaActivada();

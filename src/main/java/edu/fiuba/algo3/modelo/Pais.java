@@ -7,8 +7,10 @@ public class Pais{
     private final ArrayList<Pais> paisesLimitrofes;
     private Jugador duenio;
     private Continente continente;
+    private String nombre;
 
-    public Pais(Integer cantEjercitos, Continente continente){
+    public Pais(Integer cantEjercitos, Continente continente, String nombre){
+        this.nombre = nombre;
         this.ejercitos = cantEjercitos;
         this.paisesLimitrofes = new ArrayList<>();
         this.continente = continente;
@@ -22,6 +24,10 @@ public class Pais{
 
         this.duenio = duenio;
         this.duenio.agregarPais(this);
+    }
+
+    public String nombre(){
+        return this.nombre;
     }
 
     public String colorPorDuenio(){
@@ -56,9 +62,9 @@ public class Pais{
         return this.duenio;
     }
 
-    public void conquistarPais(Jugador jugador,Pais atacante){
+    public boolean conquistarPais(Jugador jugador,Pais atacante){
         if(this.ejercitos!=0){
-            return;//No es un error porque se compara muchas veces
+            return false;//No es un error porque se compara muchas veces
         }
         this.sumarEjercitos(1);
         atacante.restarEjercitos(1);
@@ -67,6 +73,7 @@ public class Pais{
         this.duenio=jugador;
         this.duenio.agregarPais(this);
         this.duenio.conquistarContinente(this.continente);
+        return true;
     }
 
     public boolean esPaisLimitrofe(Pais p){
