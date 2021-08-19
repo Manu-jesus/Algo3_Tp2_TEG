@@ -7,8 +7,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 ## Grupo 23
 
 * **Federico Peralta** - [integrante1](https://github.com/Gleichschritt)
-* **Lucas Nahuel Raimondi** - [integrante2](https://github.com/RZ-LU)
-* **Manuel Jesus Dávila Sánchez** - [integrante3](https://github.com/Manu-jesus)
+* **Manuel Jesus Dávila Sánchez** - [integrante2](https://github.com/Manu-jesus)
 
 Corrector: **Pablo S.**
 
