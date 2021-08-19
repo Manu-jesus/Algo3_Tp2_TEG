@@ -73,6 +73,12 @@ public class ExceptionTest {
         arg.asignarDuenio(rojo);
         bra.asignarDuenio(azul);
         bra.agregarPaisLimitrofe(arg);
+        turno.pasarTurno();
+        turno.pasarTurno();
+        turno.pasarTurno();
+        turno.pasarTurno();
+        turno.pasarTurno();
+        turno.pasarTurno();
 
         assertThrows(ElPaisAtacanteNoTePerteneceError.class, ()-> azul.atacarAPais(arg,bra,1));
     }
@@ -82,6 +88,13 @@ public class ExceptionTest {
         bra.asignarDuenio(rojo);
         bra.agregarPaisLimitrofe(arg);
         arg.agregarPaisLimitrofe(bra);
+        turno.pasarTurno();
+        turno.pasarTurno();
+        turno.pasarTurno();
+        turno.pasarTurno();
+        turno.pasarTurno();
+        turno.pasarTurno();
+
 
         assertThrows(NoPuedesAtacarAUnPaisPropioError.class, ()-> rojo.atacarAPais(arg,bra,1));
     }
@@ -92,11 +105,23 @@ public class ExceptionTest {
         bra.asignarDuenio(rojo);
         bra.agregarPaisLimitrofe(arg);
         arg.agregarPaisLimitrofe(bra);
+        turno.pasarTurno();
+        turno.pasarTurno();
+        turno.pasarTurno();
+        turno.pasarTurno();
+        turno.pasarTurno();
+        turno.pasarTurno();
 
         assertThrows(ElPaisAtacanteSiempreDebeMantenerUnEjercitoEnElPaisError.class, ()-> azul.atacarAPais(arg,bra,2));
     }
     @Test
     public void LosPaisesDebenSerLimitrofesParaPoderAtacarse(){
+        turno.pasarTurno();
+        turno.pasarTurno();
+        turno.pasarTurno();
+        turno.pasarTurno();
+        turno.pasarTurno();
+        turno.pasarTurno();
         arg.asignarDuenio(azul);
         bra.asignarDuenio(rojo);
 

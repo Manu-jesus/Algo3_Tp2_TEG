@@ -66,7 +66,16 @@ public class TEGtest {
         ArrayList<Integer> dadosCargadosDefensor = new ArrayList<>();
         dadosCargadosDefensor.add(6);
 
-
+        turno.pasarTurno();
+        turno.pasarTurno();
+        turno.pasarTurno();
+        turno.pasarTurno();
+        turno.pasarTurno();
+        turno.pasarTurno();
+        turno.pasarTurno();
+        turno.pasarTurno();
+        turno.pasarTurno();
+        turno.pasarTurno();
         doReturn(dadosCargadosAtacante).when(spyAtacante).hacerTirada(1);
         doReturn(dadosCargadosDefensor).when(spyDefensor).hacerTirada(1);
         azul.atacarAPais(arg,bra,1);
@@ -86,6 +95,7 @@ public class TEGtest {
         Pais arg = new Pais(3,america,"arg");
         arg.asignarDuenio(azul);
         Pais bra = new Pais(2,america,"bra");
+
         bra.asignarDuenio(rojo);
         bra.agregarPaisLimitrofe(arg);
 
@@ -100,6 +110,16 @@ public class TEGtest {
 
         doReturn(dadosCargadosAtacante).when(dadosAtacante).hacerTirada(2);
         doReturn(dadosCargadosDefensor).when(dadosDefensor).hacerTirada(2);
+        turno.pasarTurno();
+        turno.pasarTurno();
+        turno.pasarTurno();
+        turno.pasarTurno();
+        turno.pasarTurno();
+        turno.pasarTurno();
+        turno.pasarTurno();
+        turno.pasarTurno();
+        turno.pasarTurno();
+        turno.pasarTurno();
         azul.atacarAPais(arg,bra,2);
         assertEquals(2,arg.ejercitos());
         assertEquals(1,bra.ejercitos());
@@ -209,6 +229,16 @@ public class TEGtest {
         doReturn(dadosCargadosDefensor).when(spyDefensor).hacerTirada(3);
         doReturn(dadosCargadosDefensor2).when(spyDefensor).hacerTirada(2);
         doReturn(dadosCargadosAtacante2).when(spyAtacante).hacerTirada(2);
+        turno.pasarTurno();
+        turno.pasarTurno();
+        turno.pasarTurno();
+        turno.pasarTurno();
+        turno.pasarTurno();
+        turno.pasarTurno();
+        turno.pasarTurno();
+        turno.pasarTurno();
+        turno.pasarTurno();
+        turno.pasarTurno();
         azul.atacarAPais(arg,bra,3);
 
         assertEquals(5,arg.ejercitos());
