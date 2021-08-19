@@ -12,5 +12,8 @@ public class TerceraRondaOMas  implements NumeroDeRonda{
     public NumeroDeRonda pasarRonda(){
         return this;
     }
+    public boolean sePuedeAtacar(){
+        return true;
+    }
 }
 

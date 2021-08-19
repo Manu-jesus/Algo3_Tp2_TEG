@@ -47,7 +47,7 @@ public class BotonFinalizarAtaqueEventHandler implements EventHandler<ActionEven
         }catch (ElPaisAtacanteNoTePerteneceError exception){
             this.tratarError("No te pertenece el pais atacante");
         }catch (ElTurnoYaNoTePermiteAtacarError exception){
-            this.tratarError("No se puede atacar despues de agregar ejercitos");
+            this.tratarError("No se puede atacar en este turno");
         }catch (LosPaisesNoSonLimitrofesError exception){
             this.tratarError("Solo se puede atacar a un país limitrofe o conectado");
         }

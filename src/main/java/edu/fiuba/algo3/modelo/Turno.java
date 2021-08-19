@@ -64,6 +64,9 @@ public class Turno {
     }
 
     public boolean puedoAtacar(){
+        if(!this.ronda.sePuedeAtacar()){
+            return false;
+        }
         return (this.ronda.ejercitosAColocar(this.jugadores.get(numeroDeTurno))<= this.ejercitosAColocar);
     }
 

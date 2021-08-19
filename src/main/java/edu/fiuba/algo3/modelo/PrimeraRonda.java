@@ -9,4 +9,7 @@ public class PrimeraRonda implements NumeroDeRonda{
     public NumeroDeRonda pasarRonda(){
         return new SegundaRonda();
     }
+    public boolean sePuedeAtacar(){
+        return false;
+    }
 }

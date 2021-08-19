@@ -9,5 +9,8 @@ public class SegundaRonda implements NumeroDeRonda{
     public NumeroDeRonda pasarRonda(){
         return new TerceraRondaOMas();
     }
+    public boolean sePuedeAtacar(){
+        return false;
+    }
 }
 

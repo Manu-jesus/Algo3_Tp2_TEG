@@ -4,4 +4,5 @@ public interface NumeroDeRonda {
 
     Integer ejercitosAColocar(Jugador jugador);
     NumeroDeRonda pasarRonda();
+    boolean sePuedeAtacar();
 }
