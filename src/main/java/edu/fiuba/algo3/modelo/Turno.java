@@ -14,7 +14,6 @@ public class Turno {
     public Turno(ArrayList<Pais> paises){
         this.tarjetasPais = new ArrayList<>();
         this.crearTarjetasPais(paises);
-        this.tarjetasPais = this.randomize(tarjetasPais);
         this.ronda = new PrimeraRonda();
         this.jugadores = new ArrayList<>();
         this.numeroDeTurno = 0;
@@ -79,20 +78,5 @@ public class Turno {
         this.ejercitosAColocar -= cantidadEjercitos;
     }
 
-    public ArrayList<TarjetaPais> randomize( ArrayList<TarjetaPais> tarjetasPais) {
-        Random r = new Random();
-        int n = tarjetasPais.size();
-        for (int i = n-1; i > 0; i--) {
-
-            int j = r.nextInt(i+1);
-
-            TarjetaPais temp = tarjetasPais.get(i);
-            tarjetasPais.remove(i);
-            tarjetasPais.add(i,tarjetasPais.get(j));
-            tarjetasPais.remove(j);
-            tarjetasPais.add(j, temp);
-        }
-        return tarjetasPais;
-    }
 }
 

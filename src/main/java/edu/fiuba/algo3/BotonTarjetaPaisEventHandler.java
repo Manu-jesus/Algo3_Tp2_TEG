@@ -36,11 +36,15 @@ public class BotonTarjetaPaisEventHandler implements EventHandler<ActionEvent> {
         BotonCanjearTarjetasEventHandler canjearEvent = new BotonCanjearTarjetasEventHandler(otroStage,this.juego,this.stage,this.jugadorActual);
         canjearTarjetas.setOnAction(canjearEvent);
 
+        Button activarTarjeta = new Button("Activar tarjetas pais");
+        BotonActivarTarjetaEventHandler activarTarjetaEvent = new BotonActivarTarjetaEventHandler(otroStage,this.juego,this.stage,this.jugadorActual);
+        activarTarjeta.setOnAction(activarTarjetaEvent);
+
         var label = new Label(texto);
-        VBox botones = new VBox(label,canjearTarjetas);
+        VBox botones = new VBox(label,canjearTarjetas,activarTarjeta);
         botones.setPadding(new Insets(30));
 
-        var menu = new Scene(botones,600,100);
+        var menu = new Scene(botones,600,200);
 
         otroStage.setScene(menu);
         otroStage.showAndWait();

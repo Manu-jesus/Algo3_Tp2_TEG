@@ -11,7 +11,7 @@ import static org.mockito.Mockito.*;
 
 public class TEGtest {
 
-/*
+
     private Dados dadosAzul;
     private Dados dadosRojo;
     private Jugador azul;
@@ -27,7 +27,8 @@ public class TEGtest {
 
     @BeforeEach
     void init(){
-        turno = new Turno();
+        ArrayList <Pais> paises = new ArrayList<>();
+        turno = new Turno(paises);
         dadosAzul = new Dados();
         dadosRojo = new Dados();
         dadosAmarillo = new Dados();
@@ -36,9 +37,12 @@ public class TEGtest {
         objetivoRojo = new tarjetaObjetivo(america);
         objetivoAmarillo= new tarjetaObjetivo(america);
         objetivoAzul = new tarjetaObjetivo(america);
-        azul = new Jugador(dadosAzul,objetivoAzul,turno, "azul");
-        rojo = new Jugador(dadosRojo,objetivoRojo,turno, "rojo");
-        amarillo = new Jugador(dadosAmarillo,objetivoAmarillo,turno, "amarillo");
+        azul = new Jugador(dadosAzul, turno, "azul");
+        azul.asignarObjetivo(objetivoAzul);
+        rojo = new Jugador(dadosRojo, turno, "rojo");
+        rojo.asignarObjetivo(objetivoRojo);
+        amarillo = new Jugador(dadosAmarillo, turno, "amarillo");
+        amarillo.asignarObjetivo(objetivoAmarillo);
     }
 
     @Test
@@ -46,10 +50,14 @@ public class TEGtest {
         Dados spyAtacante = Mockito.spy(dadosAzul);
         Dados spyDefensor = Mockito.spy(dadosRojo);
 
-        azul = new Jugador(spyAtacante,objetivoAzul,turno, "azul");
-        rojo = new Jugador(spyDefensor,objetivoRojo,turno, "rojo");
-        Pais arg = new Pais(2,azul,america);
-        Pais bra = new Pais(1,rojo,america);
+        azul = new Jugador(spyAtacante,turno, "azul");
+        azul.asignarObjetivo(objetivoAzul);
+        rojo = new Jugador(spyDefensor,turno, "rojo");
+        rojo.asignarObjetivo(objetivoRojo);
+        Pais arg = new Pais(2,america,"arg");
+        arg.asignarDuenio(azul);
+        Pais bra = new Pais(1,america,"bra");
+        bra.asignarDuenio(rojo);
         bra.agregarPaisLimitrofe(arg);
         arg.agregarPaisLimitrofe(bra);
 
@@ -71,12 +79,15 @@ public class TEGtest {
         Dados dadosAtacante = Mockito.spy(dadosAzul);
         Dados dadosDefensor = Mockito.spy(dadosRojo);
 
-        azul = new Jugador(dadosAtacante,objetivoAzul,turno, "azul");
-        rojo = new Jugador(dadosDefensor,objetivoRojo,turno, "rojo");
-        Pais argentina = new Pais(3,azul,america);
-        Pais brasil = new Pais(2,rojo,america);
-        brasil.agregarPaisLimitrofe(argentina);
-        argentina.agregarPaisLimitrofe(brasil);
+        azul = new Jugador(dadosAtacante,turno, "azul");
+        azul.asignarObjetivo(objetivoAzul);
+        rojo = new Jugador(dadosDefensor,turno, "rojo");
+        rojo.asignarObjetivo(objetivoRojo);
+        Pais arg = new Pais(3,america,"arg");
+        arg.asignarDuenio(azul);
+        Pais bra = new Pais(2,america,"bra");
+        bra.asignarDuenio(rojo);
+        bra.agregarPaisLimitrofe(arg);
 
         ArrayList<Integer> dadosCargadosAtacante = new ArrayList<>();
         dadosCargadosAtacante.add(3);
@@ -89,14 +100,15 @@ public class TEGtest {
 
         doReturn(dadosCargadosAtacante).when(dadosAtacante).hacerTirada(2);
         doReturn(dadosCargadosDefensor).when(dadosDefensor).hacerTirada(2);
-        azul.atacarAPais(argentina,brasil,2);
-        assertEquals(2,argentina.ejercitos());
-        assertEquals(1,brasil.ejercitos());
+        azul.atacarAPais(arg,bra,2);
+        assertEquals(2,arg.ejercitos());
+        assertEquals(1,bra.ejercitos());
 
     }
     @Test
     public void colocarEjercitos(){
-        Pais arg = new Pais(3,azul,america);
+        Pais arg = new Pais(3,america,"arg");
+        arg.asignarDuenio(azul);
 
         azul.agregarEjercitosA(arg,3);
         assertEquals(6,arg.ejercitos());
@@ -104,7 +116,8 @@ public class TEGtest {
 
     @Test
     public void activarTarjetaPais(){
-        Pais arg = new Pais(3,azul,america);
+        Pais arg = new Pais(3,america,"arg");
+        arg.asignarDuenio(azul);
         TarjetaPais tarjetaArg = new TarjetaPais(arg);
         azul.agregarTarjetaPais(tarjetaArg);
         azul.activarTarjetaPais(tarjetaArg);
@@ -114,8 +127,10 @@ public class TEGtest {
 
     @Test
     public void dosJugadoresColocanEjercitos(){
-        Pais arg = new Pais(3,azul,america);
-        Pais bra = new Pais(2,rojo,america);
+        Pais arg = new Pais(3,america,"arg");
+        arg.asignarDuenio(azul);
+        Pais bra = new Pais(2,america,"bra");
+        bra.asignarDuenio(rojo);
 
         azul.agregarEjercitosA(arg,3);
         turno.pasarTurno();
@@ -127,10 +142,14 @@ public class TEGtest {
 
     @Test
     public void colocarEjercitosTeniendoUnContinente(){
-        Pais iran = new Pais(2,rojo,asia);
-        Pais gobi = new Pais(2,rojo,asia);
-        Pais arg = new Pais(3,azul,america);
-        Pais bra = new Pais(2,amarillo,america);
+        Pais iran = new Pais(2,asia,"iran");
+        iran.asignarDuenio(rojo);
+        Pais gobi = new Pais(2,asia,"gobi");
+        gobi.asignarDuenio(rojo);
+        Pais arg = new Pais(3,america,"arg");
+        arg.asignarDuenio(azul);
+        Pais bra = new Pais(2,america,"bra");
+        bra.asignarDuenio(amarillo);
         rojo.conquistarContinente(asia);
 
         azul.agregarEjercitosA(arg,3); //turno azul
@@ -152,15 +171,18 @@ public class TEGtest {
         Dados spyAtacante = Mockito.spy(dadosAzul);
         Dados spyDefensor = Mockito.spy(dadosRojo);
 
-        azul = new Jugador(spyAtacante,objetivoAzul,turno, "azul");
-        rojo = new Jugador(spyDefensor,objetivoRojo,turno, "rojo");
-        Pais arg = new Pais(6,azul,america);
-        Pais bra = new Pais(3,rojo,america);
-        Pais chile = new Pais(2,rojo,america);
+        azul = new Jugador(spyAtacante,turno, "azul");
+        azul.asignarObjetivo(objetivoAzul);
+        rojo = new Jugador(spyDefensor,turno, "rojo");
+        rojo.asignarObjetivo(objetivoRojo);
+        Pais arg = new Pais(6,america,"arg");
+        arg.asignarDuenio(azul);
+        Pais bra = new Pais(2,america,"bra");
+        bra.asignarDuenio(rojo);
+        Pais chile = new Pais(2,america,"chile");
+        chile.asignarDuenio(rojo);
         bra.agregarPaisLimitrofe(arg);
-        arg.agregarPaisLimitrofe(bra);
         chile.agregarPaisLimitrofe(arg);
-        arg.agregarPaisLimitrofe(chile);
 
         ArrayList<Integer> dadosCargadosAtacante = new ArrayList<>();
         dadosCargadosAtacante.add(3);
@@ -198,10 +220,4 @@ public class TEGtest {
         assertEquals(1,chile.ejercitos());
 
     }
-
-    @Test
-    public void jugadorCumpleSuObjetivo(){
-        Pais arg = new Pais(6,azul,america);
-        assertTrue(azul.seCumplioObjetivo());
-    }*/
 }

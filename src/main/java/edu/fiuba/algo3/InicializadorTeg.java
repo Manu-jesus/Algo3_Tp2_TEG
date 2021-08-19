@@ -676,6 +676,62 @@ public class InicializadorTeg {
         botonJava.setOnAction(botonJavaEvent);
         botonBorneo.setOnAction(botonBorneoEvent);
 
+        botonArgentina.setText(Integer.toString(argentina.ejercitos()));
+        botonBrasil.setText(Integer.toString(brasil.ejercitos()));
+        botonUruguay.setText(Integer.toString(uruguay.ejercitos()));
+        botonPeru.setText(Integer.toString(peru.ejercitos()));
+        botonChile.setText(Integer.toString(chile.ejercitos()));
+        botonColombia.setText(Integer.toString(colombia.ejercitos()));
+
+        botonMexico.setText(Integer.toString(mexico.ejercitos()));
+        botonCalifornia.setText(Integer.toString(california.ejercitos()));
+        botonOregon.setText(Integer.toString(oregon.ejercitos()));
+        botonNuevaYork.setText(Integer.toString(nuevaYork.ejercitos()));
+        botonTerranova.setText(Integer.toString(terranova.ejercitos()));
+        botonLabrador.setText(Integer.toString(labrador.ejercitos()));
+        botonGroenlandia.setText(Integer.toString(groenlandia.ejercitos()));
+        botonCanada.setText(Integer.toString(canada.ejercitos()));
+        botonYukon.setText(Integer.toString(yukon.ejercitos()));
+        botonAlaska.setText(Integer.toString(alaska.ejercitos()));
+
+        botonEspana.setText(Integer.toString(espana.ejercitos()));
+        botonFrancia.setText(Integer.toString(francia.ejercitos()));
+        botonIslandia.setText(Integer.toString(islandia.ejercitos()));
+        botonGranBretana.setText(Integer.toString(granBretana.ejercitos()));
+        botonAlemania.setText(Integer.toString(alemania.ejercitos()));
+        botonItalia.setText(Integer.toString(italia.ejercitos()));
+        botonPolonia.setText(Integer.toString(polonia.ejercitos()));
+        botonRusia.setText(Integer.toString(rusia.ejercitos()));
+        botonSuecia.setText(Integer.toString(suecia.ejercitos()));
+
+        botonChina.setText(Integer.toString(china.ejercitos()));
+        botonIran.setText(Integer.toString(iran.ejercitos()));
+        botonMalasia.setText(Integer.toString(malasia.ejercitos()));
+        botonIndia.setText(Integer.toString(india.ejercitos()));
+        botonArabia.setText(Integer.toString(arabia.ejercitos()));
+        botonIsrael.setText(Integer.toString(israel.ejercitos()));
+        botonTurquia.setText(Integer.toString(turquia.ejercitos()));
+        botonGobi.setText(Integer.toString(gobi.ejercitos()));
+        botonMongolia.setText(Integer.toString(mongolia.ejercitos()));
+        botonSiberia.setText(Integer.toString(siberia.ejercitos()));
+        botonAral.setText(Integer.toString(aral.ejercitos()));
+        botonTartaria.setText(Integer.toString(tartaria.ejercitos()));
+        botonTaymir.setText(Integer.toString(taymir.ejercitos()));
+        botonKamchayka.setText(Integer.toString(kamchayka.ejercitos()));
+        botonJapon.setText(Integer.toString(japon.ejercitos()));
+
+        botonSahara.setText(Integer.toString(sahara .ejercitos()));
+        botonEgipto.setText(Integer.toString(egipto.ejercitos()));
+        botonEtiopia.setText(Integer.toString(etiopia.ejercitos()));
+        botonZaire.setText(Integer.toString(zaire.ejercitos()));
+        botonSudafrica.setText(Integer.toString(sudafrica.ejercitos()));
+        botonMadagascar.setText(Integer.toString(madagascar.ejercitos()));
+
+        botonAustralia.setText(Integer.toString(australia.ejercitos()));
+        botonSumatra.setText(Integer.toString(sumatra.ejercitos()));
+        botonJava.setText(Integer.toString(java.ejercitos()));
+        botonBorneo.setText(Integer.toString(borneo.ejercitos()));
+
         this.determinarTamanio();
         this.determinarColor();
 
@@ -751,7 +807,7 @@ public class InicializadorTeg {
         BotonTarjetaPaisEventHandler tarjetaPaisEvent = new BotonTarjetaPaisEventHandler(this,stage,this.turno.jugadorActual());
         tarjetasPais.setOnAction(tarjetaPaisEvent);
 
-        Label ejercitosAColocar = new Label("Ejercitos colocables: "+this.turno.ejercitosAColocar());
+        Label ejercitosAColocar = new Label("Ejercitos: "+this.turno.ejercitosAColocar());
 
 
 
@@ -762,7 +818,7 @@ public class InicializadorTeg {
         turnosActuales.setMargin(pasarTurno,new Insets(25,0,0,10));
         turnosActuales.setMargin(objetivo,new Insets(-15,0,0,260));
         turnosActuales.setMargin(tarjetasPais,new Insets(10,0,0,-100));
-        turnosActuales.setMargin(ejercitosAColocar,new Insets(50,0,0,250));
+        turnosActuales.setMargin(ejercitosAColocar,new Insets(20,0,0,350));
 
 
         VBox mapaMundi = new VBox(hemisferioNorte, hemisferioSur, turnosActuales);
@@ -1006,6 +1062,8 @@ public class InicializadorTeg {
         botonJava.setOnAction(botonDefiendeJavaEjercitos);
         botonBorneo.setOnAction(botonDefiendeBorneoEjercitos);
 
+
+
         HBox hemisferioNorte = new HBox(botonAlaska,botonYukon, botonOregon, botonCanada, botonCalifornia,botonNuevaYork, botonMexico,
                 botonTerranova, botonLabrador, botonGroenlandia, botonIslandia, botonEspana, botonGranBretana, botonFrancia, botonSuecia,
                 botonAlemania, botonItalia, botonPolonia, botonRusia, botonAral, botonIsrael, botonTurquia, botonTartaria, botonIran,
@@ -1073,6 +1131,8 @@ public class InicializadorTeg {
 
         return mapaMundi;
     }
+
+
 
     public void atacar(TextField texto,Button botonAtacante,Pais atacante,Button botonDefensor,Pais defensor, Stage mapa ){
         Integer cantidadEjercitos = Integer.valueOf(texto.getText());

@@ -48,7 +48,8 @@ public class Jugador {
 
 
     public void agregarEjercitosA(Pais pais, Integer cantidadEjercitos){
-        if (!this.estaPais(pais)){ return; }
+        if (!this.estaPais(pais)){
+            return; }
         turno.colocarEjercitos(cantidadEjercitos);
         pais.agregarEjercitos(cantidadEjercitos);
     }
@@ -59,6 +60,12 @@ public class Jugador {
 
     public void agregarContinente(Continente continente){
         this.continentes.add(continente);
+    }
+
+    public void activarTarjetasPais(){
+        for(int i=0;i<this.tarjetasPais.size();i++){
+            this.activarTarjetaPais(this.tarjetasPais.get(i));
+        }
     }
 
     public void activarTarjetaPais(TarjetaPais tarjeta){
