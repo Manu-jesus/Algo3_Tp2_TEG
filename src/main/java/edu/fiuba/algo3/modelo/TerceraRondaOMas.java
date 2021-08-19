@@ -6,7 +6,12 @@ public class TerceraRondaOMas  implements NumeroDeRonda{
         if((jugador.cantidadPaises())/2 < 3){
             return 3;
         }
-        return ((jugador.cantidadPaises())/2);
+        Integer ejercitosPorContinentes = 0;
+        for(int i=0; i<jugador.continentes().size();i++){
+            ejercitosPorContinentes+=jugador.continentes().get(i).ejercitosExtra();
+        }
+
+        return ((jugador.cantidadPaises())/2)+ejercitosPorContinentes;
     }
 
     public NumeroDeRonda pasarRonda(){

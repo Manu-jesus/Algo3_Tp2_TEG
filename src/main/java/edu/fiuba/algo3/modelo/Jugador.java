@@ -23,6 +23,10 @@ public class Jugador {
         this.color = color;
     }
 
+    public ArrayList <Continente> continentes(){
+        return continentes;
+    }
+
     public ArrayList<TarjetaPais> tarjetaPais(){
         return this.tarjetasPais;
     }

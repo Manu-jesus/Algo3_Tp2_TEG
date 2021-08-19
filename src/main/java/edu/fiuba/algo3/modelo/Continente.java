@@ -5,11 +5,16 @@ import java.util.ArrayList;
 public class Continente {
     private ArrayList<Pais> paises;
     private String nombre;
+    private Integer ejercitosExtra;
 
-    public Continente(String nombre){
-
+    public Continente(String nombre,Integer ejercitosExtra){
+        this.ejercitosExtra = ejercitosExtra;
         this.nombre = nombre;
         paises = new ArrayList<>();
+    }
+
+    public Integer ejercitosExtra(){
+        return ejercitosExtra;
     }
 
     public String nombre(){

@@ -183,12 +183,12 @@ public class InicializadorTeg {
         dadosRosa = new Dados();
         dadosBlanco = new Dados();
 
-        surAmerica = new Continente("America del Sur");
-        asia = new Continente("Asia");
-        africa = new Continente("Africa");
-        oceania = new Continente("Oceania");
-        europa = new Continente("Europa");
-        norteAmerica = new Continente("America del Norte");
+        surAmerica = new Continente("America del Sur",3);
+        asia = new Continente("Asia",7);
+        africa = new Continente("Africa",3);
+        oceania = new Continente("Oceania",2);
+        europa = new Continente("Europa",5);
+        norteAmerica = new Continente("America del Norte",5);
 
         objetivoUno = new tarjetaObjetivo(surAmerica);
         objetivoDos= new tarjetaObjetivo(asia);

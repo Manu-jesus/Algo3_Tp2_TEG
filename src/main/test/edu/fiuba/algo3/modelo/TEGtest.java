@@ -32,8 +32,8 @@ public class TEGtest {
         dadosAzul = new Dados();
         dadosRojo = new Dados();
         dadosAmarillo = new Dados();
-        america = new Continente("america");
-        asia = new Continente("asia");
+        america = new Continente("america",3);
+        asia = new Continente("asia",7);
         objetivoRojo = new tarjetaObjetivo(america);
         objetivoAmarillo= new tarjetaObjetivo(america);
         objetivoAzul = new tarjetaObjetivo(america);

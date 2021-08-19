@@ -38,8 +38,8 @@ public class ExceptionTest {
         dadosAmarillo = new Dados();
 
         //Continentes
-        america = new Continente("america");
-        asia = new Continente("asia");
+        america = new Continente("america",3);
+        asia = new Continente("asia",7);
 
         //tarjetaObjeivo
         objetivoRojo = new tarjetaObjetivo(america);
