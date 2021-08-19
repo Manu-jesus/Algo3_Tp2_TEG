@@ -1,0 +1,20 @@
+@startuml
+skinparam maxmessagesize 20
+
+title "Un jugador que conquisto un pais deside pasar el turno y se le debe asignar una  tarjeta pais"
+
+"interfaz:Actor" -> "turno:Turno" ++: pasarTurno()
+"turno:Turno" -> "turno:Turno"++: conquistoEnTurno(jugadorActual): True
+"turno:Turno" -> "jugadorActual:Jugador" : agregarTarjetaPais(tarjeta)
+"jugadorActual:Jugador" --> "turno:Turno":void
+return void
+
+"turno:Turno" -> "turno:Turno"++: actualizarEjercitos()
+
+"turno:Turno" -> "ronda:Ronda" : ejercitosAColocar()
+"ronda:Ronda" --> "turno:Turno": int
+
+return int
+return void
+
+@enduml

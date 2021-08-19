@@ -28,11 +28,17 @@ loop el pais defensor pierde 2 veces
 
 "brasil:Pais" -> "brasil:Pais" : sumarEjercitos(1)
 "brasil:Pais" -> "argentina:Pais" : restarEjercitos(1)
-"argentina:Pais" --> "brasil:Pais":
+"argentina:Pais" --> "brasil:Pais": void
 "brasil:Pais" -> "rojo:Jugador" : perderContinente (america)
-"rojo:Jugador" --> "brasil:Pais":
+"rojo:Jugador" --> "brasil:Pais":   void
+
 "brasil:Pais" -> "rojo:Jugador" : perderPais(brasil)
+"rojo:Jugador" --> "brasil:Pais": void
+
 "brasil:Pais" -> "azul:Jugador" : conquistarContinente(america)
+
+"azul:Jugador" --> "brasil:Pais" : void
+"brasil:Pais" --> "azul:Jugador" : true
 "azul:Jugador" -> "turno:Turno": actualizarEjercitosAColocar()
 "turno:Turno" --> "azul:Jugador": void
 "azul:Jugador" --> ":TestCase": void

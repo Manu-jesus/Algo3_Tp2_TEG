@@ -1,0 +1,55 @@
+@startuml
+title "Conquista del continente que es el objetivo de este jugador y gana el juego!."
+skinparam maxmessagesize 20
+"interfaz:Actor" -> "azul:Jugador" : atacarAPais (argentina,brasil,2)
+
+note right: Aqui se desarrolla un ataque completo que se muestra en otro diagrama \n y mostramos lo reelevante a una victoria en el juego
+
+"azul:Jugador" -> "brasil:Pais" : conquistarPais (azul,argentina)
+
+"brasil:Pais" -> "brasil:Pais" : sumarEjercitos(1)
+"brasil:Pais" -> "argentina:Pais" : restarEjercitos(1)
+"argentina:Pais" --> "brasil:Pais": void
+
+"brasil:Pais" -> "rojo:Jugador" : perderContinente (america)
+"rojo:Jugador" --> "brasil:Pais": void
+
+"brasil:Pais" -> "rojo:Jugador" : perderPais(brasil)
+"rojo:Jugador" --> "brasil:Pais" : void
+
+"brasil:Pais" -> "azul:Jugador" : conquistarContinente (sudamerica)
+"azul:Jugador" -> "sudmerica:Continente" : conquistarContinente()
+
+
+loop "Le pregunta a cada pais del continente si este le pertenece al jugador"
+    "sudmerica:Continente" -> "argentina:Pais" : lePerteneceA(azul)
+    "argentina:Pais" --> "sudmerica:Continente" : true
+    "sudmerica:Continente" -> "brasil:Pais" : lePerteneceA(azul)
+    "brasil:Pais" --> "sudmerica:Continente" : true
+end
+note left: Este continente \n solo tiene 2 paises.
+
+"sudmerica:Continente" -> "azul:Jugador": agregarContinente(sudmerica)
+"azul:Jugador" --> "sudmerica:Continente" : void
+
+"sudmerica:Continente" --> "azul:Jugador": void
+"azul:Jugador" --> "brasil:Pais" : void
+"brasil:Pais" --> "azul:Jugador" : true
+
+
+"azul:Jugador" -> "turno:Turno": actualizarEjercitosAColocar()
+"turno:Turno" -> "ronda:Ronda" : ejercitosAColocar (azul)
+"ronda:Ronda" --> "turno:Turno" : int
+"turno:Turno" --> "azul:Jugador": void
+
+"azul:Jugador" -> "interfaz:Actor": void
+"interfaz:Actor" -> "azul:Jugador" : seCumplioObjetivo()
+
+"azul:Jugador" -> "objetivo:TarjetaObjetivo" : seCumplio(azul)
+"objetivo:TarjetaObjetivo" -> "azul:Jugador" : tieneContinente(sudamerica)
+
+"azul:Jugador" --> "objetivo:TarjetaObjetivo" : True
+"objetivo:TarjetaObjetivo" --> "azul:Jugador"  : True
+
+"azul:Jugador" --> "interfaz:Actor" : True
+@enduml
