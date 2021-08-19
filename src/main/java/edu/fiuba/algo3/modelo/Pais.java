@@ -15,9 +15,6 @@ public class Pais{
         this.paisesLimitrofes = new ArrayList<>();
         this.continente = continente;
         continente.agregarPais(this);
-        //this.duenio = duenio;
-        //this.duenio.agregarPais(this);
-        //this.duenio.conquistarContinente(continente);
     }
 
     public void asignarDuenio(Jugador duenio){
@@ -64,7 +61,7 @@ public class Pais{
 
     public boolean conquistarPais(Jugador jugador,Pais atacante){
         if(this.ejercitos!=0){
-            return false;//No es un error porque se compara muchas veces
+            return false;
         }
         this.sumarEjercitos(1);
         atacante.restarEjercitos(1);
